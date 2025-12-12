@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAppState } from './hooks/useAppState';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
@@ -8,8 +8,12 @@ import BasicInfoForm from './components/BasicInfoForm';
 import LocalizationGenerator from './components/LocalizationGenerator';
 import GeneratedPanel from './components/GeneratedPanel';
 import PreviewModal from './components/PreviewModal';
+import PasswordGate from './components/PasswordGate';
 
 export default function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    () => localStorage.getItem('landal_auth') === 'true'
+  );
   const {
     isDark,
     theme,
@@ -48,6 +52,10 @@ export default function App() {
     removeGeneratedContent,
     clearAllGeneratedContent,
   } = useAppState();
+
+  if (!isAuthenticated) {
+    return <PasswordGate onSuccess={() => setIsAuthenticated(true)} />;
+  }
 
   return (
     <div
