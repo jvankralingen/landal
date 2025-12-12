@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# Build output
+/build
+/dist
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# API keys and secrets
+*.pem
+*.key
+secrets.json
+credentials.json
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+/coverage
+
+# Misc
+.cache/
+*.tgz
+
+# Backup folders
+src_backup_*/
+
+# Claude Code
+.claude/
