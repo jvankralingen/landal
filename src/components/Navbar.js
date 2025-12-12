@@ -7,7 +7,7 @@ const TABS = [
   { id: 'vision', label: 'Vision' },
 ];
 
-const Navbar = ({ theme, isDark, activeTab, setActiveTab, toggleTheme }) => {
+const Navbar = ({ theme, isDark, activeTab, setActiveTab, toggleTheme, onLogout }) => {
   return (
     <div
       style={{
@@ -101,6 +101,22 @@ const Navbar = ({ theme, isDark, activeTab, setActiveTab, toggleTheme }) => {
         }}
       >
         {isDark ? '☀️' : '🌙'} {isDark ? 'Light' : 'Dark'}
+      </button>
+      <button
+        onClick={onLogout}
+        style={{
+          background: 'transparent',
+          border: `1px solid ${theme.border}`,
+          color: theme.textMuted,
+          fontSize: '12px',
+          fontWeight: '500',
+          cursor: 'pointer',
+          padding: '6px 12px',
+          borderRadius: '6px',
+          transition: 'all 0.15s',
+        }}
+      >
+        Uitloggen
       </button>
     </div>
   );

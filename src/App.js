@@ -53,6 +53,11 @@ export default function App() {
     clearAllGeneratedContent,
   } = useAppState();
 
+  const handleLogout = () => {
+    localStorage.removeItem('landal_auth');
+    setIsAuthenticated(false);
+  };
+
   if (!isAuthenticated) {
     return <PasswordGate onSuccess={() => setIsAuthenticated(true)} />;
   }
@@ -74,6 +79,7 @@ export default function App() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         toggleTheme={toggleTheme}
+        onLogout={handleLogout}
       />
 
       <div style={{ display: 'flex', height: 'calc(100vh - 49px)' }}>
