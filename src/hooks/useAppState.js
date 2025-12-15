@@ -50,14 +50,15 @@ export const useAppState = () => {
           (parkId, content) => {
             // Update UI direct zodra een park klaar is
             setGeneratedContent((prev) => ({ ...prev, [parkId]: content }));
-          }
+          },
+          beschrijving
         );
       } catch (error) {
         console.error('AI generation failed:', error);
         // Fallback naar template-gebaseerde generatie
         const newContent = { ...generatedContent };
         parksToGenerate.forEach((park) => {
-          newContent[park.id] = generateLocalization(selectedFunctie, park);
+          newContent[park.id] = generateLocalization(selectedFunctie, park, beschrijving);
         });
         setGeneratedContent(newContent);
       }
@@ -66,7 +67,7 @@ export const useAppState = () => {
       await new Promise((resolve) => setTimeout(resolve, 500));
       const newContent = { ...generatedContent };
       parksToGenerate.forEach((park, index) => {
-        newContent[park.id] = generateLocalization(selectedFunctie, park);
+        newContent[park.id] = generateLocalization(selectedFunctie, park, beschrijving);
         setGenerationProgress({ current: index + 1, total: parksToGenerate.length, parkName: park.name, status: 'Verwerkt' });
       });
       setGeneratedContent(newContent);
@@ -74,7 +75,7 @@ export const useAppState = () => {
 
     setIsGenerating(false);
     setGenerationProgress({ current: 0, total: 0, parkName: '', status: '', subProgress: 0 });
-  }, [selectedParks, generatedContent, allParks, selectedFunctie, useAI]);
+  }, [selectedParks, generatedContent, allParks, selectedFunctie, beschrijving, useAI]);
 
   const handleFunctieSelect = useCallback((functie) => {
     setSelectedFunctie(functie);
@@ -152,11 +153,11 @@ export const useAppState = () => {
     (parkId) => {
       const park = allParks.find((p) => p.id === parkId);
       const content =
-        generatedContent[parkId] || generateLocalization(selectedFunctie, park);
+        generatedContent[parkId] || generateLocalization(selectedFunctie, park, beschrijving);
       setPreviewPark({ ...park, content });
       setShowPreview(true);
     },
-    [allParks, generatedContent, selectedFunctie]
+    [allParks, generatedContent, selectedFunctie, beschrijving]
   );
 
   const closePreview = useCallback(() => setShowPreview(false), []);
