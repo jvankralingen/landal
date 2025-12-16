@@ -268,11 +268,8 @@ export const getHighlightsForPark = (parkId, vibe) => {
   return parkHighlights[parkId] || vibeHighlights[vibe] || vibeHighlights.natuur;
 };
 
-export const generateLocalization = (profile, park, customBeschrijving = null) => {
+export const generateLocalization = (profile, park) => {
   const t = vibeConfigs[park.vibe] || vibeConfigs.natuur;
-
-  // Gebruik aangepaste beschrijving indien aanwezig, anders default
-  const beschrijving = customBeschrijving || profile.description;
 
   // Probeer eerst park-specifieke highlights, anders fallback naar vibe
   const highlights = getHighlightsForPark(park.id, park.vibe);
@@ -306,7 +303,7 @@ export const generateLocalization = (profile, park, customBeschrijving = null) =
     title: `${profile.title} bij ${park.name}`,
     intro: `${t.intro} Werk als ${profile.title.toLowerCase()} bij ${park.name} en maak deel uit van ons team.`,
     searchVariants: [profile.title, `${profile.title} vakantiepark`, `${profile.title} recreatie`],
-    roleDescription: `Als ${profile.title.toLowerCase()} bij ${park.name} ben jij het gezicht van ons park. ${beschrijving} Je werkt in een ${t.label.toLowerCase()} omgeving waar gastvrijheid centraal staat.`,
+    roleDescription: `Als ${profile.title.toLowerCase()} bij ${park.name} ben jij het gezicht van ons park. ${profile.description} Je werkt in een ${t.label.toLowerCase()} omgeving waar gastvrijheid centraal staat.`,
     dailyTasks: [
       'Gasten ontvangen en begeleiden',
       'Zorgen voor een optimale gastbeleving',

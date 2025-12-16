@@ -11,10 +11,9 @@ const getClient = () => {
   return new Anthropic({ apiKey, dangerouslyAllowBrowser: true });
 };
 
-export const generateAIContent = async (profile, park, customBeschrijving = null) => {
+export const generateAIContent = async (profile, park) => {
   const vibeConfig = vibeConfigs[park.vibe] || vibeConfigs.natuur;
   const highlights = getHighlightsForPark(park.id, park.vibe);
-  const beschrijving = customBeschrijving || profile.description;
 
   const prompt = `Je bent een HR-specialist die functieprofielen schrijft voor Landal GreenParks vakantieresorts.
 
@@ -22,7 +21,7 @@ BELANGRIJK: Je schrijft een FUNCTIEPROFIEL, geen vacaturetekst. Een functieprofi
 
 FUNCTIE:
 - Titel: ${profile.title}
-- Beschrijving: ${beschrijving}
+- Beschrijving: ${profile.description}
 - Familie: ${profile.familie || 'Algemeen'}
 
 PARK:
@@ -105,7 +104,7 @@ Geef ALLEEN de JSON terug, geen markdown of andere tekst.`;
 // Batch generatie voor meerdere parken met gedetailleerde voortgang
 // onProgress: (current, total, parkName, status) => void
 // onParkComplete: (parkId, content) => void - wordt aangeroepen zodra een park klaar is
-export const generateAIContentBatch = async (profile, parks, onProgress, onParkComplete, customBeschrijving = null) => {
+export const generateAIContentBatch = async (profile, parks, onProgress, onParkComplete) => {
   const results = {};
   let completed = 0;
 
@@ -133,7 +132,7 @@ export const generateAIContentBatch = async (profile, parks, onProgress, onParkC
 
       let content;
       try {
-        content = await generateAIContent(profile, park, customBeschrijving);
+        content = await generateAIContent(profile, park);
       } finally {
         // Stop de rotatie zodra de AI klaar is
         clearInterval(statusInterval);
@@ -155,7 +154,7 @@ export const generateAIContentBatch = async (profile, parks, onProgress, onParkC
       if (onProgress) {
         onProgress(completed, parks.length, park.name, 'Fallback gebruiken...');
       }
-      const fallbackContent = generateFallbackContent(profile, park, customBeschrijving);
+      const fallbackContent = generateFallbackContent(profile, park);
       results[park.id] = fallbackContent;
 
       // Ook fallback direct updaten in UI
@@ -204,10 +203,9 @@ const startStatusRotation = (onProgress, completed, total, parkName) => {
 };
 
 // Fallback naar template-gebaseerde generatie
-const generateFallbackContent = (profile, park, customBeschrijving = null) => {
+const generateFallbackContent = (profile, park) => {
   const vibeConfig = vibeConfigs[park.vibe] || vibeConfigs.natuur;
   const highlights = getHighlightsForPark(park.id, park.vibe);
-  const beschrijving = customBeschrijving || profile.description;
 
   // Bepaal profiel eigenschappen op basis van functietitel
   const titleLower = profile.title.toLowerCase();
@@ -256,7 +254,7 @@ const generateFallbackContent = (profile, park, customBeschrijving = null) => {
     functieId: profile.id,
     functionTitle: profile.title,
     title: `${profile.title} bij ${park.name}`,
-    intro: `De ${profile.title.toLowerCase()} speelt een belangrijke rol in de dagelijkse operatie van ${park.name}. ${beschrijving}`,
+    intro: `De ${profile.title.toLowerCase()} speelt een belangrijke rol in de dagelijkse operatie van ${park.name}. ${profile.description}`,
     searchVariants: [profile.title, `${profile.title} vakantiepark`, `${profile.title} recreatie`, `${profile.title} hospitality`],
     roleDescription: `Bij ${park.name} zorgt de ${profile.title.toLowerCase()} ervoor dat gasten een onvergetelijke ervaring hebben. Deze functie combineert zelfstandig werken met nauwe samenwerking binnen het team. In de ${vibeConfig.label.toLowerCase()} sfeer van dit park staat gastvrijheid centraal.`,
     dailyTasks: [
