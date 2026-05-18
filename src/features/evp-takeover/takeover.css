@@ -1,0 +1,716 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #0c1410;
+}
+
+.takeover-root {
+  --bg-base: #1a2820;
+  --bg-overlay: rgba(15, 35, 25, 0.65);
+  --fg-primary: #f0ebe0;
+  --fg-secondary: #c8c4b8;
+  --accent: #8fb280;
+  --highlight: #d4a857;
+  --headline-font: '"Playfair Display", Georgia, serif';
+  --body-font: '"Inter", system-ui, sans-serif';
+  --headline-size: clamp(40px, 5.5vw, 76px);
+  --headline-leading: 1;
+  --headline-weight: 600;
+
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg-base);
+  color: var(--fg-primary);
+  font-family: var(--body-font);
+  transition:
+    background-color 1200ms ease,
+    color 1200ms ease;
+}
+
+/* Tone tokens · surface styling adapts to dark / light canvas */
+.takeover-root[data-tone='light'] {
+  --surface-bg: rgba(255, 255, 255, 0.55);
+  --surface-border: rgba(0, 0, 0, 0.08);
+  --surface-hover: rgba(0, 0, 0, 0.06);
+  --surface-scroll: rgba(0, 0, 0, 0.15);
+  --chip-active-fg: #fffae9;
+  --canvas-glow: rgba(255, 255, 255, 0.55);
+  --canvas-shadow: rgba(0, 0, 0, 0.06);
+}
+
+.takeover-root[data-tone='dark'] {
+  --surface-bg: rgba(0, 0, 0, 0.32);
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --surface-hover: rgba(255, 255, 255, 0.06);
+  --surface-scroll: rgba(255, 255, 255, 0.15);
+  --chip-active-fg: #fffae9;
+  --canvas-glow: rgba(255, 255, 255, 0.05);
+  --canvas-shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* ─── Landal world palettes ────────────────────────────────────────────
+   Each world pairs one Landal secondary (light → dark) with Sand or
+   Granite as canvas. Primary Teal/Breeze for sea worlds. Headlines stay
+   in Teal/Granite/Sand per brand rules.
+   ─────────────────────────────────────────────────────────────────────── */
+
+/* Light-tone worlds · Sand canvas, Granite text */
+
+.takeover-root[data-world='forest'] {
+  --bg-base: #fffae9;                /* Sand */
+  --fg-primary: #212721;             /* Granite */
+  --fg-secondary: #5a6b54;            /* muted forest */
+  --accent: #3dae2b;                 /* Forest */
+  --highlight: #cdde00;              /* Spring */
+  --chip-active-fg: #fffae9;
+}
+
+.takeover-root[data-world='coast'] {
+  --bg-base: #fffae9;
+  --fg-primary: #0a3a40;             /* deep teal text */
+  --fg-secondary: #5a7a85;
+  --accent: #0097a2;                 /* Teal */
+  --highlight: #1ecad3;              /* Breeze */
+  --chip-active-fg: #fffae9;
+}
+
+.takeover-root[data-world='wadden'] {
+  --bg-base: #fffae9;
+  --fg-primary: #212721;             /* Granite */
+  --fg-secondary: #6a7480;
+  --accent: #1ecad3;                 /* Breeze */
+  --highlight: #0097a2;              /* Teal */
+  --chip-active-fg: #212721;          /* dark text on Breeze chip */
+}
+
+.takeover-root[data-world='meer'] {
+  --bg-base: #fffae9;
+  --fg-primary: #1c3528;             /* deep forest-water */
+  --fg-secondary: #5a7080;
+  --accent: #0097a2;                 /* Teal · calm water */
+  --highlight: #3dae2b;              /* Forest · meer ligt in 't groen */
+  --chip-active-fg: #fffae9;
+}
+
+.takeover-root[data-world='family'] {
+  --bg-base: #fffae9;
+  --fg-primary: #4a2a10;             /* warm dark */
+  --fg-secondary: #8a5028;
+  --accent: #e75402;                 /* Amber */
+  --highlight: #f5a800;              /* Sun */
+  --headline-weight: 700;
+  --chip-active-fg: #fffae9;
+}
+
+.takeover-root[data-world='wellness'] {
+  --bg-base: #fffae9;
+  --fg-primary: #3a2a4a;             /* deep dawn-tinted */
+  --fg-secondary: #6a5a78;
+  --accent: #764897;                 /* Dawn */
+  --highlight: #c0afdc;              /* Lavender */
+  --headline-weight: 500;
+  --chip-active-fg: #fffae9;
+}
+
+.takeover-root[data-world='uk'] {
+  --bg-base: #fffae9;
+  --fg-primary: #212721;             /* Granite · British seriousness */
+  --fg-secondary: #5a6b54;
+  --accent: #cdde00;                 /* Spring · lime pop */
+  --highlight: #3dae2b;              /* Forest */
+  --headline-weight: 500;
+  --chip-active-fg: #212721;          /* dark text on Spring chip */
+}
+
+/* Dark-tone worlds · Granite canvas, Sand text (used sparingly per brand) */
+
+.takeover-root[data-world='premium'] {
+  --bg-base: #212721;                /* Granite */
+  --fg-primary: #fffae9;             /* Sand */
+  --fg-secondary: #c0afdc;
+  --accent: #c0afdc;                 /* Lavender · refined on dark */
+  --highlight: #764897;              /* Dawn */
+  --headline-weight: 500;
+  --chip-active-fg: #212721;          /* dark text on Lavender chip */
+}
+
+.takeover-root[data-world='mountain'] {
+  --bg-base: #212721;                /* Granite */
+  --fg-primary: #fffae9;             /* Sand */
+  --fg-secondary: #c0d0d5;
+  --accent: #1ecad3;                 /* Breeze · alpine fresh */
+  --highlight: #0097a2;              /* Teal */
+  --headline-weight: 500;
+  --chip-active-fg: #212721;          /* dark text on Breeze chip */
+}
+
+.takeover-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 85% 12%, var(--canvas-glow), transparent 55%),
+    radial-gradient(ellipse at 12% 88%, var(--canvas-shadow), transparent 60%);
+}
+
+.takeover-collage {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.takeover-collage__set {
+  position: absolute;
+  inset: 0;
+}
+
+.takeover-collage__tile {
+  position: absolute;
+  margin: 0;
+  padding: 14px;
+  border-radius: 14px;
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.12),
+    0 2px 6px rgba(0, 0, 0, 0.08);
+  transform: rotate(var(--tile-rotate, 0deg));
+  will-change: opacity, transform;
+  /* background applied inline per tile (cardBg) */
+}
+
+.takeover-collage__img-wrap {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--tile-ratio, 4 / 3);
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.16) 0 8px,
+      rgba(255, 255, 255, 0.08) 8px 16px
+    );
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+/* Fijne film-grain · Landal sensorial: subtiele textuur, geen iPhone-grit. */
+.takeover-collage__img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: overlay;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.takeover-collage__tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  /* Sensorial-clean: natuurlijke kleur, lichte contrast-bump, geen sepia. */
+  filter: saturate(0.95) contrast(1.05);
+  transition: opacity 300ms ease;
+}
+
+.takeover-collage__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  aspect-ratio: var(--tile-ratio, 4 / 3);
+  border-radius: 6px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  padding: 14px 10px;
+  box-sizing: border-box;
+}
+
+.takeover-collage__tile[data-placeholder='true'][style*='rgb(255'] .takeover-collage__placeholder,
+.takeover-collage__tile[data-placeholder='true'][style*='254'] .takeover-collage__placeholder {
+  border-color: rgba(0, 0, 0, 0.35);
+  color: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.takeover-collage__placeholder-mark {
+  opacity: 0.7;
+}
+
+.takeover-collage__placeholder-label {
+  font-family: var(--body-font);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.takeover-collage__placeholder-hint {
+  font-family: var(--body-font);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* caption removed for cleaner Pinterest feel */
+
+.takeover-motifs {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.takeover-motifs__set {
+  position: absolute;
+  inset: 0;
+}
+
+.takeover-motifs__item {
+  position: absolute;
+  transform: rotate(var(--motif-rotate, 0deg));
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.25));
+  will-change: opacity, transform;
+}
+
+.takeover-stage {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 56px 64px;
+  box-sizing: border-box;
+}
+
+.takeover-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.takeover-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--fg-primary);
+  opacity: 0.95;
+}
+
+.takeover-brand svg {
+  color: #0097a2;
+}
+
+.takeover-brand__mark {
+  font-family: var(--headline-font);
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-primary);
+  opacity: 0.9;
+}
+
+.takeover-brand__sub {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--fg-secondary);
+  font-style: italic;
+}
+
+.takeover-top__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.takeover-audio-toggle {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--fg-secondary);
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 1200ms ease, background 200ms ease, opacity 200ms ease;
+}
+
+.takeover-audio-toggle:hover:not(:disabled) {
+  background: var(--surface-hover);
+}
+
+.takeover-audio-toggle:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.takeover-audio-toggle.is-on {
+  color: var(--accent);
+  background: var(--surface-bg);
+  border-color: var(--accent);
+}
+
+.takeover-random-btn {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--fg-secondary);
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 1200ms ease, background 200ms ease, transform 300ms ease;
+}
+
+.takeover-random-btn:hover {
+  background: var(--surface-hover);
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: rotate(-15deg);
+}
+
+.takeover-random-btn:active {
+  transform: rotate(-25deg) scale(0.95);
+}
+
+.takeover-headline {
+  font-family: var(--headline-font);
+  font-size: var(--headline-size);
+  line-height: var(--headline-leading);
+  font-weight: var(--headline-weight);
+  letter-spacing: -0.01em;
+  color: #0097a2;
+  max-width: 16ch;
+  margin: 0;
+  white-space: pre-line;
+  will-change: opacity, transform;
+}
+
+.takeover-sub {
+  margin-top: 18px;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--fg-secondary);
+  max-width: 38ch;
+}
+
+.takeover-bottom {
+  display: flex;
+  align-items: end;
+}
+
+.takeover-park {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 24px;
+  background: var(--surface-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--surface-border);
+  border-radius: 6px;
+  max-width: 640px;
+  color: var(--fg-primary);
+}
+
+.takeover-park__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.takeover-park__col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.takeover-park__col-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-secondary);
+  opacity: 0.85;
+}
+
+.takeover-park__name {
+  font-family: var(--headline-font);
+  font-size: 28px;
+  line-height: 1.1;
+  margin: 4px 0 0 0;
+  font-weight: 600;
+}
+
+.takeover-park__location {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-secondary);
+}
+
+.takeover-park__intro {
+  margin: 10px 0 4px 0;
+  font-family: var(--body-font);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--fg-primary);
+  opacity: 0.85;
+  max-width: 56ch;
+}
+
+.takeover-park__highlight {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bg-base);
+  background: var(--highlight);
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.takeover-park__perks {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.takeover-park__perks li {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fg-primary);
+  padding-left: 18px;
+  position: relative;
+}
+
+.takeover-park__perks li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 8px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.takeover-park__perks--hard li::before {
+  background: var(--highlight);
+}
+
+.takeover-park__perks--hard li {
+  color: var(--fg-primary);
+}
+
+.takeover-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.takeover-chiprow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.takeover-chiprow__label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-secondary);
+  opacity: 0.85;
+}
+
+.takeover-chiprow__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px;
+  background: var(--surface-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--surface-border);
+  border-radius: 16px;
+  max-height: 200px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.takeover-chiprow__list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.takeover-chiprow__list::-webkit-scrollbar-thumb {
+  background: var(--surface-scroll);
+  border-radius: 2px;
+}
+
+.takeover-chip {
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--fg-primary);
+  font-family: var(--body-font);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 200ms ease, border-color 200ms ease, background 200ms ease;
+  white-space: nowrap;
+}
+
+.takeover-chip:hover:not(.takeover-chip--active) {
+  border-color: var(--surface-border);
+  background: var(--surface-hover);
+}
+
+.takeover-chip--active {
+  color: var(--chip-active-fg);
+  font-weight: 600;
+}
+
+.takeover-chip__bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  z-index: 0;
+}
+
+.takeover-chip__label {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Side panel ───────────────────────────────────────────────────── */
+
+.takeover-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 420px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-base);
+  border-left: 1px solid var(--surface-border);
+  box-shadow: -16px 0 60px rgba(0, 0, 0, 0.18);
+  color: var(--fg-primary);
+  font-family: var(--body-font);
+}
+
+.takeover-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px 16px;
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.takeover-panel__title {
+  font-family: var(--headline-font);
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: var(--fg-primary);
+}
+
+.takeover-panel__close {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--surface-border);
+  color: var(--fg-secondary);
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 200ms ease, background 200ms ease;
+}
+
+.takeover-panel__close:hover {
+  background: var(--surface-hover);
+  color: var(--fg-primary);
+}
+
+.takeover-panel__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 28px 32px;
+}
+
+.takeover-panel-toggle {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 8px 12px;
+  background: transparent;
+  color: var(--fg-secondary);
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: var(--body-font);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 200ms ease, background 200ms ease;
+}
+
+.takeover-panel-toggle:hover {
+  background: var(--surface-hover);
+}
+
+.takeover-panel-toggle.is-open {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.takeover-panel-toggle__summary {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 900px) {
+  .takeover-stage {
+    padding: 32px 24px;
+  }
+  .takeover-controls {
+    min-width: 0;
+  }
+  .takeover-panel {
+    width: 100%;
+  }
+}
