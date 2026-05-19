@@ -1,0 +1,1725 @@
+{
+  "summary": {
+    "rows": 175,
+    "uniqueParks": 31,
+    "parks": [
+      "122",
+      "Aelderholt",
+      "Beach resort Ooghduyne",
+      "Bospark Lunsbergen",
+      "Cadzand-Bad",
+      "Callantsoog",
+      "Camping Dishoek",
+      "Camping de Zandput",
+      "Coldenhove",
+      "De Schaapskooi",
+      "Het Land van Bartje",
+      "Het Vennenbos",
+      "Hunedal",
+      "Hunzedal",
+      "Hunzepark",
+      "Kamperland",
+      "Katjeskelder",
+      "Kijkduin",
+      "Klein Vink",
+      "Lakeside Resort Brielle",
+      "Landgoed Bourtange",
+      "Marinepark Volendam",
+      "Miggelenberg",
+      "Nieuwvliet-Bad",
+      "Orveltermarke",
+      "Park De Peel",
+      "Rabbit Hill",
+      "Résidence De Banjaard",
+      "Twenhaarsveld",
+      "Weerterbergen",
+      "Wolfsven"
+    ],
+    "totalAantal": 510,
+    "byProvincie": {
+      "Gelderland": 111,
+      "Noord-Brabant": 101,
+      "Drenthe": 89,
+      "Zeeland": 84,
+      "Limburg": 70,
+      "Noord-Holland": 19,
+      "Zuid-Holland": 17,
+      "Overijssel": 16,
+      "Groningen": 3
+    },
+    "byAfdeling": {
+      "F&amp;B Bediening": 138,
+      "Fun &amp; Entertainment": 123,
+      "F&amp;B Keuken": 37,
+      "F&amp;B": 32,
+      "Retail": 30,
+      "Pool": 26,
+      "F&amp;B Snackbar": 22,
+      "Front Office": 18,
+      "F&amp;B ": 13,
+      "F&amp;B Service": 7,
+      "Snackbar": 6,
+      "Housekeeping": 6,
+      "Technische Dienst": 6,
+      "F&amp;B Keuken (Kok)": 5,
+      "Hospitality": 4,
+      "Fun &amp; Entertainment - Ponyranch": 4,
+      "TD": 4,
+      "F&amp;B Ontbijt &amp; Allround": 4,
+      "Fun &amp; Entertainment - fietsverhuur": 3,
+      "P&amp;M": 3,
+      "F&amp;B ZB De Brasserie": 3,
+      "Hospitality FO/F&amp;B/Retail FOCUS F&amp;B": 3,
+      "Fun &amp; Entertainment - Animatie": 2,
+      "Fun &amp; entertainment": 2,
+      "F&amp;B Keuken ": 2,
+      "F&amp;B Keuken/spoelkeuken": 2,
+      "Hospitality FO/Retail": 1,
+      "F&amp;B Front of House": 1,
+      "F&amp;B Bediening de Bron": 1,
+      "Hospitality FO/F&amp;B/Retail": 1,
+      "FO employee": 1
+    },
+    "byDienstverband": {
+      "79": 1,
+      "Hulpkracht": 234,
+      "Stage": 34,
+      "Medewerker": 33,
+      "Bijbaan": 24,
+      "Fulltime, parttime, flex &amp; hulpkracht": 20,
+      "Hulpkracht F&amp;B Service Employee 2": 10,
+      "Medewerker 38 uur": 9,
+      "Hulpkracht (weekenden &amp; vakanties)": 8,
+      "Hulpkracht Kitchen Employee": 8,
+      "Hulpkracht - weekenden en vakanties": 6,
+      "32 - 38 uur": 6,
+      "Flex of hulpkracht": 6,
+      "Hulpkracht 3-38 uur": 6,
+      "Stagiaire": 5,
+      "Stage zomer (MBO nov 3)": 5,
+      "Parttime F&amp;B Service Employee 2": 5,
+      "Stage ": 5,
+      "4 dagen in de week 2 fte": 4,
+      "Vakantiekracht": 4,
+      "Seizoenkracht": 4,
+      "Hulpkracht - zomer": 4,
+      "Zomerstagiair": 4,
+      "Stage meewerk HBO (liefst facilitair)": 4,
+      "medewerker": 4,
+      "Hulpkrachten 3-38 uur": 4,
+      "Parttime, flex &amp; hulpkracht": 3,
+      "38 uur": 3,
+      "Bijbaan/retail employee 1": 3,
+      "Medewerker zomer 38 uur (evt uitzend)": 3,
+      "32 uur": 2,
+      "Fulltime, medewerker": 2,
+      "Hulpkracht Spoelmedewerker": 2,
+      "Parttime/fulltime 16 - 38 uur": 2,
+      "Kitchen Employee/ Snackbar - Hulpkracht": 2,
+      "Flex medewerker": 2,
+      "Hulpkracht Snackbar": 2,
+      "Stage meewerk MBO": 2,
+      "Hulpkracht Retail Employee 1": 2,
+      "Parttime Kitchen Employee 1": 2,
+      "Employee": 1,
+      "32 uur of 3 - 38 uur / Hosoitality Employee 2": 1,
+      "Inleen kok (vervanging van inleen)": 1,
+      "24 uur": 1,
+      " 1x vaste inleen bediening GP (Yannis uit Griekenland) (Per 1-4 bij geen invulling van vacatures) Hulpkracht": 1,
+      "All-round 32 uur": 1,
+      "32 uur (mdw niet voor zomer)": 1,
+      "Medewerker TD 0,2 FTE": 1,
+      "5-38 uur": 1,
+      "Technische dienst": 1,
+      "16 uur": 1,
+      "Bijbaan/hulpkracht": 1,
+      "Medewerker Service Shift Leader (geen zomerbaan)": 1,
+      "Medewerker Kitchen": 1,
+      "Kitchen Employee 2": 1,
+      "Kitchen Employee 3": 1,
+      "Hospitality Employee 2 (5-38)": 1,
+      "Hulpkracht FO Employee 1": 1,
+      "Medewerker 24 uur": 1,
+      "Medewerker 32 uur": 1,
+      "Hulpkracht/Vakantie": 1,
+      "Fulltime medewerker (1mdw niet voor de zomer) P&amp;M Employee 2": 0
+    }
+  },
+  "rows": [
+    {
+      "5": "9",
+      "Provincie": "Noord-Holland",
+      "Park": "Beach resort Ooghduyne",
+      "Afdeling": "F&amp;B Keuken",
+      "Subafdeling": "Kitchen",
+      "Aantal": "1",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "9",
+      "Provincie": "Noord-Holland",
+      "Park": "Beach resort Ooghduyne",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "1",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "9",
+      "Provincie": "Noord-Holland",
+      "Park": "Beach resort Ooghduyne",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "9",
+      "Provincie": "Noord-Holland",
+      "Park": "Beach resort Ooghduyne",
+      "Afdeling": "Hospitality",
+      "Subafdeling": "Hospitality",
+      "Aantal": "1",
+      "Dienstverband": "Employee"
+    },
+    {
+      "5": "9",
+      "Provincie": "Noord-Holland",
+      "Park": "Beach resort Ooghduyne",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "1",
+      "Provincie": "Zeeland",
+      "Park": "Cadzand-Bad",
+      "Afdeling": "Front Office",
+      "Subafdeling": "FO",
+      "Aantal": "1",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "30",
+      "Provincie": "Zeeland",
+      "Park": "Cadzand-Bad",
+      "Afdeling": "F&amp;B Keuken",
+      "Subafdeling": "Kitchen",
+      "Aantal": "1",
+      "Dienstverband": "Medewerker"
+    },
+    {
+      "5": "30",
+      "Provincie": "Zeeland",
+      "Park": "Cadzand-Bad",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "3",
+      "Dienstverband": "Bijbaan"
+    },
+    {
+      "5": "30",
+      "Provincie": "Zeeland",
+      "Park": "Cadzand-Bad",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Bijbaan"
+    },
+    {
+      "5": "2",
+      "Provincie": "Noord-Holland",
+      "Park": "Callantsoog",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "2",
+      "Provincie": "Noord-Holland",
+      "Park": "Callantsoog",
+      "Afdeling": "Snackbar",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "2",
+      "Provincie": "Noord-Holland",
+      "Park": "Callantsoog",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "3",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "2",
+      "Provincie": "Noord-Holland",
+      "Park": "Callantsoog",
+      "Afdeling": "Snackbar",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "3",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "151",
+      "Provincie": "Zeeland",
+      "Park": "Camping de Zandput",
+      "Afdeling": "F&amp;B",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "151",
+      "Provincie": "Zeeland",
+      "Park": "Camping de Zandput",
+      "Afdeling": "Housekeeping",
+      "Subafdeling": "Cleaning",
+      "Aantal": "4",
+      "Dienstverband": "4 dagen in de week 2 fte"
+    },
+    {
+      "5": "28",
+      "Provincie": "Gelderland",
+      "Park": "Coldenhove",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "3",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "28",
+      "Provincie": "Gelderland",
+      "Park": "Coldenhove",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "28",
+      "Provincie": "Gelderland",
+      "Park": "Coldenhove",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "32",
+      "Provincie": "Gelderland",
+      "Park": "De Schaapskooi",
+      "Afdeling": "F&amp;B ",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "32 uur"
+    },
+    {
+      "5": "32",
+      "Provincie": "Gelderland",
+      "Park": "De Schaapskooi",
+      "Afdeling": "Hospitality FO/Retail",
+      "Subafdeling": "Hospitality",
+      "Aantal": "1",
+      "Dienstverband": "32 uur of 3 - 38 uur / Hosoitality Employee 2"
+    },
+    {
+      "5": "32",
+      "Provincie": "Gelderland",
+      "Park": "De Schaapskooi",
+      "Afdeling": "F&amp;B",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "Inleen kok (vervanging van inleen)"
+    },
+    {
+      "5": "32",
+      "Provincie": "Gelderland",
+      "Park": "De Schaapskooi",
+      "Afdeling": "F&amp;B",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "24 uur"
+    },
+    {
+      "5": "32",
+      "Provincie": "Gelderland",
+      "Park": "De Schaapskooi",
+      "Afdeling": "F&amp;B",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": " 1x vaste inleen bediening GP (Yannis uit Griekenland) (Per 1-4 bij geen invulling van vacatures) Hulpkracht"
+    },
+    {
+      "5": "32",
+      "Provincie": "Gelderland",
+      "Park": "De Schaapskooi",
+      "Afdeling": "F&amp;B",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "3",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "0",
+      "Provincie": "Drenthe",
+      "Park": "Het Land van Bartje",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "1",
+      "Dienstverband": "All-round 32 uur"
+    },
+    {
+      "5": "0",
+      "Provincie": "Drenthe",
+      "Park": "Het Land van Bartje",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "Medewerker"
+    },
+    {
+      "5": "0",
+      "Provincie": "Drenthe",
+      "Park": "Het Land van Bartje",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "0",
+      "Provincie": "Drenthe",
+      "Park": "Het Land van Bartje",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "0",
+      "Provincie": "Drenthe",
+      "Park": "Het Land van Bartje",
+      "Afdeling": "Fun &amp; Entertainment - Animatie",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Vakantiekracht"
+    },
+    {
+      "5": "0",
+      "Provincie": "Drenthe",
+      "Park": "Het Land van Bartje",
+      "Afdeling": "Fun &amp; Entertainment - Ponyranch",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Vakantiekracht"
+    },
+    {
+      "5": "0",
+      "Provincie": "Drenthe",
+      "Park": "Het Land van Bartje",
+      "Afdeling": "Fun &amp; Entertainment - fietsverhuur",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "1",
+      "Dienstverband": "32 uur (mdw niet voor zomer)"
+    },
+    {
+      "5": "0",
+      "Provincie": "Drenthe",
+      "Park": "Het Land van Bartje",
+      "Afdeling": "Fun &amp; Entertainment - fietsverhuur",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht (weekenden &amp; vakanties)"
+    },
+    {
+      "5": "0",
+      "Provincie": "Drenthe",
+      "Park": "Het Land van Bartje",
+      "Afdeling": "Fun &amp; Entertainment - Ponyranch",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht (weekenden &amp; vakanties)"
+    },
+    {
+      "5": "0",
+      "Provincie": "Drenthe",
+      "Park": "Het Land van Bartje",
+      "Afdeling": "Pool",
+      "Subafdeling": "Pool",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht (weekenden &amp; vakanties)"
+    },
+    {
+      "5": "0",
+      "Provincie": "Drenthe",
+      "Park": "Het Land van Bartje",
+      "Afdeling": "TD",
+      "Subafdeling": "P&amp;M",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht (weekenden &amp; vakanties)"
+    },
+    {
+      "5": "0",
+      "Provincie": "Noord-Brabant",
+      "Park": "Het Vennenbos",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "15",
+      "Dienstverband": "Fulltime, parttime, flex &amp; hulpkracht"
+    },
+    {
+      "5": "0",
+      "Provincie": "Noord-Brabant",
+      "Park": "Het Vennenbos",
+      "Afdeling": "F&amp;B Keuken",
+      "Subafdeling": "Kitchen",
+      "Aantal": "5",
+      "Dienstverband": "Fulltime, parttime, flex &amp; hulpkracht"
+    },
+    {
+      "5": "0",
+      "Provincie": "Noord-Brabant",
+      "Park": "Het Vennenbos",
+      "Afdeling": "F&amp;B Snackbar",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "3",
+      "Dienstverband": "Parttime, flex &amp; hulpkracht"
+    },
+    {
+      "5": "0",
+      "Provincie": "Noord-Brabant",
+      "Park": "Het Vennenbos",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "0",
+      "Provincie": "Noord-Brabant",
+      "Park": "Het Vennenbos",
+      "Afdeling": "Retail",
+      "Subafdeling": "Retail",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "0",
+      "Provincie": "Noord-Brabant",
+      "Park": "Het Vennenbos",
+      "Afdeling": "Front Office",
+      "Subafdeling": "FO",
+      "Aantal": "1",
+      "Dienstverband": "Hulpkracht - weekenden en vakanties"
+    },
+    {
+      "5": "0",
+      "Provincie": "Noord-Brabant",
+      "Park": "Het Vennenbos",
+      "Afdeling": "Pool",
+      "Subafdeling": "Pool",
+      "Aantal": "1",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "52",
+      "Provincie": "Drenthe",
+      "Park": "Hunzedal",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Stage"
+    },
+    {
+      "5": "52",
+      "Provincie": "Drenthe",
+      "Park": "Hunzedal",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "3",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "52",
+      "Provincie": "Drenthe",
+      "Park": "Hunzedal",
+      "Afdeling": "F&amp;B Keuken",
+      "Subafdeling": "Kitchen",
+      "Aantal": "2",
+      "Dienstverband": "Fulltime, medewerker"
+    },
+    {
+      "5": "52",
+      "Provincie": "Drenthe",
+      "Park": "Hunedal",
+      "Afdeling": "F&amp;B Keuken",
+      "Subafdeling": "Kitchen",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht Spoelmedewerker"
+    },
+    {
+      "5": "52",
+      "Provincie": "Drenthe",
+      "Park": "Hunzedal",
+      "Afdeling": "Front Office",
+      "Subafdeling": "FO",
+      "Aantal": "1",
+      "Dienstverband": "Stage"
+    },
+    {
+      "5": "52",
+      "Provincie": "Drenthe",
+      "Park": "Hunzedal",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "3",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "52",
+      "Provincie": "Drenthe",
+      "Park": "Hunzedal",
+      "Afdeling": "Front Office",
+      "Subafdeling": "FO",
+      "Aantal": "1",
+      "Dienstverband": "Stage"
+    },
+    {
+      "5": "52",
+      "Provincie": "Drenthe",
+      "Park": "Hunzedal",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "4",
+      "Dienstverband": "Stage"
+    },
+    {
+      "5": "52",
+      "Provincie": "Drenthe",
+      "Park": "Hunzedal",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "139",
+      "Provincie": "Drenthe",
+      "Park": "Hunzedal",
+      "Afdeling": "F&amp;B Snackbar",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "3",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "52",
+      "Provincie": "Drenthe",
+      "Park": "Hunzepark",
+      "Afdeling": "Fun &amp; entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "52",
+      "Provincie": "Drenthe",
+      "Park": "Hunzepark",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "40",
+      "Provincie": "Zeeland",
+      "Park": "Kamperland",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "8",
+      "Dienstverband": "Medewerker"
+    },
+    {
+      "5": "40",
+      "Provincie": "Zeeland",
+      "Park": "Kamperland",
+      "Afdeling": "F&amp;B Snackbar",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "40",
+      "Provincie": "Zeeland",
+      "Park": "Kamperland",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "6",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "40",
+      "Provincie": "Zeeland",
+      "Park": "Kamperland",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "10",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "40",
+      "Provincie": "Zeeland",
+      "Park": "Kamperland",
+      "Afdeling": "F&amp;B Keuken",
+      "Subafdeling": "Kitchen",
+      "Aantal": "4",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "10",
+      "Provincie": "Noord-Brabant",
+      "Park": "Katjeskelder",
+      "Afdeling": "P&amp;M",
+      "Subafdeling": "P&amp;M",
+      "Aantal": "1",
+      "Dienstverband": "Medewerker TD 0,2 FTE"
+    },
+    {
+      "5": "10",
+      "Provincie": "Noord-Brabant",
+      "Park": "Katjeskelder",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "4",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "10",
+      "Provincie": "Noord-Brabant",
+      "Park": "Katjeskelder",
+      "Afdeling": "F&amp;B Keuken",
+      "Subafdeling": "Kitchen",
+      "Aantal": "1",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "10",
+      "Provincie": "Noord-Brabant",
+      "Park": "Katjeskelder",
+      "Afdeling": "F&amp;B Snackbar",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "5",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "10",
+      "Provincie": "Noord-Brabant",
+      "Park": "Katjeskelder",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "4",
+      "Dienstverband": "Stagiaire"
+    },
+    {
+      "5": "10",
+      "Provincie": "Noord-Brabant",
+      "Park": "Katjeskelder",
+      "Afdeling": "Front Office",
+      "Subafdeling": "FO",
+      "Aantal": "1",
+      "Dienstverband": "Stagiaire"
+    },
+    {
+      "5": "10",
+      "Provincie": "Noord-Brabant",
+      "Park": "Katjeskelder",
+      "Afdeling": "Pool",
+      "Subafdeling": "Pool",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "10",
+      "Provincie": "Noord-Brabant",
+      "Park": "Katjeskelder",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "4",
+      "Dienstverband": "Seizoenkracht"
+    },
+    {
+      "5": "10",
+      "Provincie": "Noord-Brabant",
+      "Park": "Katjeskelder",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "5-38 uur"
+    },
+    {
+      "5": "10",
+      "Provincie": "Noord-Brabant",
+      "Park": "Katjeskelder",
+      "Afdeling": "F&amp;B Keuken",
+      "Subafdeling": "Kitchen",
+      "Aantal": "1",
+      "Dienstverband": "Medewerker"
+    },
+    {
+      "5": "2",
+      "Provincie": "Zuid-Holland",
+      "Park": "Kijkduin",
+      "Afdeling": "F&amp;B Keuken",
+      "Subafdeling": "Kitchen",
+      "Aantal": "1",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "2",
+      "Provincie": "Zuid-Holland",
+      "Park": "Kijkduin",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "2",
+      "Provincie": "Zuid-Holland",
+      "Park": "Kijkduin",
+      "Afdeling": "P&amp;M",
+      "Subafdeling": "P&amp;M",
+      "Aantal": "1",
+      "Dienstverband": "Technische dienst"
+    },
+    {
+      "5": "2",
+      "Provincie": "Zuid-Holland",
+      "Park": "Kijkduin",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "3",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "2",
+      "Provincie": "Zuid-Holland",
+      "Park": "Kijkduin",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "6",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "2",
+      "Provincie": "Zuid-Holland",
+      "Park": "Kijkduin",
+      "Afdeling": "F&amp;B Front of House",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "Medewerker"
+    },
+    {
+      "5": "12",
+      "Provincie": "Limburg",
+      "Park": "Klein Vink",
+      "Afdeling": "F&amp;B ZB De Brasserie",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "32 - 38 uur"
+    },
+    {
+      "5": "12",
+      "Provincie": "Limburg",
+      "Park": "Klein Vink",
+      "Afdeling": "F&amp;B ZB De Brasserie",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "16 uur"
+    },
+    {
+      "5": "12",
+      "Provincie": "Limburg",
+      "Park": "Klein Vink",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht - weekenden en vakanties"
+    },
+    {
+      "5": "12",
+      "Provincie": "Limburg",
+      "Park": "Klein Vink",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "4",
+      "Dienstverband": "Stage"
+    },
+    {
+      "5": "12",
+      "Provincie": "Limburg",
+      "Park": "Klein Vink",
+      "Afdeling": "F&amp;B Bediening de Bron",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "32 uur"
+    },
+    {
+      "5": "12",
+      "Provincie": "Limburg",
+      "Park": "Klein Vink",
+      "Afdeling": "F&amp;B Keuken (Kok)",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "5",
+      "Dienstverband": "32 - 38 uur"
+    },
+    {
+      "5": "12",
+      "Provincie": "Limburg",
+      "Park": "Klein Vink",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "4",
+      "Dienstverband": "Hulpkracht - zomer"
+    },
+    {
+      "5": "12",
+      "Provincie": "Limburg",
+      "Park": "Klein Vink",
+      "Afdeling": "Pool",
+      "Subafdeling": "Pool",
+      "Aantal": "3",
+      "Dienstverband": "Hulpkracht - weekenden en vakanties"
+    },
+    {
+      "5": "12",
+      "Provincie": "Limburg",
+      "Park": "Klein Vink",
+      "Afdeling": "F&amp;B ZB De Brasserie",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "38 uur"
+    },
+    {
+      "5": "0",
+      "Provincie": "Zuid-Holland",
+      "Park": "Lakeside Resort Brielle",
+      "Afdeling": "Hospitality",
+      "Subafdeling": "Hospitality",
+      "Aantal": "1",
+      "Dienstverband": "Medewerker"
+    },
+    {
+      "5": "0",
+      "Provincie": "Zuid-Holland",
+      "Park": "Lakeside Resort Brielle",
+      "Afdeling": "Hospitality",
+      "Subafdeling": "Hospitality",
+      "Aantal": "1",
+      "Dienstverband": "Medewerker"
+    },
+    {
+      "5": "0",
+      "Provincie": "Zuid-Holland",
+      "Park": "Lakeside Resort Brielle",
+      "Afdeling": "TD",
+      "Subafdeling": "P&amp;M",
+      "Aantal": "1",
+      "Dienstverband": "Medewerker"
+    },
+    {
+      "5": "0",
+      "Provincie": "Groningen",
+      "Park": "Landgoed Bourtange",
+      "Afdeling": "P&amp;M",
+      "Subafdeling": "P&amp;M",
+      "Aantal": "1",
+      "Dienstverband": "79"
+    },
+    {
+      "5": "0",
+      "Provincie": "Groningen",
+      "Park": "Landgoed Bourtange",
+      "Afdeling": "Front Office",
+      "Subafdeling": "FO",
+      "Aantal": "2",
+      "Dienstverband": "Parttime/fulltime 16 - 38 uur"
+    },
+    {
+      "5": "4",
+      "Provincie": "Noord-Holland",
+      "Park": "Marinepark Volendam",
+      "Afdeling": "F&amp;B Ontbijt &amp; Allround",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "4",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "Miggelenberg",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "Miggelenberg",
+      "Afdeling": "F&amp;B ",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "5",
+      "Dienstverband": "Bijbaan"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "Miggelenberg",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "3",
+      "Dienstverband": "Bijbaan"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "Miggelenberg",
+      "Afdeling": "F&amp;B Snackbar",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "2",
+      "Dienstverband": "Bijbaan"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "Miggelenberg",
+      "Afdeling": "Retail",
+      "Subafdeling": "Retail",
+      "Aantal": "3",
+      "Dienstverband": "Bijbaan/retail employee 1"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "Miggelenberg",
+      "Afdeling": "F&amp;B",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "4",
+      "Dienstverband": "Bijbaan"
+    },
+    {
+      "5": "60",
+      "Provincie": "Zeeland",
+      "Park": "Nieuwvliet-Bad",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "5",
+      "Dienstverband": "Bijbaan"
+    },
+    {
+      "5": "60",
+      "Provincie": "Zeeland",
+      "Park": "Nieuwvliet-Bad",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Medewerker"
+    },
+    {
+      "5": "60",
+      "Provincie": "Zeeland",
+      "Park": "Nieuwvliet-Bad",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "7",
+      "Dienstverband": "Stage"
+    },
+    {
+      "5": "60",
+      "Provincie": "Zeeland",
+      "Park": "Nieuwvliet-Bad",
+      "Afdeling": "Front Office",
+      "Subafdeling": "FO",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "60",
+      "Provincie": "Zeeland",
+      "Park": "Nieuwvliet-Bad",
+      "Afdeling": "Front Office",
+      "Subafdeling": "FO",
+      "Aantal": "1",
+      "Dienstverband": "Medewerker"
+    },
+    {
+      "5": "60",
+      "Provincie": "Zeeland",
+      "Park": "Nieuwvliet-Bad",
+      "Afdeling": "F&amp;B Service",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "6",
+      "Dienstverband": "Flex of hulpkracht"
+    },
+    {
+      "5": "60",
+      "Provincie": "Zeeland",
+      "Park": "Nieuwvliet-Bad",
+      "Afdeling": "Pool",
+      "Subafdeling": "Pool",
+      "Aantal": "1",
+      "Dienstverband": "Bijbaan/hulpkracht"
+    },
+    {
+      "5": "60",
+      "Provincie": "Zeeland",
+      "Park": "Nieuwvliet-Bad",
+      "Afdeling": "F&amp;B ",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "2",
+      "Dienstverband": "Kitchen Employee/ Snackbar - Hulpkracht"
+    },
+    {
+      "5": "60",
+      "Provincie": "Zeeland",
+      "Park": "Nieuwvliet-Bad",
+      "Afdeling": "F&amp;B Service",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "Medewerker Service Shift Leader (geen zomerbaan)"
+    },
+    {
+      "5": "60",
+      "Provincie": "Zeeland",
+      "Park": "Nieuwvliet-Bad",
+      "Afdeling": "Housekeeping",
+      "Subafdeling": "Cleaning",
+      "Aantal": "2",
+      "Dienstverband": "Flex medewerker"
+    },
+    {
+      "5": "60",
+      "Provincie": "Zeeland",
+      "Park": "Nieuwvliet-Bad",
+      "Afdeling": "Retail",
+      "Subafdeling": "Retail",
+      "Aantal": "3",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "60",
+      "Provincie": "Zeeland",
+      "Park": "Nieuwvliet-Bad",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Stage"
+    },
+    {
+      "5": "52",
+      "Provincie": "Drenthe",
+      "Park": "Hunzepark",
+      "Afdeling": "F&amp;B Keuken",
+      "Subafdeling": "Kitchen",
+      "Aantal": "1",
+      "Dienstverband": "Medewerker Kitchen"
+    },
+    {
+      "5": "52",
+      "Provincie": "Drenthe",
+      "Park": "Hunzepark",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht Snackbar"
+    },
+    {
+      "5": "12",
+      "Provincie": "Drenthe",
+      "Park": "Orveltermarke",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "Stage"
+    },
+    {
+      "5": "12",
+      "Provincie": "Drenthe",
+      "Park": "Orveltermarke",
+      "Afdeling": "F&amp;B Keuken",
+      "Subafdeling": "Kitchen",
+      "Aantal": "1",
+      "Dienstverband": "Stage"
+    },
+    {
+      "5": "12",
+      "Provincie": "Drenthe",
+      "Park": "Orveltermarke",
+      "Afdeling": "Front Office",
+      "Subafdeling": "FO",
+      "Aantal": "4",
+      "Dienstverband": "Stage"
+    },
+    {
+      "5": null,
+      "Provincie": "Drenthe",
+      "Park": "Aelderholt",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "3",
+      "Dienstverband": "Stage"
+    },
+    {
+      "5": null,
+      "Provincie": "Drenthe",
+      "Park": "Aelderholt",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": null,
+      "Provincie": "Drenthe",
+      "Park": "Aelderholt",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": null,
+      "Provincie": "Drenthe",
+      "Park": "Aelderholt",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "5",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": null,
+      "Provincie": "Drenthe",
+      "Park": "Aelderholt",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "5",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": null,
+      "Provincie": "Drenthe",
+      "Park": "Aelderholt",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": null,
+      "Provincie": "Drenthe",
+      "Park": "Aelderholt",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "5",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": null,
+      "Provincie": "Drenthe",
+      "Park": "Aelderholt",
+      "Afdeling": "F&amp;B Keuken ",
+      "Subafdeling": "Kitchen",
+      "Aantal": "1",
+      "Dienstverband": "Kitchen Employee 2"
+    },
+    {
+      "5": "16",
+      "Provincie": "Drenthe",
+      "Park": "Aelderholt",
+      "Afdeling": "F&amp;B Keuken ",
+      "Subafdeling": "Kitchen",
+      "Aantal": "1",
+      "Dienstverband": "Kitchen Employee 3"
+    },
+    {
+      "5": null,
+      "Provincie": "Drenthe",
+      "Park": "Bospark Lunsbergen",
+      "Afdeling": "Hospitality FO/F&amp;B/Retail",
+      "Subafdeling": "Hospitality",
+      "Aantal": "1",
+      "Dienstverband": "Hospitality Employee 2 (5-38)"
+    },
+    {
+      "5": null,
+      "Provincie": "Drenthe",
+      "Park": "Bospark Lunsbergen",
+      "Afdeling": "Hospitality FO/F&amp;B/Retail FOCUS F&amp;B",
+      "Subafdeling": "Hospitality",
+      "Aantal": "3",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "12",
+      "Provincie": "Drenthe",
+      "Park": "Orveltermarke",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "4",
+      "Dienstverband": "Stage"
+    },
+    {
+      "5": "0",
+      "Provincie": "Noord-Brabant",
+      "Park": "Park De Peel",
+      "Afdeling": "F&amp;B Keuken",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "0",
+      "Provincie": "Noord-Brabant",
+      "Park": "Park De Peel",
+      "Afdeling": "Hospitality",
+      "Subafdeling": "Hospitality",
+      "Aantal": "1",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "Rabbit Hill",
+      "Afdeling": "F&amp;B Keuken",
+      "Subafdeling": "Kitchen",
+      "Aantal": "4",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "Rabbit Hill",
+      "Afdeling": "F&amp;B",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "20",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "Rabbit Hill",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "Fun &amp; Entertainment",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "Rabbit Hill",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "Fun &amp; Entertainment",
+      "Aantal": "4",
+      "Dienstverband": "Zomerstagiair"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "122",
+      "Afdeling": "Technische Dienst",
+      "Subafdeling": "P&amp;M",
+      "Aantal": "2",
+      "Dienstverband": "Stage meewerk MBO"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "122",
+      "Afdeling": "Technische Dienst",
+      "Subafdeling": "P&amp;M",
+      "Aantal": null,
+      "Dienstverband": "Fulltime medewerker (1mdw niet voor de zomer) P&amp;M Employee 2"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "122",
+      "Afdeling": "Technische Dienst",
+      "Subafdeling": "P&amp;M",
+      "Aantal": "4",
+      "Dienstverband": "Stage meewerk HBO (liefst facilitair)"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "122",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "5",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "122",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "5",
+      "Dienstverband": "Stage zomer (MBO nov 3)"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "122",
+      "Afdeling": "FO employee",
+      "Subafdeling": "F&amp;O",
+      "Aantal": "1",
+      "Dienstverband": "Hulpkracht FO Employee 1"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "122",
+      "Afdeling": "Retail",
+      "Subafdeling": "Retail",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht Retail Employee 1"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "122",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "5",
+      "Dienstverband": "Parttime F&amp;B Service Employee 2"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "122",
+      "Afdeling": "F&amp;B Keuken",
+      "Subafdeling": "Kitchen",
+      "Aantal": "2",
+      "Dienstverband": "Parttime Kitchen Employee 1"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "122",
+      "Afdeling": "F&amp;B ",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "5",
+      "Dienstverband": "Stage "
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "122",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "10",
+      "Dienstverband": "Hulpkracht F&amp;B Service Employee 2"
+    },
+    {
+      "5": null,
+      "Provincie": "Gelderland",
+      "Park": "Rabbit Hill",
+      "Afdeling": "Retail",
+      "Subafdeling": "Retail",
+      "Aantal": "6",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "94",
+      "Provincie": "Zeeland",
+      "Park": "Résidence De Banjaard",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "94",
+      "Provincie": "Zeeland",
+      "Park": "Camping Dishoek",
+      "Afdeling": "Front Office",
+      "Subafdeling": "FO",
+      "Aantal": "1",
+      "Dienstverband": "medewerker"
+    },
+    {
+      "5": "94",
+      "Provincie": "Zeeland",
+      "Park": "Camping Dishoek",
+      "Afdeling": "Snackbar",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "94",
+      "Provincie": "Zeeland",
+      "Park": "Résidence De Banjaard",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "3",
+      "Dienstverband": "medewerker"
+    },
+    {
+      "5": "5",
+      "Provincie": "Overijssel",
+      "Park": "Twenhaarsveld",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "8",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "5",
+      "Provincie": "Overijssel",
+      "Park": "Twenhaarsveld",
+      "Afdeling": "F&amp;B Keuken",
+      "Subafdeling": "Kitchen",
+      "Aantal": "8",
+      "Dienstverband": "Hulpkracht Kitchen Employee"
+    },
+    {
+      "5": "20",
+      "Provincie": "Limburg",
+      "Park": "Weerterbergen",
+      "Afdeling": "F&amp;B Keuken/spoelkeuken",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "20",
+      "Provincie": "Limburg",
+      "Park": "Weerterbergen",
+      "Afdeling": "F&amp;B Snackbar",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "Medewerker 38 uur"
+    },
+    {
+      "5": "20",
+      "Provincie": "Limburg",
+      "Park": "Weerterbergen",
+      "Afdeling": "Front Office",
+      "Subafdeling": "FO",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "20",
+      "Provincie": "Limburg",
+      "Park": "Weerterbergen",
+      "Afdeling": "Pool",
+      "Subafdeling": "Pool",
+      "Aantal": "5",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "20",
+      "Provincie": "Limburg",
+      "Park": "Weerterbergen",
+      "Afdeling": "Retail",
+      "Subafdeling": "Retail",
+      "Aantal": "4",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "20",
+      "Provincie": "Limburg",
+      "Park": "Weerterbergen",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "3",
+      "Dienstverband": "Medewerker 38 uur"
+    },
+    {
+      "5": "20",
+      "Provincie": "Limburg",
+      "Park": "Weerterbergen",
+      "Afdeling": "F&amp;B Snackbar",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "1",
+      "Dienstverband": "Medewerker 38 uur"
+    },
+    {
+      "5": "20",
+      "Provincie": "Limburg",
+      "Park": "Weerterbergen",
+      "Afdeling": "Front Office",
+      "Subafdeling": "FO",
+      "Aantal": "1",
+      "Dienstverband": "Medewerker 24 uur"
+    },
+    {
+      "5": "20",
+      "Provincie": "Limburg",
+      "Park": "Weerterbergen",
+      "Afdeling": "Pool",
+      "Subafdeling": "Pool",
+      "Aantal": "2",
+      "Dienstverband": "Medewerker 38 uur"
+    },
+    {
+      "5": "20",
+      "Provincie": "Limburg",
+      "Park": "Weerterbergen",
+      "Afdeling": "Retail",
+      "Subafdeling": "Retail",
+      "Aantal": "2",
+      "Dienstverband": "Medewerker 38 uur"
+    },
+    {
+      "5": "20",
+      "Provincie": "Limburg",
+      "Park": "Weerterbergen",
+      "Afdeling": "F&amp;B Keuken",
+      "Subafdeling": "Kitchen",
+      "Aantal": "2",
+      "Dienstverband": "38 uur"
+    },
+    {
+      "5": "20",
+      "Provincie": "Limburg",
+      "Park": "Weerterbergen",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "1",
+      "Dienstverband": "Medewerker 32 uur"
+    },
+    {
+      "5": "20",
+      "Provincie": "Limburg",
+      "Park": "Weerterbergen",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "4",
+      "Dienstverband": "Hulpkrachten 3-38 uur"
+    },
+    {
+      "5": "20",
+      "Provincie": "Limburg",
+      "Park": "Weerterbergen",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "9",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "20",
+      "Provincie": "Limburg",
+      "Park": "Weerterbergen",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "6",
+      "Dienstverband": "Hulpkracht 3-38 uur"
+    },
+    {
+      "5": "20",
+      "Provincie": "Limburg",
+      "Park": "Weerterbergen",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "3",
+      "Dienstverband": "Medewerker zomer 38 uur (evt uitzend)"
+    },
+    {
+      "5": "6",
+      "Provincie": "Noord-Brabant",
+      "Park": "Wolfsven",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "6",
+      "Provincie": "Noord-Brabant",
+      "Park": "Wolfsven",
+      "Afdeling": "F&amp;B Snackbar",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "5",
+      "Dienstverband": "Medewerker"
+    },
+    {
+      "5": "6",
+      "Provincie": "Noord-Brabant",
+      "Park": "Wolfsven",
+      "Afdeling": "Retail",
+      "Subafdeling": "Retail",
+      "Aantal": "4",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "6",
+      "Provincie": "Noord-Brabant",
+      "Park": "Wolfsven",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "4",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "6",
+      "Provincie": "Noord-Brabant",
+      "Park": "Wolfsven",
+      "Afdeling": "Pool",
+      "Subafdeling": "Pool",
+      "Aantal": "10",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "6",
+      "Provincie": "Noord-Brabant",
+      "Park": "Wolfsven",
+      "Afdeling": "F&amp;B Bediening",
+      "Subafdeling": "F&amp;B",
+      "Aantal": "10",
+      "Dienstverband": "Medewerker"
+    },
+    {
+      "5": "6",
+      "Provincie": "Noord-Brabant",
+      "Park": "Wolfsven",
+      "Afdeling": "Retail",
+      "Subafdeling": "Retail",
+      "Aantal": "4",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "6",
+      "Provincie": "Noord-Brabant",
+      "Park": "Wolfsven",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "2",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "6",
+      "Provincie": "Noord-Brabant",
+      "Park": "Wolfsven",
+      "Afdeling": "Fun &amp; Entertainment",
+      "Subafdeling": "F&amp;E",
+      "Aantal": "4",
+      "Dienstverband": "Hulpkracht"
+    },
+    {
+      "5": "6",
+      "Provincie": "Noord-Brabant",
+      "Park": "Wolfsven",
+      "Afdeling": "TD",
+      "Subafdeling": "P&amp;M",
+      "Aantal": "1",
+      "Dienstverband": "Hulpkracht/Vakantie"
+    }
+  ]
+}

@@ -1,0 +1,5254 @@
+{
+  "summary": {
+    "totalUrls": 591,
+    "vacancies": 502,
+    "campaigns": 7,
+    "locations": 17,
+    "vacanciesByCountry": {
+      "nl": 473,
+      "de": 20,
+      "dk": 7,
+      "gb": 2
+    },
+    "vacanciesByContract": {
+      "vast": 213,
+      "stage": 124,
+      "vakantiebaan": 100,
+      "bijbaan": 65
+    },
+    "vacanciesByRole": {
+      "horeca-bediening": 162,
+      "horeca-keuken": 71,
+      "front-office": 53,
+      "hoofdkantoor": 50,
+      "fun-entertainment": 48,
+      "techniek": 46,
+      "zwembad": 22,
+      "retail": 22,
+      "overig": 13,
+      "housekeeping": 10,
+      "parkmanagement": 5
+    },
+    "vacanciesByCountryAndContract": {
+      "nl/vast": 192,
+      "nl/stage": 120,
+      "nl/vakantiebaan": 99,
+      "nl/bijbaan": 62,
+      "de/vast": 12,
+      "dk/vast": 7,
+      "de/stage": 4,
+      "de/bijbaan": 3,
+      "gb/vast": 2,
+      "de/vakantiebaan": 1
+    },
+    "unclassifiedSlugs": [
+      "",
+      "",
+      "",
+      "",
+      "employe-e-de-salle",
+      "stage-operationeel-management-hbo",
+      "werken-en-verblijven-in-de-ardennen",
+      "zomerstage-met-verblijf-aan-zee",
+      "parkadministrateur-franchise",
+      "vakantiebaan-met-verblijf-5-38-uur",
+      "masseur",
+      "masseur",
+      "medewerker-fietsverhuur-vakantiepark-parttime"
+    ]
+  },
+  "vacancies": [
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/",
+      "lastmod": "2026-05-13T15:13:53.701Z",
+      "country": "nl",
+      "slug": "",
+      "jobId": "",
+      "role": "overig",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/",
+      "lastmod": "2026-05-13T15:13:53.701Z",
+      "country": "de",
+      "slug": "",
+      "jobId": "",
+      "role": "overig",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/dk-da/ledige-stillinger/",
+      "lastmod": "2026-05-13T15:13:53.701Z",
+      "country": "dk",
+      "slug": "",
+      "jobId": "",
+      "role": "overig",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/gb-en/vacancies/",
+      "lastmod": "2026-05-13T15:13:53.701Z",
+      "country": "gb",
+      "slug": "",
+      "jobId": "",
+      "role": "overig",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/stage-horeca-sonnenberg/1199742/",
+      "lastmod": "2025-10-13T14:32:51.780Z",
+      "country": "de",
+      "slug": "stage-horeca-sonnenberg",
+      "jobId": "1199742",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/stage-horeca-front-office-en-retail/1199745/",
+      "lastmod": "2025-10-17T09:09:03.759Z",
+      "country": "de",
+      "slug": "stage-horeca-front-office-en-retail",
+      "jobId": "1199745",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/service-mitarbeiter-in-m-w-d/JR100260/",
+      "lastmod": "2025-11-18T14:33:27.490Z",
+      "country": "de",
+      "slug": "service-mitarbeiter-in-m-w-d",
+      "jobId": "JR100260",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/mitarbeiter-in-service-m-w-d/1066410/",
+      "lastmod": "2025-10-23T15:41:33.136Z",
+      "country": "de",
+      "slug": "mitarbeiter-in-service-m-w-d",
+      "jobId": "1066410",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/mitarbeiter-in-service-m-w-d/1180662/",
+      "lastmod": "2025-10-23T15:42:00.716Z",
+      "country": "de",
+      "slug": "mitarbeiter-in-service-m-w-d",
+      "jobId": "1180662",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/rezeptionist-m-w-d-studenbasis/1194994/",
+      "lastmod": "2025-11-19T13:54:34.612Z",
+      "country": "de",
+      "slug": "rezeptionist-m-w-d-studenbasis",
+      "jobId": "1194994",
+      "role": "front-office",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/facility-manager-m-w-d/1208782/",
+      "lastmod": "2025-11-17T13:24:55.889Z",
+      "country": "de",
+      "slug": "facility-manager-m-w-d",
+      "jobId": "1208782",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/minijob-kuechenhilfe-m-w-d/1196039/",
+      "lastmod": "2026-02-12T14:13:00.147Z",
+      "country": "de",
+      "slug": "minijob-kuechenhilfe-m-w-d",
+      "jobId": "1196039",
+      "role": "horeca-keuken",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/minijob-service-m-w-d/1161629/",
+      "lastmod": "2026-02-12T14:23:50.957Z",
+      "country": "de",
+      "slug": "minijob-service-m-w-d",
+      "jobId": "1161629",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/allround-mitarbeiter-m-w-v/JR101202/",
+      "lastmod": "2026-02-20T12:45:30.934Z",
+      "country": "de",
+      "slug": "allround-mitarbeiter-m-w-v",
+      "jobId": "JR101202",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/allround-mitarbeiter-in-m-w-v/JR101199/",
+      "lastmod": "2026-02-20T12:35:37.200Z",
+      "country": "de",
+      "slug": "allround-mitarbeiter-in-m-w-v",
+      "jobId": "JR101199",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/stage-allround-toerisme/JR101200/",
+      "lastmod": "2026-02-20T12:42:19.918Z",
+      "country": "de",
+      "slug": "stage-allround-toerisme",
+      "jobId": "JR101200",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/minijob-kuechenhilfe-m-w-d/1066406/",
+      "lastmod": "2026-03-17T08:53:18.321Z",
+      "country": "de",
+      "slug": "minijob-kuechenhilfe-m-w-d",
+      "jobId": "1066406",
+      "role": "horeca-keuken",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/hospitality-mitarbeiter-saison/JR101203/",
+      "lastmod": "2026-02-20T12:46:42.322Z",
+      "country": "de",
+      "slug": "hospitality-mitarbeiter-saison",
+      "jobId": "JR101203",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/stage-animatieteam/JR101451/",
+      "lastmod": "2026-03-12T10:42:00.460Z",
+      "country": "de",
+      "slug": "stage-animatieteam",
+      "jobId": "JR101451",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/mitarbeiter-eigentuemerbetreuung-und-objektservice-m-w-d/JR102293/",
+      "lastmod": "2026-04-30T07:40:44.631Z",
+      "country": "de",
+      "slug": "mitarbeiter-eigentuemerbetreuung-und-objektservice-m-w-d",
+      "jobId": "JR102293",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/manager-facility/JR101790/",
+      "lastmod": "2026-04-24T11:05:51.651Z",
+      "country": "de",
+      "slug": "manager-facility",
+      "jobId": "JR101790",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/property-und-maintenance-mitarbeiter-m-w-d/JR102306/",
+      "lastmod": "2026-05-05T09:41:44.395Z",
+      "country": "de",
+      "slug": "property-und-maintenance-mitarbeiter-m-w-d",
+      "jobId": "JR102306",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/de-de/stellenangebote/kuechenhilfe-m-w-d/JR101785/",
+      "lastmod": "2026-05-15T14:29:01.983Z",
+      "country": "de",
+      "slug": "kuechenhilfe-m-w-d",
+      "jobId": "JR101785",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/dk-da/ledige-stillinger/kokkenassistent/JR101663/",
+      "lastmod": "2026-03-24T14:00:40.926Z",
+      "country": "dk",
+      "slug": "kokkenassistent",
+      "jobId": "JR101663",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/dk-da/ledige-stillinger/livredder/JR101773/",
+      "lastmod": "2026-03-30T12:43:07.572Z",
+      "country": "dk",
+      "slug": "livredder",
+      "jobId": "JR101773",
+      "role": "zwembad",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/dk-da/ledige-stillinger/opvasker/JR101240/",
+      "lastmod": "2026-02-23T13:58:35.074Z",
+      "country": "dk",
+      "slug": "opvasker",
+      "jobId": "JR101240",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/dk-da/ledige-stillinger/kitchen-supervisor/JR101935/",
+      "lastmod": "2026-04-24T13:03:14.887Z",
+      "country": "dk",
+      "slug": "kitchen-supervisor",
+      "jobId": "JR101935",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/dk-da/ledige-stillinger/teknisk-medarbejder/JR102388/",
+      "lastmod": "2026-05-11T11:05:58.690Z",
+      "country": "dk",
+      "slug": "teknisk-medarbejder",
+      "jobId": "JR102388",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/dk-da/ledige-stillinger/tjener/JR101501/",
+      "lastmod": "2026-05-16T17:06:24.690Z",
+      "country": "dk",
+      "slug": "tjener",
+      "jobId": "JR101501",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/gb-en/vacancies/business-development-manager-uk/JR102272/",
+      "lastmod": "2026-05-01T12:58:24.932Z",
+      "country": "gb",
+      "slug": "business-development-manager-uk",
+      "jobId": "JR102272",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-bediening/1201699/",
+      "lastmod": "2025-10-23T15:42:36.985Z",
+      "country": "nl",
+      "slug": "medewerker-bediening",
+      "jobId": "1201699",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/1208729/",
+      "lastmod": "2025-10-10T07:22:20.286Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "1208729",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-zwembad/1208830/",
+      "lastmod": "2026-01-15T12:08:25.257Z",
+      "country": "nl",
+      "slug": "bijbaan-zwembad",
+      "jobId": "1208830",
+      "role": "zwembad",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-zwembad/1213997/",
+      "lastmod": "2025-10-23T15:43:12.574Z",
+      "country": "nl",
+      "slug": "medewerker-zwembad",
+      "jobId": "1213997",
+      "role": "zwembad",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-retail/1299905/",
+      "lastmod": "2025-10-10T08:27:25.074Z",
+      "country": "nl",
+      "slug": "stage-retail",
+      "jobId": "1299905",
+      "role": "retail",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-f-en-b-serviceteam/1168763/",
+      "lastmod": "2025-10-10T07:46:30.080Z",
+      "country": "nl",
+      "slug": "stage-f-en-b-serviceteam",
+      "jobId": "1168763",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zelfstandig-werkend-kok/1171284/",
+      "lastmod": "2025-10-13T11:51:20.146Z",
+      "country": "nl",
+      "slug": "zelfstandig-werkend-kok",
+      "jobId": "1171284",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-fun-en-entertainment/1172678/",
+      "lastmod": "2025-10-09T14:09:45.948Z",
+      "country": "nl",
+      "slug": "stage-fun-en-entertainment",
+      "jobId": "1172678",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/employe-e-de-salle/1174341/",
+      "lastmod": "2025-10-13T08:31:12.394Z",
+      "country": "nl",
+      "slug": "employe-e-de-salle",
+      "jobId": "1174341",
+      "role": "overig",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-fun-en-entertainment/1196694/",
+      "lastmod": "2025-10-15T07:59:23.919Z",
+      "country": "nl",
+      "slug": "stage-fun-en-entertainment",
+      "jobId": "1196694",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-parkmanagement-vanaf-01-02-2026/1196873/",
+      "lastmod": "2025-10-10T07:13:47.127Z",
+      "country": "nl",
+      "slug": "stage-parkmanagement-vanaf-01-02-2026",
+      "jobId": "1196873",
+      "role": "parkmanagement",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-retail/1132008/",
+      "lastmod": "2025-10-23T15:41:38.989Z",
+      "country": "nl",
+      "slug": "stage-retail",
+      "jobId": "1132008",
+      "role": "retail",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-snackbar/1133325/",
+      "lastmod": "2026-01-19T11:18:25.023Z",
+      "country": "nl",
+      "slug": "bijbaan-snackbar",
+      "jobId": "1133325",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/leerling-keuken/1147356/",
+      "lastmod": "2025-10-23T15:41:43.847Z",
+      "country": "nl",
+      "slug": "leerling-keuken",
+      "jobId": "1147356",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/1157863/",
+      "lastmod": "2025-10-13T07:45:51.635Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "1157863",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-retail/1157931/",
+      "lastmod": "2025-10-13T07:36:16.755Z",
+      "country": "nl",
+      "slug": "stage-retail",
+      "jobId": "1157931",
+      "role": "retail",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/1157977/",
+      "lastmod": "2025-10-10T10:01:46.126Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "1157977",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-bediening/1199390/",
+      "lastmod": "2025-10-23T15:42:27.861Z",
+      "country": "nl",
+      "slug": "medewerker-bediening",
+      "jobId": "1199390",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/leidinggevende-keuken/1200776/",
+      "lastmod": "2026-02-05T09:15:32.598Z",
+      "country": "nl",
+      "slug": "leidinggevende-keuken",
+      "jobId": "1200776",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-zwembad/JR100139/",
+      "lastmod": "2026-01-26T13:53:07.654Z",
+      "country": "nl",
+      "slug": "medewerker-zwembad",
+      "jobId": "JR100139",
+      "role": "zwembad",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-techniek-en-onderhoud/JR100182/",
+      "lastmod": "2025-10-24T13:23:57.734Z",
+      "country": "nl",
+      "slug": "medewerker-techniek-en-onderhoud",
+      "jobId": "JR100182",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-relatiemanagement/JR100189/",
+      "lastmod": "2025-12-05T13:53:40.114Z",
+      "country": "nl",
+      "slug": "stage-relatiemanagement",
+      "jobId": "JR100189",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/kok/JR100217/",
+      "lastmod": "2025-11-26T12:47:04.756Z",
+      "country": "nl",
+      "slug": "kok",
+      "jobId": "JR100217",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/1299931/",
+      "lastmod": "2025-10-13T14:33:30.281Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "1299931",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/1299934/",
+      "lastmod": "2025-10-10T11:16:42.422Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "1299934",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/1299960/",
+      "lastmod": "2026-02-17T11:32:10.311Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "1299960",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-parkmanagement/1299965/",
+      "lastmod": "2025-11-10T10:20:22.294Z",
+      "country": "nl",
+      "slug": "stage-parkmanagement",
+      "jobId": "1299965",
+      "role": "parkmanagement",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/1299967/",
+      "lastmod": "2025-10-13T15:12:39.328Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "1299967",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/horeca-shift-leader/1179138/",
+      "lastmod": "2025-11-26T10:34:02.167Z",
+      "country": "nl",
+      "slug": "horeca-shift-leader",
+      "jobId": "1179138",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/supervisor-keuken/1179426/",
+      "lastmod": "2025-11-13T14:01:26.556Z",
+      "country": "nl",
+      "slug": "supervisor-keuken",
+      "jobId": "1179426",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/1180093/",
+      "lastmod": "2025-10-13T13:57:12.052Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "1180093",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/1180100/",
+      "lastmod": "2025-12-01T11:47:08.257Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "1180100",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/1180135/",
+      "lastmod": "2025-10-13T14:47:17.144Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "1180135",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/cuisinier/1194120/",
+      "lastmod": "2025-10-13T08:54:07.636Z",
+      "country": "nl",
+      "slug": "cuisinier",
+      "jobId": "1194120",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/1195529/",
+      "lastmod": "2025-10-10T12:06:53.662Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "1195529",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/1195534/",
+      "lastmod": "2025-10-13T14:14:00.404Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "1195534",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/1195536/",
+      "lastmod": "2025-12-01T11:45:03.182Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "1195536",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/1195569/",
+      "lastmod": "2025-10-13T13:01:58.684Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "1195569",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/1195886/",
+      "lastmod": "2026-01-13T14:08:16.843Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "1195886",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/1195898/",
+      "lastmod": "2025-10-13T08:32:09.041Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "1195898",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-facility-management/1195983/",
+      "lastmod": "2025-10-10T12:00:17.841Z",
+      "country": "nl",
+      "slug": "stage-facility-management",
+      "jobId": "1195983",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/1110035/",
+      "lastmod": "2025-10-13T13:05:45.475Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "1110035",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-groen-en-techniek/JR101424/",
+      "lastmod": "2026-03-04T15:23:02.503Z",
+      "country": "nl",
+      "slug": "stage-groen-en-techniek",
+      "jobId": "JR101424",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/JR101425/",
+      "lastmod": "2026-03-04T15:27:02.592Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "JR101425",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/JR101426/",
+      "lastmod": "2026-03-04T15:29:55.731Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "JR101426",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-groen-en-techniek/JR101427/",
+      "lastmod": "2026-03-04T15:31:43.680Z",
+      "country": "nl",
+      "slug": "stage-groen-en-techniek",
+      "jobId": "JR101427",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-schoonmaak/JR101448/",
+      "lastmod": "2026-03-05T13:29:56.620Z",
+      "country": "nl",
+      "slug": "medewerker-schoonmaak",
+      "jobId": "JR101448",
+      "role": "housekeeping",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/supervisor-horeca/JR101450/",
+      "lastmod": "2026-03-05T14:03:56.238Z",
+      "country": "nl",
+      "slug": "supervisor-horeca",
+      "jobId": "JR101450",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-hospitality/JR101490/",
+      "lastmod": "2026-03-11T10:26:41.438Z",
+      "country": "nl",
+      "slug": "medewerker-hospitality",
+      "jobId": "JR101490",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-fun-en-entertainment/JR101494/",
+      "lastmod": "2026-03-11T13:30:41.084Z",
+      "country": "nl",
+      "slug": "stage-fun-en-entertainment",
+      "jobId": "JR101494",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-fun-en-entertainment/JR101356/",
+      "lastmod": "2026-03-03T14:43:58.346Z",
+      "country": "nl",
+      "slug": "stage-fun-en-entertainment",
+      "jobId": "JR101356",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/conversational-specialist-ai/JR101366/",
+      "lastmod": "2026-03-02T10:19:51.271Z",
+      "country": "nl",
+      "slug": "conversational-specialist-ai",
+      "jobId": "JR101366",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/kitchen-employee/JR101372/",
+      "lastmod": "2026-03-02T13:19:00.086Z",
+      "country": "nl",
+      "slug": "kitchen-employee",
+      "jobId": "JR101372",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-horeca-snackbar/JR101295/",
+      "lastmod": "2026-02-25T14:53:28.078Z",
+      "country": "nl",
+      "slug": "bijbaan-horeca-snackbar",
+      "jobId": "JR101295",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-fun-en-entertainment/JR101324/",
+      "lastmod": "2026-02-26T10:24:46.812Z",
+      "country": "nl",
+      "slug": "stage-fun-en-entertainment",
+      "jobId": "JR101324",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-fun-en-entertainment/JR101327/",
+      "lastmod": "2026-02-26T13:20:15.473Z",
+      "country": "nl",
+      "slug": "stage-fun-en-entertainment",
+      "jobId": "JR101327",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-bediening-parttime/JR101340/",
+      "lastmod": "2026-03-03T14:44:24.883Z",
+      "country": "nl",
+      "slug": "medewerker-bediening-parttime",
+      "jobId": "JR101340",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-bediening-fulltime/JR101341/",
+      "lastmod": "2026-03-03T14:41:09.489Z",
+      "country": "nl",
+      "slug": "medewerker-bediening-fulltime",
+      "jobId": "JR101341",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-groen-en-techniek/JR101402/",
+      "lastmod": "2026-03-04T10:39:54.338Z",
+      "country": "nl",
+      "slug": "stage-groen-en-techniek",
+      "jobId": "JR101402",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-techniek-en-onderhoud/JR101403/",
+      "lastmod": "2026-03-04T11:03:00.562Z",
+      "country": "nl",
+      "slug": "stage-techniek-en-onderhoud",
+      "jobId": "JR101403",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/JR101420/",
+      "lastmod": "2026-03-04T15:04:22.479Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "JR101420",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-groen-en-techniek/JR101421/",
+      "lastmod": "2026-03-04T15:09:38.863Z",
+      "country": "nl",
+      "slug": "stage-groen-en-techniek",
+      "jobId": "JR101421",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-groen-en-techniek/JR101422/",
+      "lastmod": "2026-03-04T15:15:21.395Z",
+      "country": "nl",
+      "slug": "stage-groen-en-techniek",
+      "jobId": "JR101422",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/supervisor-keuken/JR101226/",
+      "lastmod": "2026-02-17T14:39:04.547Z",
+      "country": "nl",
+      "slug": "supervisor-keuken",
+      "jobId": "JR101226",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-fun-en-entertainment/JR101229/",
+      "lastmod": "2026-02-23T09:21:06.204Z",
+      "country": "nl",
+      "slug": "stage-fun-en-entertainment",
+      "jobId": "JR101229",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-fun-en-entertainment/JR101383/",
+      "lastmod": "2026-03-04T08:38:18.473Z",
+      "country": "nl",
+      "slug": "stage-fun-en-entertainment",
+      "jobId": "JR101383",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-sport-en-animatie/JR101393/",
+      "lastmod": "2026-03-04T09:47:42.221Z",
+      "country": "nl",
+      "slug": "stage-sport-en-animatie",
+      "jobId": "JR101393",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-groen-en-techniek/JR101394/",
+      "lastmod": "2026-03-04T09:51:58.820Z",
+      "country": "nl",
+      "slug": "stage-groen-en-techniek",
+      "jobId": "JR101394",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/JR101395/",
+      "lastmod": "2026-03-04T09:58:27.783Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "JR101395",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-techniek-en-onderhoud/JR101396/",
+      "lastmod": "2026-03-04T10:03:15.225Z",
+      "country": "nl",
+      "slug": "stage-techniek-en-onderhoud",
+      "jobId": "JR101396",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/JR101397/",
+      "lastmod": "2026-03-04T10:24:04.435Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "JR101397",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/JR101398/",
+      "lastmod": "2026-03-04T10:27:08.841Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "JR101398",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-groen-en-techniek/JR101399/",
+      "lastmod": "2026-03-04T10:29:17.004Z",
+      "country": "nl",
+      "slug": "stage-groen-en-techniek",
+      "jobId": "JR101399",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/JR101400/",
+      "lastmod": "2026-03-04T10:31:12.924Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "JR101400",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/administratief-medewerker/JR101159/",
+      "lastmod": "2026-02-19T10:22:44.773Z",
+      "country": "nl",
+      "slug": "administratief-medewerker",
+      "jobId": "JR101159",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/independent-chef-beach-pavilion/JR101167/",
+      "lastmod": "2026-02-12T10:55:20.603Z",
+      "country": "nl",
+      "slug": "independent-chef-beach-pavilion",
+      "jobId": "JR101167",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-bediening-strandpaviljoen/JR101169/",
+      "lastmod": "2026-02-12T10:27:00.629Z",
+      "country": "nl",
+      "slug": "bijbaan-bediening-strandpaviljoen",
+      "jobId": "JR101169",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medeweker-technische-dienst/JR101187/",
+      "lastmod": "2026-02-18T12:28:12.814Z",
+      "country": "nl",
+      "slug": "medeweker-technische-dienst",
+      "jobId": "JR101187",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-business-line/JR100701/",
+      "lastmod": "2025-12-23T11:46:57.551Z",
+      "country": "nl",
+      "slug": "stage-business-line",
+      "jobId": "JR100701",
+      "role": "hoofdkantoor",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zelfstandig-werkend-kok/JR100721/",
+      "lastmod": "2026-01-07T13:52:22.471Z",
+      "country": "nl",
+      "slug": "zelfstandig-werkend-kok",
+      "jobId": "JR100721",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-techniek/JR101094/",
+      "lastmod": "2026-02-06T15:49:43.721Z",
+      "country": "nl",
+      "slug": "medewerker-techniek",
+      "jobId": "JR101094",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zelfstandig-werkend-kok/JR101097/",
+      "lastmod": "2026-02-11T12:26:20.056Z",
+      "country": "nl",
+      "slug": "zelfstandig-werkend-kok",
+      "jobId": "JR101097",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office-retail/JR101141/",
+      "lastmod": "2026-02-10T14:02:32.582Z",
+      "country": "nl",
+      "slug": "stage-front-office-retail",
+      "jobId": "JR101141",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-technische-dienst/JR100767/",
+      "lastmod": "2026-02-04T15:32:29.777Z",
+      "country": "nl",
+      "slug": "bijbaan-technische-dienst",
+      "jobId": "JR100767",
+      "role": "techniek",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-facility-in-de-housekeeping/JR100778/",
+      "lastmod": "2026-01-13T13:15:57.025Z",
+      "country": "nl",
+      "slug": "stage-facility-in-de-housekeeping",
+      "jobId": "JR100778",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/hospitality-retail-medewerker/JR100811/",
+      "lastmod": "2026-02-18T14:13:36.953Z",
+      "country": "nl",
+      "slug": "hospitality-retail-medewerker",
+      "jobId": "JR100811",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-horeca/JR100662/",
+      "lastmod": "2026-02-25T11:07:24.016Z",
+      "country": "nl",
+      "slug": "bijbaan-horeca",
+      "jobId": "JR100662",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-commercial-outlets/JR100670/",
+      "lastmod": "2026-03-10T08:38:09.936Z",
+      "country": "nl",
+      "slug": "stage-commercial-outlets",
+      "jobId": "JR100670",
+      "role": "hoofdkantoor",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office-landal-kaatsheuvel/JR100402/",
+      "lastmod": "2025-12-05T13:53:40.260Z",
+      "country": "nl",
+      "slug": "stage-front-office-landal-kaatsheuvel",
+      "jobId": "JR100402",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/keuken-medewerker/JR100881/",
+      "lastmod": "2026-01-26T14:20:48.096Z",
+      "country": "nl",
+      "slug": "keuken-medewerker",
+      "jobId": "JR100881",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-schoonmaak/JR100908/",
+      "lastmod": "2026-01-20T13:32:06.463Z",
+      "country": "nl",
+      "slug": "medewerker-schoonmaak",
+      "jobId": "JR100908",
+      "role": "housekeeping",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/kitchen-supervisor/JR100919/",
+      "lastmod": "2026-01-21T13:25:48.959Z",
+      "country": "nl",
+      "slug": "kitchen-supervisor",
+      "jobId": "JR100919",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/accounting-specialist/JR100922/",
+      "lastmod": "2026-01-21T14:49:50.600Z",
+      "country": "nl",
+      "slug": "accounting-specialist",
+      "jobId": "JR100922",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/keuken-medewerker/JR100962/",
+      "lastmod": "2026-03-02T13:18:13.286Z",
+      "country": "nl",
+      "slug": "keuken-medewerker",
+      "jobId": "JR100962",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-schoonmaak/JR100963/",
+      "lastmod": "2026-01-26T10:27:40.839Z",
+      "country": "nl",
+      "slug": "medewerker-schoonmaak",
+      "jobId": "JR100963",
+      "role": "housekeeping",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/keuken-medewerker/JR100968/",
+      "lastmod": "2026-01-28T13:26:17.921Z",
+      "country": "nl",
+      "slug": "keuken-medewerker",
+      "jobId": "JR100968",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-horeca/JR100525/",
+      "lastmod": "2026-02-10T14:33:16.984Z",
+      "country": "nl",
+      "slug": "medewerker-horeca",
+      "jobId": "JR100525",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-fastfood-snackbar/JR100577/",
+      "lastmod": "2026-01-26T11:15:24.203Z",
+      "country": "nl",
+      "slug": "medewerker-fastfood-snackbar",
+      "jobId": "JR100577",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/JR100579/",
+      "lastmod": "2025-12-08T15:01:17.398Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "JR100579",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-fun-en-entertainment/JR100583/",
+      "lastmod": "2026-03-09T09:56:14.293Z",
+      "country": "nl",
+      "slug": "stage-fun-en-entertainment",
+      "jobId": "JR100583",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-fun-en-entertainment/JR100612/",
+      "lastmod": "2025-12-11T11:41:07.307Z",
+      "country": "nl",
+      "slug": "stage-fun-en-entertainment",
+      "jobId": "JR100612",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/technisch-medewerker/JR100973/",
+      "lastmod": "2026-03-11T09:56:24.688Z",
+      "country": "nl",
+      "slug": "technisch-medewerker",
+      "jobId": "JR100973",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-technische-dienst/JR101021/",
+      "lastmod": "2026-02-05T09:55:05.986Z",
+      "country": "nl",
+      "slug": "bijbaan-technische-dienst",
+      "jobId": "JR101021",
+      "role": "techniek",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-supermarkt/JR100866/",
+      "lastmod": "2026-01-19T11:50:22.067Z",
+      "country": "nl",
+      "slug": "bijbaan-supermarkt",
+      "jobId": "JR100866",
+      "role": "retail",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-keuken/JR100869/",
+      "lastmod": "2026-01-19T12:05:57.089Z",
+      "country": "nl",
+      "slug": "bijbaan-keuken",
+      "jobId": "JR100869",
+      "role": "horeca-keuken",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/keuken-medewerker/JR100872/",
+      "lastmod": "2026-01-19T13:06:24.466Z",
+      "country": "nl",
+      "slug": "keuken-medewerker",
+      "jobId": "JR100872",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-zwembad/JR100817/",
+      "lastmod": "2026-02-23T09:41:27.900Z",
+      "country": "nl",
+      "slug": "bijbaan-zwembad",
+      "jobId": "JR100817",
+      "role": "zwembad",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-snackbar/JR100822/",
+      "lastmod": "2026-01-14T14:31:01.541Z",
+      "country": "nl",
+      "slug": "bijbaan-snackbar",
+      "jobId": "JR100822",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-spoelkeuken-student/JR100827/",
+      "lastmod": "2026-01-15T12:24:05.175Z",
+      "country": "nl",
+      "slug": "bijbaan-spoelkeuken-student",
+      "jobId": "JR100827",
+      "role": "horeca-keuken",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-horeca/JR100835/",
+      "lastmod": "2026-01-15T13:41:26.644Z",
+      "country": "nl",
+      "slug": "bijbaan-horeca",
+      "jobId": "JR100835",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-hr-recruitment/JR101418/",
+      "lastmod": "2026-03-12T09:24:07.178Z",
+      "country": "nl",
+      "slug": "stage-hr-recruitment",
+      "jobId": "JR101418",
+      "role": "hoofdkantoor",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-horeca/JR101560/",
+      "lastmod": "2026-03-12T08:29:24.702Z",
+      "country": "nl",
+      "slug": "bijbaan-horeca",
+      "jobId": "JR101560",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-snackbar/JR101567/",
+      "lastmod": "2026-03-12T11:42:26.889Z",
+      "country": "nl",
+      "slug": "bijbaan-snackbar",
+      "jobId": "JR101567",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca-in-de-ardennen/JR101576/",
+      "lastmod": "2026-03-12T12:14:39.499Z",
+      "country": "nl",
+      "slug": "stage-horeca-in-de-ardennen",
+      "jobId": "JR101576",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-keuken-in-de-ardennen/JR101575/",
+      "lastmod": "2026-03-12T12:12:39.543Z",
+      "country": "nl",
+      "slug": "stage-keuken-in-de-ardennen",
+      "jobId": "JR101575",
+      "role": "horeca-keuken",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-retail/JR101581/",
+      "lastmod": "2026-03-12T12:55:14.203Z",
+      "country": "nl",
+      "slug": "stage-retail",
+      "jobId": "JR101581",
+      "role": "retail",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-groen-en-techniek/JR101578/",
+      "lastmod": "2026-03-12T12:42:17.403Z",
+      "country": "nl",
+      "slug": "stage-groen-en-techniek",
+      "jobId": "JR101578",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-groen-en-techniek/JR101579/",
+      "lastmod": "2026-03-12T12:49:55.524Z",
+      "country": "nl",
+      "slug": "stage-groen-en-techniek",
+      "jobId": "JR101579",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/technisch-medewerker/JR101580/",
+      "lastmod": "2026-03-12T12:52:15.766Z",
+      "country": "nl",
+      "slug": "technisch-medewerker",
+      "jobId": "JR101580",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-spoelkeuken/JR101534/",
+      "lastmod": "2026-03-12T14:25:12.435Z",
+      "country": "nl",
+      "slug": "bijbaan-spoelkeuken",
+      "jobId": "JR101534",
+      "role": "horeca-keuken",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-snackbar/JR101583/",
+      "lastmod": "2026-03-12T14:25:05.591Z",
+      "country": "nl",
+      "slug": "medewerker-snackbar",
+      "jobId": "JR101583",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/supervisor-keuken/1203970/",
+      "lastmod": "2026-03-12T14:48:05.378Z",
+      "country": "nl",
+      "slug": "supervisor-keuken",
+      "jobId": "1203970",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-horeca/JR101585/",
+      "lastmod": "2026-03-12T15:34:00.117Z",
+      "country": "nl",
+      "slug": "bijbaan-horeca",
+      "jobId": "JR101585",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-parkmanagement/JR101584/",
+      "lastmod": "2026-03-12T15:21:23.794Z",
+      "country": "nl",
+      "slug": "stage-parkmanagement",
+      "jobId": "JR101584",
+      "role": "parkmanagement",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-animatie-aan-zee-met-slaapplek/JR101606/",
+      "lastmod": "2026-03-16T14:32:08.402Z",
+      "country": "nl",
+      "slug": "bijbaan-animatie-aan-zee-met-slaapplek",
+      "jobId": "JR101606",
+      "role": "fun-entertainment",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-fun-en-entertainment/JR100819/",
+      "lastmod": "2026-03-16T14:31:16.178Z",
+      "country": "nl",
+      "slug": "bijbaan-fun-en-entertainment",
+      "jobId": "JR100819",
+      "role": "fun-entertainment",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-fun-en-entertainment/JR101540/",
+      "lastmod": "2026-03-16T14:02:09.572Z",
+      "country": "nl",
+      "slug": "stage-fun-en-entertainment",
+      "jobId": "JR101540",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-operationeel-management-hbo/JR101609/",
+      "lastmod": "2026-03-18T10:34:03.910Z",
+      "country": "nl",
+      "slug": "stage-operationeel-management-hbo",
+      "jobId": "JR101609",
+      "role": "overig",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-bediening-harrewar-barista-parttime/JR100617/",
+      "lastmod": "2026-03-23T14:03:41.639Z",
+      "country": "nl",
+      "slug": "medewerker-bediening-harrewar-barista-parttime",
+      "jobId": "JR100617",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-bediening-gusto-fulltime/JR101339/",
+      "lastmod": "2026-03-23T13:41:48.501Z",
+      "country": "nl",
+      "slug": "medewerker-bediening-gusto-fulltime",
+      "jobId": "JR101339",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/JR101630/",
+      "lastmod": "2026-03-24T09:19:58.306Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "JR101630",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-snackbar/JR101692/",
+      "lastmod": "2026-03-24T08:48:44.294Z",
+      "country": "nl",
+      "slug": "bijbaan-snackbar",
+      "jobId": "JR101692",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-supermarkt-vakantiepark/JR101625/",
+      "lastmod": "2026-03-24T09:05:10.009Z",
+      "country": "nl",
+      "slug": "medewerker-supermarkt-vakantiepark",
+      "jobId": "JR101625",
+      "role": "retail",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/floormanager-housekeeping/JR101637/",
+      "lastmod": "2026-03-24T10:30:07.055Z",
+      "country": "nl",
+      "slug": "floormanager-housekeeping",
+      "jobId": "JR101637",
+      "role": "housekeeping",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-fun-en-entertainment/JR101357/",
+      "lastmod": "2026-03-24T15:17:31.943Z",
+      "country": "nl",
+      "slug": "stage-fun-en-entertainment",
+      "jobId": "JR101357",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/JR100647/",
+      "lastmod": "2026-03-25T08:57:23.479Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "JR100647",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-fun-en-entertainment/JR100961/",
+      "lastmod": "2026-03-24T15:22:01.840Z",
+      "country": "nl",
+      "slug": "stage-fun-en-entertainment",
+      "jobId": "JR100961",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-accounting/JR101741/",
+      "lastmod": "2026-03-26T14:27:03.623Z",
+      "country": "nl",
+      "slug": "medewerker-accounting",
+      "jobId": "JR101741",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-real-estate-commercial-support/JR101718/",
+      "lastmod": "2026-03-25T13:30:58.629Z",
+      "country": "nl",
+      "slug": "stage-real-estate-commercial-support",
+      "jobId": "JR101718",
+      "role": "hoofdkantoor",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/werken-en-verblijven-in-de-ardennen/JR101752/",
+      "lastmod": "2026-03-27T09:46:29.729Z",
+      "country": "nl",
+      "slug": "werken-en-verblijven-in-de-ardennen",
+      "jobId": "JR101752",
+      "role": "overig",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/etudiant-e-job-serveur-se/JR101705/",
+      "lastmod": "2026-03-27T09:45:55.744Z",
+      "country": "nl",
+      "slug": "etudiant-e-job-serveur-se",
+      "jobId": "JR101705",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/receptie-stage-aan-zee-met-verblijf/JR101738/",
+      "lastmod": "2026-03-27T13:15:31.369Z",
+      "country": "nl",
+      "slug": "receptie-stage-aan-zee-met-verblijf",
+      "jobId": "JR101738",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/lead-park-administrator/JR100332/",
+      "lastmod": "2026-03-30T09:39:41.728Z",
+      "country": "nl",
+      "slug": "lead-park-administrator",
+      "jobId": "JR100332",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/park-administrator-en-control-specialist/JR100749/",
+      "lastmod": "2026-03-30T09:44:42.204Z",
+      "country": "nl",
+      "slug": "park-administrator-en-control-specialist",
+      "jobId": "JR100749",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/kitchen-supervisor/JR101756/",
+      "lastmod": "2026-03-30T10:08:20.755Z",
+      "country": "nl",
+      "slug": "kitchen-supervisor",
+      "jobId": "JR101756",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/front-office-stage-aan-zee-met-verblijf/JR101739/",
+      "lastmod": "2026-03-30T08:06:18.958Z",
+      "country": "nl",
+      "slug": "front-office-stage-aan-zee-met-verblijf",
+      "jobId": "JR101739",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-bediening/JR101754/",
+      "lastmod": "2026-03-30T09:51:44.638Z",
+      "country": "nl",
+      "slug": "medewerker-bediening",
+      "jobId": "JR101754",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-front-office/JR101737/",
+      "lastmod": "2026-03-31T09:15:37.178Z",
+      "country": "nl",
+      "slug": "bijbaan-front-office",
+      "jobId": "JR101737",
+      "role": "front-office",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-snackbar/JR101017/",
+      "lastmod": "2026-03-30T12:12:00.721Z",
+      "country": "nl",
+      "slug": "bijbaan-snackbar",
+      "jobId": "JR101017",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/keuken-medewerker/JR101786/",
+      "lastmod": "2026-03-31T11:09:09.426Z",
+      "country": "nl",
+      "slug": "keuken-medewerker",
+      "jobId": "JR101786",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/keuken-medewerker/JR101794/",
+      "lastmod": "2026-03-31T13:41:36.909Z",
+      "country": "nl",
+      "slug": "keuken-medewerker",
+      "jobId": "JR101794",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zelfstandig-werkend-kok/JR101787/",
+      "lastmod": "2026-03-31T12:03:29.783Z",
+      "country": "nl",
+      "slug": "zelfstandig-werkend-kok",
+      "jobId": "JR101787",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-park-administratie/JR101806/",
+      "lastmod": "2026-04-01T06:55:15.600Z",
+      "country": "nl",
+      "slug": "stage-park-administratie",
+      "jobId": "JR101806",
+      "role": "parkmanagement",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/hulpkracht-zwembad/JR101771/",
+      "lastmod": "2026-04-01T07:36:49.255Z",
+      "country": "nl",
+      "slug": "hulpkracht-zwembad",
+      "jobId": "JR101771",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/formule-manager-facility-services/JR101303/",
+      "lastmod": "2026-04-02T14:26:59.246Z",
+      "country": "nl",
+      "slug": "formule-manager-facility-services",
+      "jobId": "JR101303",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/project-manager-process-improvement/JR101838/",
+      "lastmod": "2026-04-03T10:35:32.836Z",
+      "country": "nl",
+      "slug": "project-manager-process-improvement",
+      "jobId": "JR101838",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/crm-marketeer/JR101827/",
+      "lastmod": "2026-04-03T14:51:00.923Z",
+      "country": "nl",
+      "slug": "crm-marketeer",
+      "jobId": "JR101827",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/shiftleader-hospitality/JR101830/",
+      "lastmod": "2026-04-03T14:26:49.199Z",
+      "country": "nl",
+      "slug": "shiftleader-hospitality",
+      "jobId": "JR101830",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-fun-en-entertainment/JR101833/",
+      "lastmod": "2026-04-03T14:32:04.509Z",
+      "country": "nl",
+      "slug": "bijbaan-fun-en-entertainment",
+      "jobId": "JR101833",
+      "role": "fun-entertainment",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/restaurant-manager-gusto/JR101715/",
+      "lastmod": "2026-04-07T12:04:44.503Z",
+      "country": "nl",
+      "slug": "restaurant-manager-gusto",
+      "jobId": "JR101715",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/floormanager-horeca/JR101368/",
+      "lastmod": "2026-04-07T07:57:18.039Z",
+      "country": "nl",
+      "slug": "floormanager-horeca",
+      "jobId": "JR101368",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-techniek-en-onderhoud/JR101769/",
+      "lastmod": "2026-04-03T15:08:26.306Z",
+      "country": "nl",
+      "slug": "medewerker-techniek-en-onderhoud",
+      "jobId": "JR101769",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-contractbeheer/JR101776/",
+      "lastmod": "2026-04-09T12:05:31.262Z",
+      "country": "nl",
+      "slug": "medewerker-contractbeheer",
+      "jobId": "JR101776",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/category-manager-it/JR101877/",
+      "lastmod": "2026-04-09T13:45:30.342Z",
+      "country": "nl",
+      "slug": "category-manager-it",
+      "jobId": "JR101877",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-sales/JR101864/",
+      "lastmod": "2026-04-09T08:29:41.898Z",
+      "country": "nl",
+      "slug": "stage-sales",
+      "jobId": "JR101864",
+      "role": "hoofdkantoor",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/shift-leader-horeca/JR101853/",
+      "lastmod": "2026-04-09T11:58:55.108Z",
+      "country": "nl",
+      "slug": "shift-leader-horeca",
+      "jobId": "JR101853",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-fun-en-entertainment/JR101879/",
+      "lastmod": "2026-04-13T13:15:15.973Z",
+      "country": "nl",
+      "slug": "bijbaan-fun-en-entertainment",
+      "jobId": "JR101879",
+      "role": "fun-entertainment",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-bediening/JR101871/",
+      "lastmod": "2026-04-13T12:35:06.669Z",
+      "country": "nl",
+      "slug": "medewerker-bediening",
+      "jobId": "JR101871",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/keukenmedewerker/JR101929/",
+      "lastmod": "2026-04-13T13:23:45.258Z",
+      "country": "nl",
+      "slug": "keukenmedewerker",
+      "jobId": "JR101929",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-commercial-services/JR101978/",
+      "lastmod": "2026-04-14T08:42:18.735Z",
+      "country": "nl",
+      "slug": "stage-commercial-services",
+      "jobId": "JR101978",
+      "role": "hoofdkantoor",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-retail/JR101972/",
+      "lastmod": "2026-04-14T08:16:43.623Z",
+      "country": "nl",
+      "slug": "medewerker-retail",
+      "jobId": "JR101972",
+      "role": "retail",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerstage-animatie/JR102006/",
+      "lastmod": "2026-04-14T12:14:43.798Z",
+      "country": "nl",
+      "slug": "zomerstage-animatie",
+      "jobId": "JR102006",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerstage-met-verblijf-aan-zee/JR102018/",
+      "lastmod": "2026-04-14T13:26:28.225Z",
+      "country": "nl",
+      "slug": "zomerstage-met-verblijf-aan-zee",
+      "jobId": "JR102018",
+      "role": "overig",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerstage-fun-en-entertainment/JR102020/",
+      "lastmod": "2026-04-14T13:45:55.081Z",
+      "country": "nl",
+      "slug": "zomerstage-fun-en-entertainment",
+      "jobId": "JR102020",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerstage-horeca/JR102032/",
+      "lastmod": "2026-04-14T14:30:41.320Z",
+      "country": "nl",
+      "slug": "zomerstage-horeca",
+      "jobId": "JR102032",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerstage-fun-en-entertainment/JR102028/",
+      "lastmod": "2026-04-14T14:08:24.459Z",
+      "country": "nl",
+      "slug": "zomerstage-fun-en-entertainment",
+      "jobId": "JR102028",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-keuken/JR102047/",
+      "lastmod": "2026-04-15T08:38:26.878Z",
+      "country": "nl",
+      "slug": "medewerker-keuken",
+      "jobId": "JR102047",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/leidinggevende-horeca/JR100356/",
+      "lastmod": "2026-04-14T15:22:30.917Z",
+      "country": "nl",
+      "slug": "leidinggevende-horeca",
+      "jobId": "JR100356",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-snackbar/1180025/",
+      "lastmod": "2026-04-14T15:49:11.078Z",
+      "country": "nl",
+      "slug": "bijbaan-snackbar",
+      "jobId": "1180025",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerstage-horeca/JR102053/",
+      "lastmod": "2026-04-15T08:57:33.198Z",
+      "country": "nl",
+      "slug": "zomerstage-horeca",
+      "jobId": "JR102053",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-bediening-met-verblijf/JR102059/",
+      "lastmod": "2026-04-15T09:44:08.692Z",
+      "country": "nl",
+      "slug": "bijbaan-bediening-met-verblijf",
+      "jobId": "JR102059",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerstage-keuken-met-verblijf/JR102056/",
+      "lastmod": "2026-04-15T09:20:11.995Z",
+      "country": "nl",
+      "slug": "zomerstage-keuken-met-verblijf",
+      "jobId": "JR102056",
+      "role": "horeca-keuken",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/shiftleader-horeca/JR102070/",
+      "lastmod": "2026-04-15T11:15:48.862Z",
+      "country": "nl",
+      "slug": "shiftleader-horeca",
+      "jobId": "JR102070",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-technische-dienst/JR102087/",
+      "lastmod": "2026-04-15T12:38:12.182Z",
+      "country": "nl",
+      "slug": "medewerker-technische-dienst",
+      "jobId": "JR102087",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-technische-dienst/JR102080/",
+      "lastmod": "2026-04-15T11:54:46.590Z",
+      "country": "nl",
+      "slug": "medewerker-technische-dienst",
+      "jobId": "JR102080",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-property-en-maintenance-hbo/JR102089/",
+      "lastmod": "2026-04-15T13:04:52.803Z",
+      "country": "nl",
+      "slug": "stage-property-en-maintenance-hbo",
+      "jobId": "JR102089",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-housekeeping/JR102085/",
+      "lastmod": "2026-04-15T12:19:43.372Z",
+      "country": "nl",
+      "slug": "bijbaan-housekeeping",
+      "jobId": "JR102085",
+      "role": "housekeeping",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/category-buyer/JR101846/",
+      "lastmod": "2026-04-15T13:43:23.544Z",
+      "country": "nl",
+      "slug": "category-buyer",
+      "jobId": "JR101846",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-horeca/1133301/",
+      "lastmod": "2026-04-16T08:27:01.618Z",
+      "country": "nl",
+      "slug": "bijbaan-horeca",
+      "jobId": "1133301",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerstage-front-office/JR102147/",
+      "lastmod": "2026-04-16T13:07:26.506Z",
+      "country": "nl",
+      "slug": "zomerstage-front-office",
+      "jobId": "JR102147",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-bediening/JR101930/",
+      "lastmod": "2026-04-17T07:32:13.644Z",
+      "country": "nl",
+      "slug": "bijbaan-bediening",
+      "jobId": "JR101930",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerstage-receptie/JR102169/",
+      "lastmod": "2026-04-17T12:58:16.205Z",
+      "country": "nl",
+      "slug": "zomerstage-receptie",
+      "jobId": "JR102169",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-technische-dienst/JR102014/",
+      "lastmod": "2026-04-17T13:13:22.071Z",
+      "country": "nl",
+      "slug": "bijbaan-technische-dienst",
+      "jobId": "JR102014",
+      "role": "techniek",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/employer-branding-specialist/JR101890/",
+      "lastmod": "2026-04-20T13:06:55.928Z",
+      "country": "nl",
+      "slug": "employer-branding-specialist",
+      "jobId": "JR101890",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/shiftleader-front-office/JR102166/",
+      "lastmod": "2026-04-17T14:33:16.240Z",
+      "country": "nl",
+      "slug": "shiftleader-front-office",
+      "jobId": "JR102166",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-techniek-en-onderhoud/JR102135/",
+      "lastmod": "2026-04-21T08:12:59.611Z",
+      "country": "nl",
+      "slug": "medewerker-techniek-en-onderhoud",
+      "jobId": "JR102135",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zelfstandig-werkend-kok/JR101905/",
+      "lastmod": "2026-04-22T07:32:09.199Z",
+      "country": "nl",
+      "slug": "zelfstandig-werkend-kok",
+      "jobId": "JR101905",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-f-en-b-management/JR102222/",
+      "lastmod": "2026-04-22T07:45:28.567Z",
+      "country": "nl",
+      "slug": "stage-f-en-b-management",
+      "jobId": "JR102222",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-parkshop/JR102191/",
+      "lastmod": "2026-04-22T07:35:31.789Z",
+      "country": "nl",
+      "slug": "bijbaan-parkshop",
+      "jobId": "JR102191",
+      "role": "retail",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-technische-dienst/JR101525/",
+      "lastmod": "2026-04-22T08:42:32.894Z",
+      "country": "nl",
+      "slug": "stage-technische-dienst",
+      "jobId": "JR101525",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-parkshop/JR102190/",
+      "lastmod": "2026-04-22T08:39:42.244Z",
+      "country": "nl",
+      "slug": "bijbaan-parkshop",
+      "jobId": "JR102190",
+      "role": "retail",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/1158677/",
+      "lastmod": "2026-04-22T08:40:07.261Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "1158677",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/JR102237/",
+      "lastmod": "2026-04-22T11:39:06.497Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "JR102237",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-hospitality/JR102234/",
+      "lastmod": "2026-04-22T08:33:14.291Z",
+      "country": "nl",
+      "slug": "bijbaan-hospitality",
+      "jobId": "JR102234",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-zwembad/JR100836/",
+      "lastmod": "2026-04-22T09:29:56.253Z",
+      "country": "nl",
+      "slug": "bijbaan-zwembad",
+      "jobId": "JR100836",
+      "role": "zwembad",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/revenue-management-systems-lead/JR102225/",
+      "lastmod": "2026-04-22T12:06:58.314Z",
+      "country": "nl",
+      "slug": "revenue-management-systems-lead",
+      "jobId": "JR102225",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerstage-front-office-verblijf-op-het-park/JR102181/",
+      "lastmod": "2026-04-22T13:58:26.513Z",
+      "country": "nl",
+      "slug": "zomerstage-front-office-verblijf-op-het-park",
+      "jobId": "JR102181",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerstage-front-office/JR102245/",
+      "lastmod": "2026-04-22T13:55:32.916Z",
+      "country": "nl",
+      "slug": "zomerstage-front-office",
+      "jobId": "JR102245",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-zwembad/JR101772/",
+      "lastmod": "2026-04-22T14:07:23.153Z",
+      "country": "nl",
+      "slug": "medewerker-zwembad",
+      "jobId": "JR101772",
+      "role": "zwembad",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerstage-sport-en-animatie/JR102004/",
+      "lastmod": "2026-04-23T07:37:37.741Z",
+      "country": "nl",
+      "slug": "zomerstage-sport-en-animatie",
+      "jobId": "JR102004",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-sales/JR102093/",
+      "lastmod": "2026-04-23T08:04:39.842Z",
+      "country": "nl",
+      "slug": "stage-sales",
+      "jobId": "JR102093",
+      "role": "hoofdkantoor",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-fun-en-entertainment-horeca/JR101334/",
+      "lastmod": "2026-04-23T08:58:04.873Z",
+      "country": "nl",
+      "slug": "bijbaan-fun-en-entertainment-horeca",
+      "jobId": "JR101334",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-horeca/JR102195/",
+      "lastmod": "2026-04-23T11:42:44.072Z",
+      "country": "nl",
+      "slug": "bijbaan-horeca",
+      "jobId": "JR102195",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantie-baan-zomerbaan-horeca-keuken/JR101997/",
+      "lastmod": "2026-04-23T11:34:18.976Z",
+      "country": "nl",
+      "slug": "vakantie-baan-zomerbaan-horeca-keuken",
+      "jobId": "JR101997",
+      "role": "horeca-keuken",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/JR102252/",
+      "lastmod": "2026-04-23T13:15:12.764Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "JR102252",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-winkel/JR102263/",
+      "lastmod": "2026-04-24T07:24:26.740Z",
+      "country": "nl",
+      "slug": "bijbaan-winkel",
+      "jobId": "JR102263",
+      "role": "retail",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-horeca-bediening/JR102241/",
+      "lastmod": "2026-04-23T14:25:26.692Z",
+      "country": "nl",
+      "slug": "bijbaan-horeca-bediening",
+      "jobId": "JR102241",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-horeca/JR102239/",
+      "lastmod": "2026-04-23T14:02:41.719Z",
+      "country": "nl",
+      "slug": "bijbaan-horeca",
+      "jobId": "JR102239",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-horeca-allround/JR102249/",
+      "lastmod": "2026-04-24T07:41:11.345Z",
+      "country": "nl",
+      "slug": "medewerker-horeca-allround",
+      "jobId": "JR102249",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-bediening/JR102248/",
+      "lastmod": "2026-04-24T07:32:39.366Z",
+      "country": "nl",
+      "slug": "bijbaan-bediening",
+      "jobId": "JR102248",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-bediening/JR101859/",
+      "lastmod": "2026-04-24T11:09:27.748Z",
+      "country": "nl",
+      "slug": "bijbaan-bediening",
+      "jobId": "JR101859",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-snackbar/JR101860/",
+      "lastmod": "2026-04-24T11:08:32.656Z",
+      "country": "nl",
+      "slug": "bijbaan-snackbar",
+      "jobId": "JR101860",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerjob-horeca/JR102151/",
+      "lastmod": "2026-04-24T11:13:00.664Z",
+      "country": "nl",
+      "slug": "zomerjob-horeca",
+      "jobId": "JR102151",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/1157961/",
+      "lastmod": "2026-04-24T08:53:11.916Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "1157961",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/cooerdinator-housekeeping/JR100109/",
+      "lastmod": "2026-04-24T11:31:42.954Z",
+      "country": "nl",
+      "slug": "cooerdinator-housekeeping",
+      "jobId": "JR100109",
+      "role": "housekeeping",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medeweker-zwembad/JR101857/",
+      "lastmod": "2026-04-24T11:10:09.654Z",
+      "country": "nl",
+      "slug": "medeweker-zwembad",
+      "jobId": "JR101857",
+      "role": "zwembad",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-facility-management/1096783/",
+      "lastmod": "2026-04-24T08:42:31.767Z",
+      "country": "nl",
+      "slug": "stage-facility-management",
+      "jobId": "1096783",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-groen-en-techniek/1157624/",
+      "lastmod": "2026-04-24T08:45:11.034Z",
+      "country": "nl",
+      "slug": "stage-groen-en-techniek",
+      "jobId": "1157624",
+      "role": "techniek",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/shift-leader-f-en-b-service/JR102061/",
+      "lastmod": "2026-04-24T13:31:40.048Z",
+      "country": "nl",
+      "slug": "shift-leader-f-en-b-service",
+      "jobId": "JR102061",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/backoffice-shiftleader/JR102269/",
+      "lastmod": "2026-04-24T14:23:21.706Z",
+      "country": "nl",
+      "slug": "backoffice-shiftleader",
+      "jobId": "JR102269",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-snackbar/JR102250/",
+      "lastmod": "2026-04-24T13:52:50.155Z",
+      "country": "nl",
+      "slug": "medewerker-snackbar",
+      "jobId": "JR102250",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/keuken-medewerker/JR100878/",
+      "lastmod": "2026-04-24T14:30:30.908Z",
+      "country": "nl",
+      "slug": "keuken-medewerker",
+      "jobId": "JR100878",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-keuken/JR100967/",
+      "lastmod": "2026-04-24T14:31:48.043Z",
+      "country": "nl",
+      "slug": "bijbaan-keuken",
+      "jobId": "JR100967",
+      "role": "horeca-keuken",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-front-office-parttime/JR101536/",
+      "lastmod": "2026-04-24T14:51:35.161Z",
+      "country": "nl",
+      "slug": "medewerker-front-office-parttime",
+      "jobId": "JR101536",
+      "role": "front-office",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/leerling-kok/JR101615/",
+      "lastmod": "2026-04-24T14:58:11.051Z",
+      "country": "nl",
+      "slug": "leerling-kok",
+      "jobId": "JR101615",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-keuken/JR101613/",
+      "lastmod": "2026-04-24T14:54:15.411Z",
+      "country": "nl",
+      "slug": "bijbaan-keuken",
+      "jobId": "JR101613",
+      "role": "horeca-keuken",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-parkmanagement/JR101419/",
+      "lastmod": "2026-04-28T07:32:55.437Z",
+      "country": "nl",
+      "slug": "stage-parkmanagement",
+      "jobId": "JR101419",
+      "role": "parkmanagement",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zelfstandig-werkend-kok/JR101428/",
+      "lastmod": "2026-04-24T14:41:34.772Z",
+      "country": "nl",
+      "slug": "zelfstandig-werkend-kok",
+      "jobId": "JR101428",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-front-office/JR102273/",
+      "lastmod": "2026-04-28T11:19:44.415Z",
+      "country": "nl",
+      "slug": "medewerker-front-office",
+      "jobId": "JR102273",
+      "role": "front-office",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/assistant-manager-f-en-b/JR102283/",
+      "lastmod": "2026-04-28T11:24:48.875Z",
+      "country": "nl",
+      "slug": "assistant-manager-f-en-b",
+      "jobId": "JR102283",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-receptie-parttime/JR102146/",
+      "lastmod": "2026-04-28T13:11:01.402Z",
+      "country": "nl",
+      "slug": "medewerker-receptie-parttime",
+      "jobId": "JR102146",
+      "role": "front-office",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-allround/JR102288/",
+      "lastmod": "2026-04-28T12:48:09.240Z",
+      "country": "nl",
+      "slug": "bijbaan-allround",
+      "jobId": "JR102288",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-zwembad/JR102003/",
+      "lastmod": "2026-04-28T13:07:00.905Z",
+      "country": "nl",
+      "slug": "medewerker-zwembad",
+      "jobId": "JR102003",
+      "role": "zwembad",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/f-en-e-employee/JR101821/",
+      "lastmod": "2026-04-28T12:36:33.224Z",
+      "country": "nl",
+      "slug": "f-en-e-employee",
+      "jobId": "JR101821",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-technische-dienst/JR102125/",
+      "lastmod": "2026-04-28T13:02:13.231Z",
+      "country": "nl",
+      "slug": "bijbaan-technische-dienst",
+      "jobId": "JR102125",
+      "role": "techniek",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-zwembad/JR102124/",
+      "lastmod": "2026-04-28T13:00:33.009Z",
+      "country": "nl",
+      "slug": "bijbaan-zwembad",
+      "jobId": "JR102124",
+      "role": "zwembad",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-zwembad/JR101725/",
+      "lastmod": "2026-04-29T05:34:10.644Z",
+      "country": "nl",
+      "slug": "medewerker-zwembad",
+      "jobId": "JR101725",
+      "role": "zwembad",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/product-owner-growth/JR102289/",
+      "lastmod": "2026-04-28T13:49:01.725Z",
+      "country": "nl",
+      "slug": "product-owner-growth",
+      "jobId": "JR102289",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-esg-duurzaam-toerisme/JR102294/",
+      "lastmod": "2026-04-29T08:39:43.786Z",
+      "country": "nl",
+      "slug": "stage-esg-duurzaam-toerisme",
+      "jobId": "JR102294",
+      "role": "hoofdkantoor",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-fun-en-entertainment/JR100643/",
+      "lastmod": "2026-04-29T05:33:42.876Z",
+      "country": "nl",
+      "slug": "medewerker-fun-en-entertainment",
+      "jobId": "JR100643",
+      "role": "fun-entertainment",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-technische-dienst/JR102246/",
+      "lastmod": "2026-04-28T13:15:49.055Z",
+      "country": "nl",
+      "slug": "medewerker-technische-dienst",
+      "jobId": "JR102246",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/product-data-specialist/JR102287/",
+      "lastmod": "2026-04-28T13:45:50.386Z",
+      "country": "nl",
+      "slug": "product-data-specialist",
+      "jobId": "JR102287",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-afwas/JR102199/",
+      "lastmod": "2026-04-28T13:21:32.038Z",
+      "country": "nl",
+      "slug": "bijbaan-afwas",
+      "jobId": "JR102199",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/it-change-en-transition-lead/JR101314/",
+      "lastmod": "2026-04-29T11:54:20.751Z",
+      "country": "nl",
+      "slug": "it-change-en-transition-lead",
+      "jobId": "JR101314",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/business-analyst-home-owner/JR101758/",
+      "lastmod": "2026-04-29T10:50:44.218Z",
+      "country": "nl",
+      "slug": "business-analyst-home-owner",
+      "jobId": "JR101758",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/hulpkracht-hospitality/JR102284/",
+      "lastmod": "2026-04-29T09:13:43.502Z",
+      "country": "nl",
+      "slug": "hulpkracht-hospitality",
+      "jobId": "JR102284",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-horeca/JR102295/",
+      "lastmod": "2026-04-29T09:01:39.992Z",
+      "country": "nl",
+      "slug": "bijbaan-horeca",
+      "jobId": "JR102295",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-horeca-keuken/JR100621/",
+      "lastmod": "2026-04-29T12:07:30.446Z",
+      "country": "nl",
+      "slug": "bijbaan-horeca-keuken",
+      "jobId": "JR100621",
+      "role": "horeca-keuken",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/esg-controller/JR102242/",
+      "lastmod": "2026-04-29T12:37:22.792Z",
+      "country": "nl",
+      "slug": "esg-controller",
+      "jobId": "JR102242",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/lead-data-engineer/JR101284/",
+      "lastmod": "2026-04-29T12:39:02.975Z",
+      "country": "nl",
+      "slug": "lead-data-engineer",
+      "jobId": "JR101284",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/solution-en-business-analyst/JR101731/",
+      "lastmod": "2026-04-29T12:33:58.848Z",
+      "country": "nl",
+      "slug": "solution-en-business-analyst",
+      "jobId": "JR101731",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/manager-technische-dienst/JR102313/",
+      "lastmod": "2026-04-30T07:39:26.410Z",
+      "country": "nl",
+      "slug": "manager-technische-dienst",
+      "jobId": "JR102313",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/housekeeping-medewerker/JR102305/",
+      "lastmod": "2026-04-30T07:30:58.675Z",
+      "country": "nl",
+      "slug": "housekeeping-medewerker",
+      "jobId": "JR102305",
+      "role": "housekeeping",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/supervisor-horeca-keuken/JR100632/",
+      "lastmod": "2026-05-01T13:37:06.324Z",
+      "country": "nl",
+      "slug": "supervisor-horeca-keuken",
+      "jobId": "JR100632",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-fun-en-entertainment-april-t-oktober/JR100814/",
+      "lastmod": "2026-05-01T13:37:07.221Z",
+      "country": "nl",
+      "slug": "stage-fun-en-entertainment-april-t-oktober",
+      "jobId": "JR100814",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-zwembad/JR100831/",
+      "lastmod": "2026-05-01T13:37:07.557Z",
+      "country": "nl",
+      "slug": "bijbaan-zwembad",
+      "jobId": "JR100831",
+      "role": "zwembad",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-horeca/JR100832/",
+      "lastmod": "2026-05-01T13:37:08.135Z",
+      "country": "nl",
+      "slug": "bijbaan-horeca",
+      "jobId": "JR100832",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-front-office/JR101121/",
+      "lastmod": "2026-05-01T13:37:09.103Z",
+      "country": "nl",
+      "slug": "bijbaan-front-office",
+      "jobId": "JR101121",
+      "role": "front-office",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-supermarkt/JR101344/",
+      "lastmod": "2026-05-01T13:37:10.035Z",
+      "country": "nl",
+      "slug": "medewerker-supermarkt",
+      "jobId": "JR101344",
+      "role": "retail",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-supermarkt/JR101460/",
+      "lastmod": "2026-05-01T13:37:11.583Z",
+      "country": "nl",
+      "slug": "medewerker-supermarkt",
+      "jobId": "JR101460",
+      "role": "retail",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-fun-en-entertainment/JR101960/",
+      "lastmod": "2026-05-01T13:37:15.975Z",
+      "country": "nl",
+      "slug": "medewerker-fun-en-entertainment",
+      "jobId": "JR101960",
+      "role": "fun-entertainment",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantie-baan-zomerbaan-horeca-bediening/JR102034/",
+      "lastmod": "2026-05-01T13:37:17.803Z",
+      "country": "nl",
+      "slug": "vakantie-baan-zomerbaan-horeca-bediening",
+      "jobId": "JR102034",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-bediening-vakantiepark/JR102031/",
+      "lastmod": "2026-05-01T13:37:18.464Z",
+      "country": "nl",
+      "slug": "bijbaan-bediening-vakantiepark",
+      "jobId": "JR102031",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-bediening/JR102136/",
+      "lastmod": "2026-05-01T13:37:19.905Z",
+      "country": "nl",
+      "slug": "medewerker-bediening",
+      "jobId": "JR102136",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-technische-dienst/JR102037/",
+      "lastmod": "2026-05-01T13:37:21.147Z",
+      "country": "nl",
+      "slug": "medewerker-technische-dienst",
+      "jobId": "JR102037",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/manager-zwembad/JR101967/",
+      "lastmod": "2026-05-01T13:37:21.470Z",
+      "country": "nl",
+      "slug": "manager-zwembad",
+      "jobId": "JR101967",
+      "role": "zwembad",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-spoelkeuken/JR102128/",
+      "lastmod": "2026-05-01T13:37:21.801Z",
+      "country": "nl",
+      "slug": "medewerker-spoelkeuken",
+      "jobId": "JR102128",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-hospitality/JR102316/",
+      "lastmod": "2026-04-30T12:01:21.849Z",
+      "country": "nl",
+      "slug": "medewerker-hospitality",
+      "jobId": "JR102316",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-animatieteam/JR102320/",
+      "lastmod": "2026-04-30T12:02:25.794Z",
+      "country": "nl",
+      "slug": "bijbaan-animatieteam",
+      "jobId": "JR102320",
+      "role": "fun-entertainment",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/front-office-stage/JR102220/",
+      "lastmod": "2026-04-30T08:00:53.988Z",
+      "country": "nl",
+      "slug": "front-office-stage",
+      "jobId": "JR102220",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-fun-en-entertainment/JR102321/",
+      "lastmod": "2026-04-30T12:25:04.506Z",
+      "country": "nl",
+      "slug": "bijbaan-fun-en-entertainment",
+      "jobId": "JR102321",
+      "role": "fun-entertainment",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/keuken-medewerker/JR100502/",
+      "lastmod": "2026-05-01T13:24:36.481Z",
+      "country": "nl",
+      "slug": "keuken-medewerker",
+      "jobId": "JR100502",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-receptie/JR100128/",
+      "lastmod": "2026-05-01T13:24:35.768Z",
+      "country": "nl",
+      "slug": "medewerker-receptie",
+      "jobId": "JR100128",
+      "role": "front-office",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-winkel/JR101345/",
+      "lastmod": "2026-05-01T13:24:42.494Z",
+      "country": "nl",
+      "slug": "medewerker-winkel",
+      "jobId": "JR101345",
+      "role": "retail",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-technische-dienst/JR101511/",
+      "lastmod": "2026-05-01T13:24:42.831Z",
+      "country": "nl",
+      "slug": "medewerker-technische-dienst",
+      "jobId": "JR101511",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/keuken-medewerker/JR101520/",
+      "lastmod": "2026-05-01T13:24:43.192Z",
+      "country": "nl",
+      "slug": "keuken-medewerker",
+      "jobId": "JR101520",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-ijs-en-wafelverkoop/JR101687/",
+      "lastmod": "2026-05-01T13:24:43.518Z",
+      "country": "nl",
+      "slug": "medewerker-ijs-en-wafelverkoop",
+      "jobId": "JR101687",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerstage-front-office-en-retail/JR101647/",
+      "lastmod": "2026-05-01T13:24:43.829Z",
+      "country": "nl",
+      "slug": "zomerstage-front-office-en-retail",
+      "jobId": "JR101647",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-hospitality-flexibel-contract/JR101759/",
+      "lastmod": "2026-05-01T13:24:44.145Z",
+      "country": "nl",
+      "slug": "medewerker-hospitality-flexibel-contract",
+      "jobId": "JR101759",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerstage-fun-en-entertainment/JR102010/",
+      "lastmod": "2026-05-01T13:24:46.436Z",
+      "country": "nl",
+      "slug": "zomerstage-fun-en-entertainment",
+      "jobId": "JR102010",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-hospitality/JR102016/",
+      "lastmod": "2026-05-01T13:24:47.004Z",
+      "country": "nl",
+      "slug": "medewerker-hospitality",
+      "jobId": "JR102016",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-bediening/JR102033/",
+      "lastmod": "2026-05-01T13:24:47.294Z",
+      "country": "nl",
+      "slug": "medewerker-bediening",
+      "jobId": "JR102033",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-bediening/JR102071/",
+      "lastmod": "2026-05-01T13:24:48.959Z",
+      "country": "nl",
+      "slug": "medewerker-bediening",
+      "jobId": "JR102071",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/JR100770/",
+      "lastmod": "2026-05-01T13:24:37.134Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "JR100770",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-fun-en-entertainment/JR101004/",
+      "lastmod": "2026-05-01T13:24:38.200Z",
+      "country": "nl",
+      "slug": "stage-fun-en-entertainment",
+      "jobId": "JR101004",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-horeca/JR101126/",
+      "lastmod": "2026-05-01T13:24:40.284Z",
+      "country": "nl",
+      "slug": "medewerker-horeca",
+      "jobId": "JR101126",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-horeca-allround/JR101127/",
+      "lastmod": "2026-05-01T13:24:41.229Z",
+      "country": "nl",
+      "slug": "medewerker-horeca-allround",
+      "jobId": "JR101127",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-supermarkt-bakkerij/JR101343/",
+      "lastmod": "2026-05-01T13:24:41.544Z",
+      "country": "nl",
+      "slug": "medewerker-supermarkt-bakkerij",
+      "jobId": "JR101343",
+      "role": "retail",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-hospitality/JR101336/",
+      "lastmod": "2026-05-01T13:24:42.165Z",
+      "country": "nl",
+      "slug": "stage-hospitality",
+      "jobId": "JR101336",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-bediening-brasserie/JR102140/",
+      "lastmod": "2026-05-01T13:24:50.841Z",
+      "country": "nl",
+      "slug": "medewerker-bediening-brasserie",
+      "jobId": "JR102140",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-bediening-brasserie/JR102142/",
+      "lastmod": "2026-05-01T13:24:51.532Z",
+      "country": "nl",
+      "slug": "medewerker-bediening-brasserie",
+      "jobId": "JR102142",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-bediening/JR101953/",
+      "lastmod": "2026-05-01T13:24:51.854Z",
+      "country": "nl",
+      "slug": "medewerker-bediening",
+      "jobId": "JR101953",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/marketing-analyst/JR101866/",
+      "lastmod": "2026-05-01T13:58:25.181Z",
+      "country": "nl",
+      "slug": "marketing-analyst",
+      "jobId": "JR101866",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/studentenjob-horeca/JR102281/",
+      "lastmod": "2026-05-01T13:59:24.705Z",
+      "country": "nl",
+      "slug": "studentenjob-horeca",
+      "jobId": "JR102281",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-technische-dienst/JR102329/",
+      "lastmod": "2026-05-04T08:46:54.436Z",
+      "country": "nl",
+      "slug": "medewerker-technische-dienst",
+      "jobId": "JR102329",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-receptie/JR102335/",
+      "lastmod": "2026-05-04T08:31:24.579Z",
+      "country": "nl",
+      "slug": "medewerker-receptie",
+      "jobId": "JR102335",
+      "role": "front-office",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/shiftleader-horeca/JR102341/",
+      "lastmod": "2026-05-04T07:48:52.080Z",
+      "country": "nl",
+      "slug": "shiftleader-horeca",
+      "jobId": "JR102341",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/studentenjob-keuken/JR101351/",
+      "lastmod": "2026-05-04T09:34:40.272Z",
+      "country": "nl",
+      "slug": "studentenjob-keuken",
+      "jobId": "JR101351",
+      "role": "horeca-keuken",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/product-owner-tech-core-products/JR101779/",
+      "lastmod": "2026-05-04T13:26:37.833Z",
+      "country": "nl",
+      "slug": "product-owner-tech-core-products",
+      "jobId": "JR101779",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/tech-delivery-lead-web-frontend-focus/JR101837/",
+      "lastmod": "2026-05-04T13:25:07.310Z",
+      "country": "nl",
+      "slug": "tech-delivery-lead-web-frontend-focus",
+      "jobId": "JR101837",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/shiftleader-f-en-b-service/JR102366/",
+      "lastmod": "2026-05-05T07:34:26.742Z",
+      "country": "nl",
+      "slug": "shiftleader-f-en-b-service",
+      "jobId": "JR102366",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zelfstandig-werkend-kok/JR101906/",
+      "lastmod": "2026-05-05T07:43:41.062Z",
+      "country": "nl",
+      "slug": "zelfstandig-werkend-kok",
+      "jobId": "JR101906",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/front-office-medewerker/JR100334/",
+      "lastmod": "2026-05-05T07:26:52.616Z",
+      "country": "nl",
+      "slug": "front-office-medewerker",
+      "jobId": "JR100334",
+      "role": "front-office",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/tech-delivery-lead-mobile-apps-react-native/JR101732/",
+      "lastmod": "2026-05-04T13:26:02.658Z",
+      "country": "nl",
+      "slug": "tech-delivery-lead-mobile-apps-react-native",
+      "jobId": "JR101732",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-fun-en-entertainment/JR101781/",
+      "lastmod": "2026-05-04T10:44:21.846Z",
+      "country": "nl",
+      "slug": "stage-fun-en-entertainment",
+      "jobId": "JR101781",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/technisch-medewerker-vakantiepark/JR101588/",
+      "lastmod": "2026-05-04T10:58:42.298Z",
+      "country": "nl",
+      "slug": "technisch-medewerker-vakantiepark",
+      "jobId": "JR101588",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/business-analyst-hospitality-tech/JR101557/",
+      "lastmod": "2026-05-05T19:27:38.847Z",
+      "country": "nl",
+      "slug": "business-analyst-hospitality-tech",
+      "jobId": "JR101557",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-zwembad/JR102386/",
+      "lastmod": "2026-05-06T09:10:15.044Z",
+      "country": "nl",
+      "slug": "bijbaan-zwembad",
+      "jobId": "JR102386",
+      "role": "zwembad",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-communicatie/JR102371/",
+      "lastmod": "2026-05-05T12:42:45.359Z",
+      "country": "nl",
+      "slug": "stage-communicatie",
+      "jobId": "JR102371",
+      "role": "hoofdkantoor",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-bediening-vakantiepark/JR102349/",
+      "lastmod": "2026-05-05T11:29:09.125Z",
+      "country": "nl",
+      "slug": "medewerker-bediening-vakantiepark",
+      "jobId": "JR102349",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca/1178746/",
+      "lastmod": "2026-05-06T07:01:57.088Z",
+      "country": "nl",
+      "slug": "stage-horeca",
+      "jobId": "1178746",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/supervisor-keuken/JR102348/",
+      "lastmod": "2026-05-05T11:26:19.933Z",
+      "country": "nl",
+      "slug": "supervisor-keuken",
+      "jobId": "JR102348",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-keuken/JR102363/",
+      "lastmod": "2026-05-06T10:49:34.522Z",
+      "country": "nl",
+      "slug": "stage-keuken",
+      "jobId": "JR102363",
+      "role": "horeca-keuken",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantie-baan-zomerbaan-supermarkt-5-tot-38-uur/JR102173/",
+      "lastmod": "2026-05-06T12:33:30.589Z",
+      "country": "nl",
+      "slug": "vakantie-baan-zomerbaan-supermarkt-5-tot-38-uur",
+      "jobId": "JR102173",
+      "role": "retail",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/snackbar-medewerker/JR102362/",
+      "lastmod": "2026-05-06T13:31:06.701Z",
+      "country": "nl",
+      "slug": "snackbar-medewerker",
+      "jobId": "JR102362",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/leidinggevende-horeca/JR102365/",
+      "lastmod": "2026-05-06T13:40:23.297Z",
+      "country": "nl",
+      "slug": "leidinggevende-horeca",
+      "jobId": "JR102365",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-technische-dienst/JR102367/",
+      "lastmod": "2026-05-06T13:49:50.701Z",
+      "country": "nl",
+      "slug": "bijbaan-technische-dienst",
+      "jobId": "JR102367",
+      "role": "techniek",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-technische-dienst/JR102383/",
+      "lastmod": "2026-05-06T14:09:29.694Z",
+      "country": "nl",
+      "slug": "medewerker-technische-dienst",
+      "jobId": "JR102383",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantie-baan-zomerbaan-animatieteam-5-tot-38-uur/JR102007/",
+      "lastmod": "2026-05-06T13:55:36.268Z",
+      "country": "nl",
+      "slug": "vakantie-baan-zomerbaan-animatieteam-5-tot-38-uur",
+      "jobId": "JR102007",
+      "role": "fun-entertainment",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-front-office/JR102374/",
+      "lastmod": "2026-05-06T13:59:02.154Z",
+      "country": "nl",
+      "slug": "medewerker-front-office",
+      "jobId": "JR102374",
+      "role": "front-office",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantie-baan-animatieteam-5-tot-38-uur/JR101947/",
+      "lastmod": "2026-05-07T12:53:34.346Z",
+      "country": "nl",
+      "slug": "vakantie-baan-animatieteam-5-tot-38-uur",
+      "jobId": "JR101947",
+      "role": "fun-entertainment",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-front-office/JR102406/",
+      "lastmod": "2026-05-07T13:18:10.036Z",
+      "country": "nl",
+      "slug": "medewerker-front-office",
+      "jobId": "JR102406",
+      "role": "front-office",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-content-team-web-en-app/JR101709/",
+      "lastmod": "2026-05-08T08:30:24.710Z",
+      "country": "nl",
+      "slug": "stage-content-team-web-en-app",
+      "jobId": "JR101709",
+      "role": "hoofdkantoor",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/support-specialist-cleaning-en-operational-services/JR102408/",
+      "lastmod": "2026-05-07T13:53:06.071Z",
+      "country": "nl",
+      "slug": "support-specialist-cleaning-en-operational-services",
+      "jobId": "JR102408",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/parkadministrateur-franchise/JR102407/",
+      "lastmod": "2026-05-07T13:36:03.017Z",
+      "country": "nl",
+      "slug": "parkadministrateur-franchise",
+      "jobId": "JR102407",
+      "role": "overig",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/homeowner-settlements-employee/JR102409/",
+      "lastmod": "2026-05-07T13:47:43.112Z",
+      "country": "nl",
+      "slug": "homeowner-settlements-employee",
+      "jobId": "JR102409",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantie-baan-snackbar-met-verblijf-5-tot-38-uur/JR101980/",
+      "lastmod": "2026-05-07T14:38:02.675Z",
+      "country": "nl",
+      "slug": "vakantie-baan-snackbar-met-verblijf-5-tot-38-uur",
+      "jobId": "JR101980",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/growth-marketeer-denmark/JR101802/",
+      "lastmod": "2026-05-08T09:56:24.066Z",
+      "country": "nl",
+      "slug": "growth-marketeer-denmark",
+      "jobId": "JR101802",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/programmatic-specialist/JR102420/",
+      "lastmod": "2026-05-08T09:22:11.505Z",
+      "country": "nl",
+      "slug": "programmatic-specialist",
+      "jobId": "JR102420",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/paid-social-marketeer/JR102421/",
+      "lastmod": "2026-05-08T09:37:32.843Z",
+      "country": "nl",
+      "slug": "paid-social-marketeer",
+      "jobId": "JR102421",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/team-lead-accounting/JR102423/",
+      "lastmod": "2026-05-08T09:51:04.609Z",
+      "country": "nl",
+      "slug": "team-lead-accounting",
+      "jobId": "JR102423",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-klantenservice/JR100275/",
+      "lastmod": "2026-05-08T09:03:16.060Z",
+      "country": "nl",
+      "slug": "medewerker-klantenservice",
+      "jobId": "JR100275",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/seo-specialist-a-i/JR102422/",
+      "lastmod": "2026-05-08T09:37:48.796Z",
+      "country": "nl",
+      "slug": "seo-specialist-a-i",
+      "jobId": "JR102422",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-techniek-en-onderhoud-flexibel-oproepbasis/JR102015/",
+      "lastmod": "2026-05-08T10:04:03.797Z",
+      "country": "nl",
+      "slug": "medewerker-techniek-en-onderhoud-flexibel-oproepbasis",
+      "jobId": "JR102015",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/front-office-employee/JR101645/",
+      "lastmod": "2026-05-08T12:01:27.100Z",
+      "country": "nl",
+      "slug": "front-office-employee",
+      "jobId": "JR101645",
+      "role": "front-office",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/technische-dienst-vakantiepark-fulltime/JR101577/",
+      "lastmod": "2026-05-08T13:37:04.972Z",
+      "country": "nl",
+      "slug": "technische-dienst-vakantiepark-fulltime",
+      "jobId": "JR101577",
+      "role": "techniek",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-animatieteam-recreatie/JR102438/",
+      "lastmod": "2026-05-11T11:28:01.399Z",
+      "country": "nl",
+      "slug": "stage-animatieteam-recreatie",
+      "jobId": "JR102438",
+      "role": "fun-entertainment",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-animatie-5-38-uur/JR101896/",
+      "lastmod": "2026-05-12T08:13:57.678Z",
+      "country": "nl",
+      "slug": "vakantiebaan-animatie-5-38-uur",
+      "jobId": "JR101896",
+      "role": "fun-entertainment",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zelfstandigwerkend-kok/JR102434/",
+      "lastmod": "2026-05-11T11:30:19.120Z",
+      "country": "nl",
+      "slug": "zelfstandigwerkend-kok",
+      "jobId": "JR102434",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-horeca-bediening-vakantiepark-5-tot-38-uur/JR102449/",
+      "lastmod": "2026-05-11T12:50:25.231Z",
+      "country": "nl",
+      "slug": "bijbaan-horeca-bediening-vakantiepark-5-tot-38-uur",
+      "jobId": "JR102449",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-keukenmedewerker-fulltime/JR102255/",
+      "lastmod": "2026-05-12T09:01:29.870Z",
+      "country": "nl",
+      "slug": "vakantiebaan-keukenmedewerker-fulltime",
+      "jobId": "JR102255",
+      "role": "horeca-keuken",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-keuken-met-verblijf-5-38-uur/JR102065/",
+      "lastmod": "2026-05-12T11:22:06.122Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-keuken-met-verblijf-5-38-uur",
+      "jobId": "JR102065",
+      "role": "horeca-keuken",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/JR102446/",
+      "lastmod": "2026-05-12T09:26:18.709Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "JR102446",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-front-office/JR102445/",
+      "lastmod": "2026-05-12T09:25:03.661Z",
+      "country": "nl",
+      "slug": "stage-front-office",
+      "jobId": "JR102445",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-snackbar-5-38-uur/JR102063/",
+      "lastmod": "2026-05-12T11:19:15.558Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-snackbar-5-38-uur",
+      "jobId": "JR102063",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/teamleider-keuken/JR101568/",
+      "lastmod": "2026-05-12T09:47:22.010Z",
+      "country": "nl",
+      "slug": "teamleider-keuken",
+      "jobId": "JR101568",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-receptie-5-38-uur/JR101917/",
+      "lastmod": "2026-05-12T10:41:27.906Z",
+      "country": "nl",
+      "slug": "vakantiebaan-receptie-5-38-uur",
+      "jobId": "JR101917",
+      "role": "front-office",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-zwembad-met-verblijf-5-38-uur/JR101942/",
+      "lastmod": "2026-05-12T11:07:57.081Z",
+      "country": "nl",
+      "slug": "vakantiebaan-zwembad-met-verblijf-5-38-uur",
+      "jobId": "JR101942",
+      "role": "zwembad",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/risk-and-control-manager/JR102466/",
+      "lastmod": "2026-05-12T11:30:53.067Z",
+      "country": "nl",
+      "slug": "risk-and-control-manager",
+      "jobId": "JR102466",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/shifleader-animatieteam-5-38-uur/JR102469/",
+      "lastmod": "2026-05-12T12:07:05.111Z",
+      "country": "nl",
+      "slug": "shifleader-animatieteam-5-38-uur",
+      "jobId": "JR102469",
+      "role": "fun-entertainment",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-homeowner-relations-contracting/JR102459/",
+      "lastmod": "2026-05-12T11:57:45.034Z",
+      "country": "nl",
+      "slug": "stage-homeowner-relations-contracting",
+      "jobId": "JR102459",
+      "role": "hoofdkantoor",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-front-office-parttime-of-fulltime/JR102270/",
+      "lastmod": "2026-05-12T12:29:39.679Z",
+      "country": "nl",
+      "slug": "medewerker-front-office-parttime-of-fulltime",
+      "jobId": "JR102270",
+      "role": "front-office",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-snackbar-en-pizzeria-5-38-uur/JR102068/",
+      "lastmod": "2026-05-12T12:43:42.161Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-snackbar-en-pizzeria-5-38-uur",
+      "jobId": "JR102068",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-met-verblijf-5-38-uur/JR101938/",
+      "lastmod": "2026-05-12T11:37:24.129Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-met-verblijf-5-38-uur",
+      "jobId": "JR101938",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-technische-dienst-fulltime/JR102046/",
+      "lastmod": "2026-05-12T13:48:01.309Z",
+      "country": "nl",
+      "slug": "vakantiebaan-technische-dienst-fulltime",
+      "jobId": "JR102046",
+      "role": "techniek",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-5-38-uur/JR101886/",
+      "lastmod": "2026-05-12T13:15:38.817Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-5-38-uur",
+      "jobId": "JR101886",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-5-38-uur/JR102078/",
+      "lastmod": "2026-05-12T13:57:08.171Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-5-38-uur",
+      "jobId": "JR102078",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-technische-dienst-5-38-uur/JR101952/",
+      "lastmod": "2026-05-12T12:46:03.968Z",
+      "country": "nl",
+      "slug": "vakantiebaan-technische-dienst-5-38-uur",
+      "jobId": "JR101952",
+      "role": "techniek",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-5-38-uur/JR102036/",
+      "lastmod": "2026-05-12T12:50:57.521Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-5-38-uur",
+      "jobId": "JR102036",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-met-verblijf-5-38-uur/JR101948/",
+      "lastmod": "2026-05-12T13:53:27.797Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-met-verblijf-5-38-uur",
+      "jobId": "JR101948",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-pizzeria-en-friettent-5-38-uur/JR102123/",
+      "lastmod": "2026-05-12T13:00:49.309Z",
+      "country": "nl",
+      "slug": "vakantiebaan-pizzeria-en-friettent-5-38-uur",
+      "jobId": "JR102123",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-allround-5-38-uur/JR101964/",
+      "lastmod": "2026-05-12T14:14:11.202Z",
+      "country": "nl",
+      "slug": "vakantiebaan-allround-5-38-uur",
+      "jobId": "JR101964",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/shiftleader-horeca-bediening-vakantiepark/JR102391/",
+      "lastmod": "2026-05-12T14:31:40.104Z",
+      "country": "nl",
+      "slug": "shiftleader-horeca-bediening-vakantiepark",
+      "jobId": "JR102391",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-housekeeping-parttime/JR102130/",
+      "lastmod": "2026-05-12T15:25:23.680Z",
+      "country": "nl",
+      "slug": "vakantiebaan-housekeeping-parttime",
+      "jobId": "JR102130",
+      "role": "housekeeping",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-keuken-5-38-uur/JR102119/",
+      "lastmod": "2026-05-12T14:17:54.211Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-keuken-5-38-uur",
+      "jobId": "JR102119",
+      "role": "horeca-keuken",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-horeca-bediening-5-38-uur/JR102476/",
+      "lastmod": "2026-05-12T16:31:34.113Z",
+      "country": "nl",
+      "slug": "medewerker-horeca-bediening-5-38-uur",
+      "jobId": "JR102476",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-5-38-uur/JR101945/",
+      "lastmod": "2026-05-12T15:20:51.934Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-5-38-uur",
+      "jobId": "JR101945",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-horeca-keuken-5-38-uur/JR102475/",
+      "lastmod": "2026-05-12T16:25:06.192Z",
+      "country": "nl",
+      "slug": "medewerker-horeca-keuken-5-38-uur",
+      "jobId": "JR102475",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-receptie-aan-zee-met-verblijf/JR102473/",
+      "lastmod": "2026-05-12T14:13:01.485Z",
+      "country": "nl",
+      "slug": "stage-receptie-aan-zee-met-verblijf",
+      "jobId": "JR102473",
+      "role": "front-office",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-5-38-uur/JR102025/",
+      "lastmod": "2026-05-13T08:06:39.619Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-5-38-uur",
+      "jobId": "JR102025",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-afwas-5-38-uur/JR102072/",
+      "lastmod": "2026-05-13T09:00:21.126Z",
+      "country": "nl",
+      "slug": "vakantiebaan-afwas-5-38-uur",
+      "jobId": "JR102072",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-keuken-5-38-uur/JR102086/",
+      "lastmod": "2026-05-13T09:02:57.622Z",
+      "country": "nl",
+      "slug": "vakantiebaan-keuken-5-38-uur",
+      "jobId": "JR102086",
+      "role": "horeca-keuken",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-leisure-en-hospitality-met-verblijf/JR102435/",
+      "lastmod": "2026-05-12T16:35:43.624Z",
+      "country": "nl",
+      "slug": "stage-leisure-en-hospitality-met-verblijf",
+      "jobId": "JR102435",
+      "role": "horeca-bediening",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-front-office-32-uur/JR102253/",
+      "lastmod": "2026-05-13T07:39:28.468Z",
+      "country": "nl",
+      "slug": "vakantiebaan-front-office-32-uur",
+      "jobId": "JR102253",
+      "role": "front-office",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-animatieteam-5-38-uur/JR101893/",
+      "lastmod": "2026-05-13T08:44:16.617Z",
+      "country": "nl",
+      "slug": "vakantiebaan-animatieteam-5-38-uur",
+      "jobId": "JR101893",
+      "role": "fun-entertainment",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-zwembad-5-38-uur/JR101925/",
+      "lastmod": "2026-05-13T07:48:03.069Z",
+      "country": "nl",
+      "slug": "vakantiebaan-zwembad-5-38-uur",
+      "jobId": "JR101925",
+      "role": "zwembad",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-met-verblijf-5-38-uur/JR101993/",
+      "lastmod": "2026-05-13T08:05:03.052Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-met-verblijf-5-38-uur",
+      "jobId": "JR101993",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-zwembad-5-38-uur/JR101922/",
+      "lastmod": "2026-05-13T08:58:22.277Z",
+      "country": "nl",
+      "slug": "vakantiebaan-zwembad-5-38-uur",
+      "jobId": "JR101922",
+      "role": "zwembad",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-parkshop-5-38-uur/JR101936/",
+      "lastmod": "2026-05-13T08:54:58.683Z",
+      "country": "nl",
+      "slug": "vakantiebaan-parkshop-5-38-uur",
+      "jobId": "JR101936",
+      "role": "retail",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-met-verblijf-5-38-uur/JR102073/",
+      "lastmod": "2026-05-13T09:51:20.299Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-met-verblijf-5-38-uur",
+      "jobId": "JR102073",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-zwembad-5-38uur/JR102424/",
+      "lastmod": "2026-05-13T09:45:03.275Z",
+      "country": "nl",
+      "slug": "vakantiebaan-zwembad-5-38uur",
+      "jobId": "JR102424",
+      "role": "zwembad",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-snackbar-5-38-uur/JR102050/",
+      "lastmod": "2026-05-13T09:34:45.815Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-snackbar-5-38-uur",
+      "jobId": "JR102050",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-zwembad-5-tot-38-uur/JR101941/",
+      "lastmod": "2026-05-13T09:47:30.452Z",
+      "country": "nl",
+      "slug": "vakantiebaan-zwembad-5-tot-38-uur",
+      "jobId": "JR101941",
+      "role": "zwembad",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-zwembad-5-38-uur/JR102057/",
+      "lastmod": "2026-05-13T09:12:47.239Z",
+      "country": "nl",
+      "slug": "vakantiebaan-zwembad-5-38-uur",
+      "jobId": "JR102057",
+      "role": "zwembad",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-snackbar-5-38-uur/JR102144/",
+      "lastmod": "2026-05-13T09:27:07.845Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-snackbar-5-38-uur",
+      "jobId": "JR102144",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-5-38-uur/JR101984/",
+      "lastmod": "2026-05-13T09:32:24.486Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-5-38-uur",
+      "jobId": "JR101984",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/bijbaan-horeca/JR100580/",
+      "lastmod": "2026-05-13T09:20:26.319Z",
+      "country": "nl",
+      "slug": "bijbaan-horeca",
+      "jobId": "JR100580",
+      "role": "horeca-bediening",
+      "contract": "bijbaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-schoonmaak-5-38-uur/JR101994/",
+      "lastmod": "2026-05-13T09:08:57.476Z",
+      "country": "nl",
+      "slug": "vakantiebaan-schoonmaak-5-38-uur",
+      "jobId": "JR101994",
+      "role": "housekeeping",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-allround-met-verblijf-5-38-uur/JR102069/",
+      "lastmod": "2026-05-13T11:13:11.236Z",
+      "country": "nl",
+      "slug": "vakantiebaan-allround-met-verblijf-5-38-uur",
+      "jobId": "JR102069",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-receptie-5-38-uur/JR101919/",
+      "lastmod": "2026-05-13T10:52:37.227Z",
+      "country": "nl",
+      "slug": "vakantiebaan-receptie-5-38-uur",
+      "jobId": "JR101919",
+      "role": "front-office",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-keuken-parttime-32-uur/JR102175/",
+      "lastmod": "2026-05-13T11:01:13.471Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-keuken-parttime-32-uur",
+      "jobId": "JR102175",
+      "role": "horeca-keuken",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-parttime-20-tot-32-uur/JR102182/",
+      "lastmod": "2026-05-13T11:03:21.184Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-parttime-20-tot-32-uur",
+      "jobId": "JR102182",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-keuken-met-verblijf-5-38-uur/JR102064/",
+      "lastmod": "2026-05-13T10:39:35.386Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-keuken-met-verblijf-5-38-uur",
+      "jobId": "JR102064",
+      "role": "horeca-keuken",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-keuken-5-38-uur/JR102188/",
+      "lastmod": "2026-05-13T10:34:23.282Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-keuken-5-38-uur",
+      "jobId": "JR102188",
+      "role": "horeca-keuken",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-5-38-uur/JR102051/",
+      "lastmod": "2026-05-13T11:06:21.712Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-5-38-uur",
+      "jobId": "JR102051",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-animatieteam-5-tot-38-uur/JR102112/",
+      "lastmod": "2026-05-13T10:54:44.242Z",
+      "country": "nl",
+      "slug": "vakantiebaan-animatieteam-5-tot-38-uur",
+      "jobId": "JR102112",
+      "role": "fun-entertainment",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-met-verblijf-5-38-uur/JR101998/",
+      "lastmod": "2026-05-13T11:30:18.374Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-met-verblijf-5-38-uur",
+      "jobId": "JR101998",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-allround-met-verblijf-5-38-uur/JR101999/",
+      "lastmod": "2026-05-13T11:28:10.013Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-allround-met-verblijf-5-38-uur",
+      "jobId": "JR101999",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/leidinggevende-horeca-keuken-fulltime/JR102439/",
+      "lastmod": "2026-05-13T12:01:23.583Z",
+      "country": "nl",
+      "slug": "leidinggevende-horeca-keuken-fulltime",
+      "jobId": "JR102439",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-front-office-5-38-uur/JR102368/",
+      "lastmod": "2026-05-13T11:19:09.445Z",
+      "country": "nl",
+      "slug": "medewerker-front-office-5-38-uur",
+      "jobId": "JR102368",
+      "role": "front-office",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-animatieteam-5-38-uur/JR101898/",
+      "lastmod": "2026-05-13T12:01:49.679Z",
+      "country": "nl",
+      "slug": "vakantiebaan-animatieteam-5-38-uur",
+      "jobId": "JR101898",
+      "role": "fun-entertainment",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-animatieteam-5-38-uur/JR101924/",
+      "lastmod": "2026-05-13T11:25:51.197Z",
+      "country": "nl",
+      "slug": "vakantiebaan-animatieteam-5-38-uur",
+      "jobId": "JR101924",
+      "role": "fun-entertainment",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-met-verblijf-5-38-uur/JR101644/",
+      "lastmod": "2026-05-13T11:33:59.613Z",
+      "country": "nl",
+      "slug": "vakantiebaan-met-verblijf-5-38-uur",
+      "jobId": "JR101644",
+      "role": "overig",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-animatieteam-5-38-uur/JR101937/",
+      "lastmod": "2026-05-13T13:05:00.019Z",
+      "country": "nl",
+      "slug": "vakantiebaan-animatieteam-5-38-uur",
+      "jobId": "JR101937",
+      "role": "fun-entertainment",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-met-verblijf-5-38-uur/JR102049/",
+      "lastmod": "2026-05-13T12:14:05.425Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-met-verblijf-5-38-uur",
+      "jobId": "JR102049",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-bediening-5-38-uur/JR101959/",
+      "lastmod": "2026-05-13T12:43:47.079Z",
+      "country": "nl",
+      "slug": "vakantiebaan-bediening-5-38-uur",
+      "jobId": "JR101959",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-spoelkeuken-5-38-uur/JR101962/",
+      "lastmod": "2026-05-13T13:00:18.603Z",
+      "country": "nl",
+      "slug": "vakantiebaan-spoelkeuken-5-38-uur",
+      "jobId": "JR101962",
+      "role": "horeca-keuken",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-keuken-5-38-uur/JR102183/",
+      "lastmod": "2026-05-13T13:02:35.044Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-keuken-5-38-uur",
+      "jobId": "JR102183",
+      "role": "horeca-keuken",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-parkshop-5-38-uur/JR101926/",
+      "lastmod": "2026-05-13T12:25:12.842Z",
+      "country": "nl",
+      "slug": "vakantiebaan-parkshop-5-38-uur",
+      "jobId": "JR101926",
+      "role": "retail",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-parkshop-5-38-uur/JR101971/",
+      "lastmod": "2026-05-13T11:36:21.105Z",
+      "country": "nl",
+      "slug": "vakantiebaan-parkshop-5-38-uur",
+      "jobId": "JR101971",
+      "role": "retail",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/receptie-medewerker-fulltime/JR102452/",
+      "lastmod": "2026-05-13T12:26:04.537Z",
+      "country": "nl",
+      "slug": "receptie-medewerker-fulltime",
+      "jobId": "JR102452",
+      "role": "front-office",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-snackbar-met-verblijf-5-38-uur/JR101976/",
+      "lastmod": "2026-05-13T13:21:56.474Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-snackbar-met-verblijf-5-38-uur",
+      "jobId": "JR101976",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-met-verblijf-5-38-uur/JR101990/",
+      "lastmod": "2026-05-13T13:16:48.091Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-met-verblijf-5-38-uur",
+      "jobId": "JR101990",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-bediening-met-verblijf-fulltime/JR102132/",
+      "lastmod": "2026-05-13T13:19:26.571Z",
+      "country": "nl",
+      "slug": "vakantiebaan-bediening-met-verblijf-fulltime",
+      "jobId": "JR102132",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-winkelmedewerker-5-38-uur/JR102464/",
+      "lastmod": "2026-05-13T13:14:42.031Z",
+      "country": "nl",
+      "slug": "vakantiebaan-winkelmedewerker-5-38-uur",
+      "jobId": "JR102464",
+      "role": "retail",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-horeca-bediening-en-keuken-fulltime/JR102345/",
+      "lastmod": "2026-05-13T13:21:38.834Z",
+      "country": "nl",
+      "slug": "medewerker-horeca-bediening-en-keuken-fulltime",
+      "jobId": "JR102345",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/front-office-manager-fulltime/JR102453/",
+      "lastmod": "2026-05-13T13:12:53.315Z",
+      "country": "nl",
+      "slug": "front-office-manager-fulltime",
+      "jobId": "JR102453",
+      "role": "front-office",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-animatie-met-verblijf-5-38-uur/JR101918/",
+      "lastmod": "2026-05-13T13:12:23.368Z",
+      "country": "nl",
+      "slug": "vakantiebaan-animatie-met-verblijf-5-38-uur",
+      "jobId": "JR101918",
+      "role": "fun-entertainment",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-schoonmaak-5-38-uur/JR102154/",
+      "lastmod": "2026-05-13T13:56:26.188Z",
+      "country": "nl",
+      "slug": "vakantiebaan-schoonmaak-5-38-uur",
+      "jobId": "JR102154",
+      "role": "housekeeping",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-keuken-met-verblijf-5-38-uur/JR101988/",
+      "lastmod": "2026-05-13T13:24:33.142Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-keuken-met-verblijf-5-38-uur",
+      "jobId": "JR101988",
+      "role": "horeca-keuken",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-5-38-uur/JR102092/",
+      "lastmod": "2026-05-13T13:43:38.635Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-5-38-uur",
+      "jobId": "JR102092",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-5-38-uur/JR102256/",
+      "lastmod": "2026-05-13T13:36:02.844Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-5-38-uur",
+      "jobId": "JR102256",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-zwembad-fulltime/JR101944/",
+      "lastmod": "2026-05-15T06:32:00.848Z",
+      "country": "nl",
+      "slug": "vakantiebaan-zwembad-fulltime",
+      "jobId": "JR101944",
+      "role": "zwembad",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/business-controller-operations/JR102262/",
+      "lastmod": "2026-05-15T06:31:26.112Z",
+      "country": "nl",
+      "slug": "business-controller-operations",
+      "jobId": "JR102262",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-animatieteam-met-verblijf-5-38-uur/JR102114/",
+      "lastmod": "2026-05-15T06:40:43.478Z",
+      "country": "nl",
+      "slug": "vakantiebaan-animatieteam-met-verblijf-5-38-uur",
+      "jobId": "JR102114",
+      "role": "fun-entertainment",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-met-verblijf-fulltime/JR102174/",
+      "lastmod": "2026-05-15T06:46:56.788Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-met-verblijf-fulltime",
+      "jobId": "JR102174",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-keuken-5-38-uur/JR101995/",
+      "lastmod": "2026-05-13T14:20:30.786Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-keuken-5-38-uur",
+      "jobId": "JR101995",
+      "role": "horeca-keuken",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-5-38-uur/JR102129/",
+      "lastmod": "2026-05-13T14:18:02.997Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-5-38-uur",
+      "jobId": "JR102129",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerbaan-horeca-5-38-uur/JR101889/",
+      "lastmod": "2026-05-13T14:05:09.944Z",
+      "country": "nl",
+      "slug": "zomerbaan-horeca-5-38-uur",
+      "jobId": "JR101889",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-animatieteam-met-verblijf-5-38-uur/JR101940/",
+      "lastmod": "2026-05-15T06:34:12.479Z",
+      "country": "nl",
+      "slug": "vakantiebaan-animatieteam-met-verblijf-5-38-uur",
+      "jobId": "JR101940",
+      "role": "fun-entertainment",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-snackbar-5-38-uur/JR101975/",
+      "lastmod": "2026-05-13T14:12:41.926Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-snackbar-5-38-uur",
+      "jobId": "JR101975",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-parkshop-5-38-uur/JR102019/",
+      "lastmod": "2026-05-15T06:44:24.055Z",
+      "country": "nl",
+      "slug": "vakantiebaan-parkshop-5-38-uur",
+      "jobId": "JR102019",
+      "role": "retail",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-keuken-5-38-uur/JR102133/",
+      "lastmod": "2026-05-13T14:23:37.112Z",
+      "country": "nl",
+      "slug": "vakantiebaan-keuken-5-38-uur",
+      "jobId": "JR102133",
+      "role": "horeca-keuken",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-keuken-5-38-uur/JR101986/",
+      "lastmod": "2026-05-13T14:09:19.795Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-keuken-5-38-uur",
+      "jobId": "JR101986",
+      "role": "horeca-keuken",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-snackbar-met-verblijf-fulltime/JR102138/",
+      "lastmod": "2026-05-15T06:51:37.450Z",
+      "country": "nl",
+      "slug": "vakantiebaan-snackbar-met-verblijf-fulltime",
+      "jobId": "JR102138",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-shiftleader-horeca-fulltime/JR102307/",
+      "lastmod": "2026-05-15T07:15:03.358Z",
+      "country": "nl",
+      "slug": "vakantiebaan-shiftleader-horeca-fulltime",
+      "jobId": "JR102307",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-animatieteam-met-verblijf-5-38-uur/JR101921/",
+      "lastmod": "2026-05-15T07:17:34.951Z",
+      "country": "nl",
+      "slug": "vakantiebaan-animatieteam-met-verblijf-5-38-uur",
+      "jobId": "JR101921",
+      "role": "fun-entertainment",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-keuken-met-verblijf-fulltime/JR102060/",
+      "lastmod": "2026-05-15T06:49:40.517Z",
+      "country": "nl",
+      "slug": "vakantiebaan-keuken-met-verblijf-fulltime",
+      "jobId": "JR102060",
+      "role": "horeca-keuken",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-animatieteam-5-38-uur/JR102090/",
+      "lastmod": "2026-05-15T07:20:14.391Z",
+      "country": "nl",
+      "slug": "vakantiebaan-animatieteam-5-38-uur",
+      "jobId": "JR102090",
+      "role": "fun-entertainment",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-bediening-5-38-uur/JR102048/",
+      "lastmod": "2026-05-15T07:00:33.917Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-bediening-5-38-uur",
+      "jobId": "JR102048",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-afwas-5-38-uur/JR102187/",
+      "lastmod": "2026-05-15T06:58:32.684Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-afwas-5-38-uur",
+      "jobId": "JR102187",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/operations-manager-vakantiepark/JR101013/",
+      "lastmod": "2026-05-15T09:27:01.643Z",
+      "country": "nl",
+      "slug": "operations-manager-vakantiepark",
+      "jobId": "JR101013",
+      "role": "hoofdkantoor",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/masseur/JR102457/",
+      "lastmod": "2026-05-15T09:50:43.617Z",
+      "country": "nl",
+      "slug": "masseur",
+      "jobId": "JR102457",
+      "role": "overig",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/masseur/JR102456/",
+      "lastmod": "2026-05-15T09:45:36.207Z",
+      "country": "nl",
+      "slug": "masseur",
+      "jobId": "JR102456",
+      "role": "overig",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-animatieteam-met-verblijf-32-uur/JR102030/",
+      "lastmod": "2026-05-15T07:50:03.810Z",
+      "country": "nl",
+      "slug": "vakantiebaan-animatieteam-met-verblijf-32-uur",
+      "jobId": "JR102030",
+      "role": "fun-entertainment",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-5-tot-38-uur/JR102029/",
+      "lastmod": "2026-05-15T07:46:15.839Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-5-tot-38-uur",
+      "jobId": "JR102029",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/zomerbaan-allround-resort-medewerker-24-32-uur/JR102491/",
+      "lastmod": "2026-05-15T09:15:04.644Z",
+      "country": "nl",
+      "slug": "zomerbaan-allround-resort-medewerker-24-32-uur",
+      "jobId": "JR102491",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-zwembad-5-38-uur/JR101943/",
+      "lastmod": "2026-05-15T10:57:24.930Z",
+      "country": "nl",
+      "slug": "vakantiebaan-zwembad-5-38-uur",
+      "jobId": "JR101943",
+      "role": "zwembad",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/parkshop-vakantiepark-parttime-32-uur/JR102450/",
+      "lastmod": "2026-05-15T09:17:13.070Z",
+      "country": "nl",
+      "slug": "parkshop-vakantiepark-parttime-32-uur",
+      "jobId": "JR102450",
+      "role": "retail",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-receptie-5-38-uur/JR102496/",
+      "lastmod": "2026-05-15T14:35:07.110Z",
+      "country": "nl",
+      "slug": "vakantiebaan-receptie-5-38-uur",
+      "jobId": "JR102496",
+      "role": "front-office",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/shift-leader-horeca-bediening-fulltime/JR102481/",
+      "lastmod": "2026-05-15T12:45:30.799Z",
+      "country": "nl",
+      "slug": "shift-leader-horeca-bediening-fulltime",
+      "jobId": "JR102481",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-horeca-snackbar-5-38-uur/JR102495/",
+      "lastmod": "2026-05-15T14:01:39.607Z",
+      "country": "nl",
+      "slug": "vakantiebaan-horeca-snackbar-5-38-uur",
+      "jobId": "JR102495",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-fietsverhuur-vakantiepark-parttime/JR102462/",
+      "lastmod": "2026-05-15T12:20:56.312Z",
+      "country": "nl",
+      "slug": "medewerker-fietsverhuur-vakantiepark-parttime",
+      "jobId": "JR102462",
+      "role": "overig",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakatiebaan-receptie-met-verblijf-5-38-uur/JR102104/",
+      "lastmod": "2026-05-15T11:09:17.200Z",
+      "country": "nl",
+      "slug": "vakatiebaan-receptie-met-verblijf-5-38-uur",
+      "jobId": "JR102104",
+      "role": "front-office",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/stage-horeca-bediening-en-keuken/JR102474/",
+      "lastmod": "2026-05-15T12:29:54.725Z",
+      "country": "nl",
+      "slug": "stage-horeca-bediening-en-keuken",
+      "jobId": "JR102474",
+      "role": "horeca-keuken",
+      "contract": "stage"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-supermarkt-8-12-uur/JR100818/",
+      "lastmod": "2026-05-15T14:54:00.734Z",
+      "country": "nl",
+      "slug": "vakantiebaan-supermarkt-8-12-uur",
+      "jobId": "JR100818",
+      "role": "retail",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-fun-en-entertainment/1205999/",
+      "lastmod": "2026-05-15T11:19:12.013Z",
+      "country": "nl",
+      "slug": "medewerker-fun-en-entertainment",
+      "jobId": "1205999",
+      "role": "fun-entertainment",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-bediening-5-38-uur/JR102150/",
+      "lastmod": "2026-05-15T10:53:19.540Z",
+      "country": "nl",
+      "slug": "vakantiebaan-bediening-5-38-uur",
+      "jobId": "JR102150",
+      "role": "horeca-bediening",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/kitchen-supervisor/JR102461/",
+      "lastmod": "2026-05-15T14:55:06.756Z",
+      "country": "nl",
+      "slug": "kitchen-supervisor",
+      "jobId": "JR102461",
+      "role": "horeca-keuken",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-horeca-bediening-5-38-uur/JR102497/",
+      "lastmod": "2026-05-15T14:54:21.928Z",
+      "country": "nl",
+      "slug": "medewerker-horeca-bediening-5-38-uur",
+      "jobId": "JR102497",
+      "role": "horeca-bediening",
+      "contract": "vast"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/vakantiebaan-front-office-5-38-uur/JR102482/",
+      "lastmod": "2026-05-18T08:01:18.136Z",
+      "country": "nl",
+      "slug": "vakantiebaan-front-office-5-38-uur",
+      "jobId": "JR102482",
+      "role": "front-office",
+      "contract": "vakantiebaan"
+    },
+    {
+      "kind": "vacancy",
+      "url": "https://jobs.landal.com/nl-nl/vacatures/medewerker-front-office-24-32-uur/JR102483/",
+      "lastmod": "2026-05-18T08:34:58.811Z",
+      "country": "nl",
+      "slug": "medewerker-front-office-24-32-uur",
+      "jobId": "JR102483",
+      "role": "front-office",
+      "contract": "vast"
+    }
+  ],
+  "campaigns": [
+    {
+      "kind": "campaign",
+      "url": "https://jobs.landal.com/nl-nl/campagne/zomerbaan/",
+      "lastmod": "2026-04-15T07:05:08Z",
+      "country": "nl",
+      "slug": "zomerbaan"
+    },
+    {
+      "kind": "campaign",
+      "url": "https://jobs.landal.com/nl-nl/campagne/zomerbaan-noord-holland/",
+      "lastmod": "2026-04-15T09:52:37Z",
+      "country": "nl",
+      "slug": "zomerbaan-noord-holland"
+    },
+    {
+      "kind": "campaign",
+      "url": "https://jobs.landal.com/nl-nl/campagne/zomerbaan-zeeland/",
+      "lastmod": "2026-04-15T09:52:39Z",
+      "country": "nl",
+      "slug": "zomerbaan-zeeland"
+    },
+    {
+      "kind": "campaign",
+      "url": "https://jobs.landal.com/nl-nl/campagne/zomerbaan-zuid-holland/",
+      "lastmod": "2026-04-15T09:52:41Z",
+      "country": "nl",
+      "slug": "zomerbaan-zuid-holland"
+    },
+    {
+      "kind": "campaign",
+      "url": "https://jobs.landal.com/nl-nl/campagne/zomerbaan-brabant-limburg/",
+      "lastmod": "2026-04-15T09:52:43Z",
+      "country": "nl",
+      "slug": "zomerbaan-brabant-limburg"
+    },
+    {
+      "kind": "campaign",
+      "url": "https://jobs.landal.com/nl-nl/campagne/zomerbaan-drenthe-overijssel/",
+      "lastmod": "2026-04-15T10:33:14Z",
+      "country": "nl",
+      "slug": "zomerbaan-drenthe-overijssel"
+    },
+    {
+      "kind": "campaign",
+      "url": "https://jobs.landal.com/nl-nl/campagne/zomerbaan-gelderland/",
+      "lastmod": "2026-04-15T09:52:47Z",
+      "country": "nl",
+      "slug": "zomerbaan-gelderland"
+    }
+  ],
+  "locations": [
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/nl-nl/locatie/reeuwijkse-plassen/",
+      "lastmod": "2026-02-26T09:40:07Z",
+      "country": "nl",
+      "slug": "reeuwijkse-plassen"
+    },
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/de-de/standort/reeuwijkse-plassen/",
+      "lastmod": "2026-03-11T08:19:13Z",
+      "country": "de",
+      "slug": "reeuwijkse-plassen"
+    },
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/dk-da/lokation/reeuwijkse-plassen/",
+      "lastmod": "2026-03-11T12:00:35Z",
+      "country": "dk",
+      "slug": "reeuwijkse-plassen"
+    },
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/gb-en/location/reeuwijkse-plassen/",
+      "lastmod": "2026-03-11T09:56:10Z",
+      "country": "gb",
+      "slug": "reeuwijkse-plassen"
+    },
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/nl-nl/locatie/beach-resort-nieuwvliet-bad/",
+      "lastmod": "2026-05-13T12:14:06Z",
+      "country": "nl",
+      "slug": "beach-resort-nieuwvliet-bad"
+    },
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/nl-nl/locatie/de-heihorsten/",
+      "lastmod": "2026-05-01T11:09:39Z",
+      "country": "nl",
+      "slug": "de-heihorsten"
+    },
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/nl-nl/locatie/de-wielsche-dreef/",
+      "lastmod": "2026-05-01T11:09:41Z",
+      "country": "nl",
+      "slug": "de-wielsche-dreef"
+    },
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/nl-nl/locatie/het-vennenbos/",
+      "lastmod": "2026-05-13T12:14:27Z",
+      "country": "nl",
+      "slug": "het-vennenbos"
+    },
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/nl-nl/locatie/hillview-resort-grandvoir/",
+      "lastmod": "2026-05-01T11:09:34Z",
+      "country": "nl",
+      "slug": "hillview-resort-grandvoir"
+    },
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/nl-nl/locatie/hof-van-saksen/",
+      "lastmod": "2026-04-16T10:55:33Z",
+      "country": "nl",
+      "slug": "hof-van-saksen"
+    },
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/nl-nl/locatie/mooi-zutendaal/",
+      "lastmod": "2026-05-01T11:09:35Z",
+      "country": "nl",
+      "slug": "mooi-zutendaal"
+    },
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/nl-nl/locatie/noordzee-residence-cadzand-bad/",
+      "lastmod": "2026-05-13T12:14:35Z",
+      "country": "nl",
+      "slug": "noordzee-residence-cadzand-bad"
+    },
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/nl-nl/locatie/olde-kottink/",
+      "lastmod": "2026-05-01T11:09:40Z",
+      "country": "nl",
+      "slug": "olde-kottink"
+    },
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/nl-nl/locatie/park-eksel/",
+      "lastmod": "2026-05-01T11:09:33Z",
+      "country": "nl",
+      "slug": "park-eksel"
+    },
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/dk-da/lokation/r-nbjerg/",
+      "lastmod": "2026-05-01T11:09:36Z",
+      "country": "dk",
+      "slug": "r-nbjerg"
+    },
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/dk-da/lokation/s-h-jlandet/",
+      "lastmod": "2026-05-01T11:09:37Z",
+      "country": "dk",
+      "slug": "s-h-jlandet"
+    },
+    {
+      "kind": "location",
+      "url": "https://jobs.landal.com/de-de/standort/travemunde/",
+      "lastmod": "2026-05-01T11:09:38Z",
+      "country": "de",
+      "slug": "travemunde"
+    }
+  ]
+}

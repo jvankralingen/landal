@@ -573,6 +573,7 @@ export const parkGalleryImages = {
   bloemert: ['7781493', '3954618', '4089430'],
   drentse_lagune: ['7271208', '7271158', '7978972'],
   land_van_bartje: ['7907321', '9544889', '7907138'],
+  hof_van_saksen: ['8311884'],
   hunerwold: ['3933426', '3933478', '4089430'],
   hunzepark: ['8481823', '8481818', '8481848'],
   orveltermarke: ['7355610', '8307788', '7964763'],
