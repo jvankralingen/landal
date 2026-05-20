@@ -71,48 +71,31 @@ export function useImageOverrides() {
   );
 
   /**
-   * Hiërarchische lookup (specifiekst eerst):
-   *  - primary:
-   *      1. subject + rol     — meest specifiek
-   *      2. rol-only          — "deze rol op elk park" (rol > park)
-   *      3. subject-only      — "dit park voor elke rol"
-   *  - andere slots: altijd subject-only
+   * Exact-match lookup. Override geldt alléén voor de huidige selectie;
+   * een upload onder "park-only" verschijnt NIET in "park+rol" view (daar
+   * zou de default-picker een rol-specifieke foto tonen).
    *
-   * Retourneert ook welk niveau gematcht heeft zodat de UI weet welke
-   * reset uitgevoerd moet worden.
+   * Non-primary slots negeren rol — voor die slots is alleen subject-axis.
    */
   const overrideFor = useCallback(
     (
       subject: OverrideSubject | null | undefined,
       role: string | null | undefined,
       slot: BentoSlot
-    ):
-      | { dataUrl: string; level: 'subject+role' | 'role' | 'subject' }
-      | undefined => {
-      if (slot === 'primary') {
-        if (subject && role) {
-          const k = overrideKey(subject, role, slot);
-          const found = overrides[k];
-          if (found) return { dataUrl: found, level: 'subject+role' };
-        }
-        if (role) {
-          const k = overrideKey(null, role, slot);
-          const found = overrides[k];
-          if (found) return { dataUrl: found, level: 'role' };
-        }
-        if (subject) {
-          const k = overrideKey(subject, null, slot);
-          const found = overrides[k];
-          if (found) return { dataUrl: found, level: 'subject' };
-        }
-        return undefined;
+    ): { dataUrl: string } | undefined => {
+      // Non-primary slots: subject vereist, rol genegeerd
+      if (slot !== 'primary') {
+        if (!subject) return undefined;
+        const k = overrideKey(subject, null, slot);
+        const found = overrides[k];
+        return found ? { dataUrl: found } : undefined;
       }
-      // non-primary slots: alleen subject-axis
-      if (!subject) return undefined;
-      const k = overrideKey(subject, null, slot);
+      // Primary: exact-match op (subject, role) — beide kunnen leeg zijn,
+      // maar minstens één moet gezet zijn anders is er geen handvat.
+      if (!subject && !role) return undefined;
+      const k = overrideKey(subject ?? null, role ?? null, slot);
       const found = overrides[k];
-      if (found) return { dataUrl: found, level: 'subject' };
-      return undefined;
+      return found ? { dataUrl: found } : undefined;
     },
     [overrides]
   );

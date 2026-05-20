@@ -1,21 +1,21 @@
 /**
  * Per-tile image-overrides opgeslagen in IndexedDB.
  *
- * Een override is gekoppeld aan twee onafhankelijke assen:
- *  - **subject** (optioneel): een park óf een regio
- *  - **rol** (optioneel)
+ * Een override is **exact** gekoppeld aan de selectie waaronder hij is
+ * geüpload. Wijzig de selectie → andere key → default-picker neemt het
+ * weer over. Geen hiërarchische fallback: een minder-specifieke upload
+ * (bv. "park-only") zou anders alle meer-specifieke views (bv. "park+rol")
+ * blijven overschrijven, terwijl de picker daar juist een rol-specifieke
+ * foto kan tonen.
  *
- * Per slot gelden andere scope-regels:
+ * Twee assen — beide optioneel:
+ *  - **subject**: park óf regio (of geen subject)
+ *  - **rol**: rol-id (of geen rol)
  *
- *  - **primary** (de "werk"-tegel): zowel subject als rol kunnen meedoen.
- *    Lookup is hiërarchisch (specifiekst eerst):
- *      1. subject + rol  — `subject + werk`
- *      2. rol-only       — "deze rol op elk park" (rol is specifieker dan park)
- *      3. subject-only   — "dit park voor elke rol"
- *      4. default        — bento-picker
- *  - **secondary / tertiary / accent**: subject-context. Geen rol-axis;
- *    altijd subject-breed. Zonder subject geen override mogelijk voor deze
- *    slots.
+ * Per slot:
+ *  - **primary**: subject én rol axis zijn beide actief in de key.
+ *  - **secondary/tertiary/accent**: alleen subject; rol wordt altijd
+ *    genegeerd. Zonder subject geen override mogelijk voor deze slots.
  *
  * Sleutel-formaat: `${slot}|${subjectKey}|${roleKey}`
  *  - subjectKey: 'park:<id>', 'region:<id>' of '' (geen subject)

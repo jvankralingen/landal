@@ -156,18 +156,8 @@ export default function ConfiguratorApp() {
     };
   }, [slotOverrides]);
 
-  // Per slot: welk niveau van de override is nu zichtbaar? Voor de UI
-  // zodat reset weet welke key gewist moet worden — rol-specifiek of
-  // subject-breed.
-  const slotOverrideLevel = useMemo(() => {
-    if (!slotOverrides) return undefined;
-    return {
-      primary: slotOverrides.primary?.level,
-      secondary: slotOverrides.secondary?.level,
-      tertiary: slotOverrides.tertiary?.level,
-      accent: slotOverrides.accent?.level,
-    };
-  }, [slotOverrides]);
+  // (Niveau-track is overbodig nu we exact-match doen: de huidige scope
+  // is automatisch de juiste key voor zowel upload als reset.)
 
   const bento = useMemo(() => {
     if (!slotOverrides) return baseBento;
@@ -188,12 +178,10 @@ export default function ConfiguratorApp() {
     };
   }, [baseBento, slotOverrides]);
 
-  // Upload/reset met de huidige scope automatisch erin gevouwen.
-  //
-  // Bij primary: upload op het meest specifieke niveau dat de huidige
-  // selectie toestaat (subject+rol > rol-only > subject-only). Bij
-  // non-primary slots vereisen we subject — anders kan er niks geüpload
-  // worden (HeroCollage rendert dan een Slot, geen UploadableSlot).
+  // Upload/reset op de exact-matching key voor de huidige selectie.
+  // Primary mag (subject, rol) of (subject) of (rol) zijn — minstens één
+  // axis moet gezet zijn. Non-primary vereist subject (rol wordt
+  // automatisch genegeerd door overrideKey).
   const handleSlotUpload = useCallback(
     (slot: BentoSlot, file: File) => {
       if (slot === 'primary') {
@@ -208,23 +196,15 @@ export default function ConfiguratorApp() {
   );
   const handleSlotReset = useCallback(
     (slot: BentoSlot) => {
-      // Reset de exact-matchende key voor het niveau dat nu zichtbaar is.
-      // Hierdoor verschijnt eventueel een minder-specifieke fallback weer.
-      const level = slotOverrideLevel?.[slot];
       if (slot === 'primary') {
-        if (level === 'subject+role') {
-          void resetFor(overrideSubject, overrideRole, slot);
-        } else if (level === 'role') {
-          void resetFor(null, overrideRole, slot);
-        } else if (level === 'subject') {
-          void resetFor(overrideSubject, null, slot);
-        }
+        if (!overrideSubject && !overrideRole) return;
+        void resetFor(overrideSubject, overrideRole, slot);
         return;
       }
-      // non-primary: altijd subject-only.
-      if (overrideSubject) void resetFor(overrideSubject, null, slot);
+      if (!overrideSubject) return;
+      void resetFor(overrideSubject, null, slot);
     },
-    [resetFor, overrideSubject, overrideRole, slotOverrideLevel]
+    [resetFor, overrideSubject, overrideRole]
   );
 
   // Park-cards on the landing — visible when scope is regio/vibe-based and no
