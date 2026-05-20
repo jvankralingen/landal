@@ -191,7 +191,7 @@ export function ConfigPanel({ state, setState, allVacancies, filtered }: ConfigP
     <aside className="cc-panel">
       <header className="cc-panel-header">
         <p className="cc-eyebrow">Landal · Campagne Configurator</p>
-        <h2 className="cc-panel-title">Bouw je wervingscampagne</h2>
+        <h2 className="cc-panel-title">Campagne configurator</h2>
       </header>
 
       <section className="cc-section">

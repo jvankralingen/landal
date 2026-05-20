@@ -88,7 +88,10 @@ export const WORLDS: Record<WorldId, World> = {
     id: 'mountain',
     label: 'Bergen',
     tagline: 'alpen · helder · hoogte',
-    palette: { bg: '#212721', fg: '#fffae9', accent: '#1ecad3', highlight: '#0097a2', tone: 'dark' },
+    // Alpine night sky (diepe avond-blauw) als achtergrond, koele sneeuw-
+    // wit als tekst, helder alpen-blauw als accent, alpenglow oranje als
+    // warme highlight (zonsondergang op de toppen).
+    palette: { bg: '#1a2438', fg: '#ecf2fb', accent: '#6ba3d6', highlight: '#ffae6b', tone: 'dark' },
     font: { headline: '"PP Hatton", "Playfair Display", Georgia, serif', headlineWeight: 500 },
   },
   uk: {

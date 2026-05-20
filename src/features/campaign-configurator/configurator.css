@@ -1001,7 +1001,10 @@ html, body, #root {
 }
 
 .cc-mobile-screen[data-tone='dark'] .cc-mobile-headline {
-  color: #1ecad3;
+  /* Donkere werelden gebruiken hun eigen helder-contrast fg (premium=cream,
+     mountain=snow, etc.) zodat de headline thematisch klopt i.p.v. een
+     algemene cyan. */
+  color: var(--world-fg);
 }
 
 .cc-mobile-vibe {
