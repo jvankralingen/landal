@@ -11,7 +11,6 @@
 export const FOCUS_PARK_NAMES: string[] = [
   // Bestaand
   'Hof van Saksen',          // premium · luxe / flagship
-  'Park Gulpen',             // forest · natuur / panorama
   'Hillview Resort Grandvoir', // forest · natuur / Ardennen
   'Roompot Zandvoort',       // coast · actief / F1
   // Toegevoegd voor vibe-diversiteit
