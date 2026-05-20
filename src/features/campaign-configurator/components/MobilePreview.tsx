@@ -153,7 +153,10 @@ export function MobilePreview({ headline, subtitle, vibeCopy, vacancies, toneLab
                       as="span"
                       className="cc-mobile-perk-text"
                       value={p}
-                      hasOverride={perksHasOverride ?? false}
+                      /* Geen per-item marker — de override geldt voor de
+                         hele lijst, niet voor één item. De section-level
+                         "reset" link signalt al dat er aanpassingen zijn. */
+                      hasOverride={false}
                       onSave={(v) => onPerksChange(perks.map((x, j) => (j === i ? v : x)))}
                       /* Geen onReset: voor deze demo geen verwijderen van
                          punten. Empty + blur is dan ook een no-op. */
