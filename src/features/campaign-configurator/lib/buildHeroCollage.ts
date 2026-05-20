@@ -200,7 +200,11 @@ export function buildBento(
   worldId: WorldId,
   trim: Trim,
   selectedParks: { id: string; name: string }[] = [],
-  selectedContracts: Contract[] = []
+  selectedContracts: Contract[] = [],
+  /** Vacancies van alleen de regio-filter (zonder rol/contract). Worden
+   *  gebruikt in regio-trim om de supporting-tiles te vullen, zodat een
+   *  smal rol-filter de regio-context niet leegtrekt. */
+  regionContextVacancies?: Vacancy[]
 ): Bento {
   let parks = topParks(filtered, 8);
   // When the user explicitly selected a park (typically in park-trim), make sure
@@ -386,11 +390,14 @@ export function buildBento(
   }
 
   if (trim === 'regio') {
-    // Regio: het werk leidt (rol primary, op basis van meest voorkomende
-    // rol in de gefilterde regio-vacatures). De 3 supporting-tiles laten
-    // de breedte van de regio zien: round-robin parken zodat elk park in
-    // de regio kans krijgt voordat een park een 2e foto pakt.
-    const pool = makeParkPool(parks, 'variety');
+    // Regio: het werk leidt (rol primary). De 3 supporting-tiles laten
+    // de breedte van de regio zien — ongeacht of de rol-filter weinig
+    // matches geeft. Daarom: parks-pool uit regionContextVacancies
+    // (regio-only) zodat een smal rol-filter de context niet wegslaat.
+    const contextParks = regionContextVacancies
+      ? topParks(regionContextVacancies, 8)
+      : parks;
+    const pool = makeParkPool(contextParks, 'variety');
     if (roleT.src) used.add(roleT.src);
     return {
       primary: roleT,

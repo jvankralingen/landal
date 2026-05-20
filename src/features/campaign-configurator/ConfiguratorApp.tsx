@@ -109,6 +109,16 @@ export default function ConfiguratorApp() {
         .filter((r): r is { name: string; id: string } => Boolean(r.id)),
     [state.parks, parkNameToId]
   );
+  // Regio-only filter — gebruikt om de supporting-tiles in regio-trim te
+  // vullen, los van rol/contract zodat een smal rol-filter de regio-
+  // context niet wegslaat.
+  const regionOnlyFiltered = useMemo(
+    () =>
+      effectiveTrim === 'regio'
+        ? filterVacancies(allVacancies, { ...INITIAL_STATE, regions: state.regions })
+        : undefined,
+    [effectiveTrim, state.regions]
+  );
   const baseBento = useMemo(
     () =>
       buildBento(
@@ -117,7 +127,8 @@ export default function ConfiguratorApp() {
         worldId,
         effectiveTrim,
         selectedParkRefs,
-        state.contracts
+        state.contracts,
+        regionOnlyFiltered
       ),
     [
       filtered,
@@ -126,6 +137,7 @@ export default function ConfiguratorApp() {
       worldId,
       effectiveTrim,
       selectedParkRefs,
+      regionOnlyFiltered,
     ]
   );
 
