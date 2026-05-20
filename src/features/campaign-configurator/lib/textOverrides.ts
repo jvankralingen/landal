@@ -23,10 +23,11 @@ export type TextField = 'headline' | 'subtitle' | 'vibe' | 'perks';
 export function textOverrideKey(
   field: TextField,
   subject: OverrideSubject | null | undefined,
-  role: string | null | undefined
+  role: string | null | undefined,
+  contract?: string | null
 ): string {
   const subjectKey = subject ? `${subject.type}:${subject.id}` : '';
-  return `${field}|${subjectKey}|${role ?? ''}`;
+  return `${field}|${subjectKey}|${role ?? ''}|${contract ?? ''}`;
 }
 
 export function getAllTextOverrides(): Record<string, string> {

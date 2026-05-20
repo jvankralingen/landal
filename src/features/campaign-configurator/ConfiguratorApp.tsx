@@ -146,20 +146,25 @@ export default function ConfiguratorApp() {
   // De rol-axis voor de override: alleen als precies één rol gekozen is.
   const overrideRole: string | null =
     state.roles.length === 1 ? state.roles[0] : null;
+  // De contract-axis: idem, alleen bij precies één contracttype. Maakt
+  // "alleen stage" een distinct key van "geen selectie".
+  const overrideContract: string | null =
+    state.contracts.length === 1 ? state.contracts[0] : null;
   // Upload-zone is altijd actief — ook in default-state (geen selectie)
   // kunnen initiële beelden worden ingesteld. Exact-match-keys regelen dat
   // het alleen voor die selectie geldt.
   const overridesAvailable = true;
 
   const slotOverrides = useMemo(() => {
-    // Geen guard op subject — rol-only is ook een geldige primary-override.
+    // Geen guard — alle axis-combinaties zijn geldige primary keys
+    // (subject, rol, contract — elk los of in combinatie).
     return {
-      primary: overrideFor(overrideSubject, overrideRole, 'primary'),
+      primary: overrideFor(overrideSubject, overrideRole, 'primary', overrideContract),
       secondary: overrideFor(overrideSubject, overrideRole, 'secondary'),
       tertiary: overrideFor(overrideSubject, overrideRole, 'tertiary'),
       accent: overrideFor(overrideSubject, overrideRole, 'accent'),
     };
-  }, [overrideSubject, overrideRole, overrideFor]);
+  }, [overrideSubject, overrideRole, overrideContract, overrideFor]);
 
   const slotHasOverride = useMemo(() => {
     if (!slotOverrides) return undefined;
@@ -211,9 +216,9 @@ export default function ConfiguratorApp() {
       void refreshImages();
     });
   }, [refreshTexts, refreshImages]);
-  const headlineOverride = getTextFor('headline', overrideSubject, overrideRole);
-  const subtitleOverride = getTextFor('subtitle', overrideSubject, overrideRole);
-  const vibeOverride = getTextFor('vibe', overrideSubject, overrideRole);
+  const headlineOverride = getTextFor('headline', overrideSubject, overrideRole, overrideContract);
+  const subtitleOverride = getTextFor('subtitle', overrideSubject, overrideRole, overrideContract);
+  const vibeOverride = getTextFor('vibe', overrideSubject, overrideRole, overrideContract);
   const headline = headlineOverride ?? autoHeadline;
   const subtitle = subtitleOverride ?? autoSubtitle;
   const vibeCopy = vibeOverride ?? autoVibeCopy;
@@ -224,15 +229,15 @@ export default function ConfiguratorApp() {
   };
   const handleTextSave = useCallback(
     (field: TextField, value: string) => {
-      setTextFor(field, overrideSubject, overrideRole, value);
+      setTextFor(field, overrideSubject, overrideRole, value, overrideContract);
     },
-    [setTextFor, overrideSubject, overrideRole]
+    [setTextFor, overrideSubject, overrideRole, overrideContract]
   );
   const handleTextReset = useCallback(
     (field: TextField) => {
-      resetTextFor(field, overrideSubject, overrideRole);
+      resetTextFor(field, overrideSubject, overrideRole, overrideContract);
     },
-    [resetTextFor, overrideSubject, overrideRole]
+    [resetTextFor, overrideSubject, overrideRole, overrideContract]
   );
 
   // Upload/reset op de exact-matching key voor de huidige selectie.
@@ -242,16 +247,18 @@ export default function ConfiguratorApp() {
   const handleSlotUpload = useCallback(
     (slot: BentoSlot, file: File) => {
       const roleForKey = slot === 'primary' ? overrideRole : null;
-      void uploadFor(overrideSubject, roleForKey, slot, file);
+      const contractForKey = slot === 'primary' ? overrideContract : null;
+      void uploadFor(overrideSubject, roleForKey, slot, file, contractForKey);
     },
-    [uploadFor, overrideSubject, overrideRole]
+    [uploadFor, overrideSubject, overrideRole, overrideContract]
   );
   const handleSlotReset = useCallback(
     (slot: BentoSlot) => {
       const roleForKey = slot === 'primary' ? overrideRole : null;
-      void resetFor(overrideSubject, roleForKey, slot);
+      const contractForKey = slot === 'primary' ? overrideContract : null;
+      void resetFor(overrideSubject, roleForKey, slot, contractForKey);
     },
-    [resetFor, overrideSubject, overrideRole]
+    [resetFor, overrideSubject, overrideRole, overrideContract]
   );
 
   // Park-cards on the landing — visible when scope is regio/vibe-based and no
@@ -297,7 +304,7 @@ export default function ConfiguratorApp() {
 
   // Perks-override per scope: opgeslagen als JSON-string in dezelfde
   // text-overrides store. Parse hier, save met JSON.stringify.
-  const perksOverrideRaw = getTextFor('perks', overrideSubject, overrideRole);
+  const perksOverrideRaw = getTextFor('perks', overrideSubject, overrideRole, overrideContract);
   const perksOverride = useMemo<string[] | null>(() => {
     if (!perksOverrideRaw) return null;
     try {
@@ -310,13 +317,13 @@ export default function ConfiguratorApp() {
   const perks = perksOverride ?? autoPerks;
   const handlePerksChange = useCallback(
     (next: string[]) => {
-      setTextFor('perks', overrideSubject, overrideRole, JSON.stringify(next));
+      setTextFor('perks', overrideSubject, overrideRole, JSON.stringify(next), overrideContract);
     },
-    [setTextFor, overrideSubject, overrideRole]
+    [setTextFor, overrideSubject, overrideRole, overrideContract]
   );
   const handlePerksReset = useCallback(() => {
-    resetTextFor('perks', overrideSubject, overrideRole);
-  }, [resetTextFor, overrideSubject, overrideRole]);
+    resetTextFor('perks', overrideSubject, overrideRole, overrideContract);
+  }, [resetTextFor, overrideSubject, overrideRole, overrideContract]);
 
   const parkPerksLabel = state.parks.length === 1 ? `op Landal ${state.parks[0]}` : null;
 

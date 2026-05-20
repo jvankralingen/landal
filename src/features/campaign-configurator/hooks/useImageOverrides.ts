@@ -51,10 +51,11 @@ export function useImageOverrides() {
       subject: OverrideSubject | null,
       role: string | null,
       slot: BentoSlot,
-      file: File
+      file: File,
+      contract?: string | null
     ) => {
       const dataUrl = await fileToResizedDataUrl(file);
-      const key = overrideKey(subject, role, slot);
+      const key = overrideKey(subject, role, slot, contract);
       await setStored(key, dataUrl);
       setOverrides((prev) => ({ ...prev, [key]: dataUrl }));
     },
@@ -66,9 +67,10 @@ export function useImageOverrides() {
     async (
       subject: OverrideSubject | null,
       role: string | null,
-      slot: BentoSlot
+      slot: BentoSlot,
+      contract?: string | null
     ) => {
-      const key = overrideKey(subject, role, slot);
+      const key = overrideKey(subject, role, slot, contract);
       await clearStored(key);
       setOverrides((prev) => {
         const next = { ...prev };
@@ -90,19 +92,18 @@ export function useImageOverrides() {
     (
       subject: OverrideSubject | null | undefined,
       role: string | null | undefined,
-      slot: BentoSlot
+      slot: BentoSlot,
+      contract?: string | null
     ): { dataUrl: string } | undefined => {
-      // Non-primary slots: subject vereist, rol genegeerd
+      // Non-primary slots: subject vereist, rol + contract genegeerd
       if (slot !== 'primary') {
         if (!subject) return undefined;
         const k = overrideKey(subject, null, slot);
         const found = overrides[k];
         return found ? { dataUrl: found } : undefined;
       }
-      // Primary: exact-match op (subject, role) — beide kunnen leeg zijn,
-      // maar minstens één moet gezet zijn anders is er geen handvat.
-      if (!subject && !role) return undefined;
-      const k = overrideKey(subject ?? null, role ?? null, slot);
+      // Primary: exact-match op (subject, role, contract).
+      const k = overrideKey(subject ?? null, role ?? null, slot, contract ?? null);
       const found = overrides[k];
       return found ? { dataUrl: found } : undefined;
     },

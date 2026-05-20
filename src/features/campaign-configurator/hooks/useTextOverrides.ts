@@ -23,9 +23,10 @@ export function useTextOverrides() {
       field: TextField,
       subject: OverrideSubject | null | undefined,
       role: string | null | undefined,
-      value: string
+      value: string,
+      contract?: string | null
     ) => {
-      const key = textOverrideKey(field, subject, role);
+      const key = textOverrideKey(field, subject, role, contract);
       persistTextOverride(key, value);
       setOverrides((prev) => ({ ...prev, [key]: value }));
     },
@@ -36,9 +37,10 @@ export function useTextOverrides() {
     (
       field: TextField,
       subject: OverrideSubject | null | undefined,
-      role: string | null | undefined
+      role: string | null | undefined,
+      contract?: string | null
     ) => {
-      const key = textOverrideKey(field, subject, role);
+      const key = textOverrideKey(field, subject, role, contract);
       clearPersistedTextOverride(key);
       setOverrides((prev) => {
         const next = { ...prev };
@@ -54,9 +56,10 @@ export function useTextOverrides() {
     (
       field: TextField,
       subject: OverrideSubject | null | undefined,
-      role: string | null | undefined
+      role: string | null | undefined,
+      contract?: string | null
     ): string | undefined => {
-      return overrides[textOverrideKey(field, subject, role)];
+      return overrides[textOverrideKey(field, subject, role, contract)];
     },
     [overrides]
   );

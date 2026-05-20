@@ -8,18 +8,22 @@
  * blijven overschrijven, terwijl de picker daar juist een rol-specifieke
  * foto kan tonen.
  *
- * Twee assen — beide optioneel:
+ * Drie assen — allemaal optioneel:
  *  - **subject**: park óf regio (of geen subject)
  *  - **rol**: rol-id (of geen rol)
+ *  - **contract**: contracttype-id (of geen contract)
  *
  * Per slot:
- *  - **primary**: subject én rol axis zijn beide actief in de key.
- *  - **secondary/tertiary/accent**: alleen subject; rol wordt altijd
- *    genegeerd. Zonder subject geen override mogelijk voor deze slots.
+ *  - **primary** (de "werk"-tegel): subject, rol én contract zijn allemaal
+ *    actief in de key. Een upload bij (rol=keuken, contract=stage) is
+ *    distinct van een upload bij (rol=keuken, contract=vast).
+ *  - **secondary/tertiary/accent**: subject-context. Rol en contract
+ *    worden genegeerd; alleen subject doet ertoe.
  *
- * Sleutel-formaat: `${slot}|${subjectKey}|${roleKey}`
+ * Sleutel-formaat: `${slot}|${subjectKey}|${roleKey}|${contractKey}`
  *  - subjectKey: 'park:<id>', 'region:<id>' of '' (geen subject)
  *  - roleKey: rol-id of '' (geen rol-axis)
+ *  - contractKey: contracttype-id of '' (geen contract-axis)
  *  - slot: 'primary' | 'secondary' | 'tertiary' | 'accent'
  *
  * Value = data-URL string (image/webp of fallback image/jpeg, max ~200KB
@@ -64,18 +68,21 @@ const subjectKeyPart = (s: OverrideSubject | null | undefined): string =>
 
 /**
  * Compose een override-sleutel volgens de slot-regel:
- *  - primary → zowel subject als rol kunnen aanwezig zijn
- *  - andere slots → altijd subject-only (rol genegeerd)
+ *  - primary → subject, rol én contract zijn alle drie actief
+ *  - andere slots → alleen subject (rol + contract genegeerd)
  *
- * Lege strings worden gebruikt om "axis niet ingevuld" aan te geven.
+ * Lege strings worden gebruikt om "axis niet ingevuld" aan te geven, zodat
+ * "alleen contract=stage" een distinct key krijgt van "geen selectie".
  */
 export function overrideKey(
   subject: OverrideSubject | null | undefined,
   role: string | null | undefined,
-  slot: BentoSlot
+  slot: BentoSlot,
+  contract?: string | null
 ): string {
   const effectiveRole = slot === 'primary' ? role ?? '' : '';
-  return `${slot}|${subjectKeyPart(subject)}|${effectiveRole}`;
+  const effectiveContract = slot === 'primary' ? contract ?? '' : '';
+  return `${slot}|${subjectKeyPart(subject)}|${effectiveRole}|${effectiveContract}`;
 }
 
 export async function getOverride(key: string): Promise<string | null> {
