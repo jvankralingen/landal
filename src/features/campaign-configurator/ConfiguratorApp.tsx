@@ -12,7 +12,7 @@ import { DOELGROEP_LABELS, TRIM_LABELS } from './lib/labels';
 import { deriveWorld } from './lib/deriveWorld';
 import { WORLDS } from './lib/worlds';
 import { useImageOverrides } from './hooks/useImageOverrides';
-import type { BentoSlot } from './lib/imageOverrides';
+import type { BentoSlot, OverrideSubject } from './lib/imageOverrides';
 import './configurator.css';
 
 const allVacancies = (vacanciesData as { vacancies: Vacancy[] }).vacancies;
@@ -115,28 +115,33 @@ export default function ConfiguratorApp() {
     ]
   );
 
-  // Per-tile image overrides (IndexedDB) — bij single-park-selectie kan
-  // elke bento-slot een eigen upload krijgen. Sleutels zijn rol-aware:
-  // `parkId|role|slot` (rol leeg = park-breed). Switch je van rol, dan
-  // krijgt de tegel óf de rol-specifieke override, óf valt terug op een
-  // park-brede default, óf de bento-picker default.
+  // Per-tile image overrides (IndexedDB). Subject = park óf regio (één
+  // van beide, single-select). Slot-regels:
+  //  - primary: rol-aware override (park+rol of regio+rol)
+  //  - andere slots: altijd subject-breed (geen rol-axis)
   const { uploadFor, resetFor, overrideFor } = useImageOverrides();
-  const singleParkId =
-    state.parks.length === 1 ? selectedParkRefs[0]?.id ?? null : null;
+  const overrideSubject: OverrideSubject | null = useMemo(() => {
+    if (state.parks.length === 1 && selectedParkRefs[0]?.id) {
+      return { type: 'park', id: selectedParkRefs[0].id };
+    }
+    if (state.regions.length === 1) {
+      return { type: 'region', id: state.regions[0] };
+    }
+    return null;
+  }, [state.parks.length, state.regions, selectedParkRefs]);
   // De rol-axis voor de override: alleen als precies één rol gekozen is.
-  // Anders is de upload park-breed (alle rollen).
   const overrideRole: string | null =
     state.roles.length === 1 ? state.roles[0] : null;
 
   const slotOverrides = useMemo(() => {
-    if (!singleParkId) return null;
+    if (!overrideSubject) return null;
     return {
-      primary: overrideFor(singleParkId, overrideRole, 'primary'),
-      secondary: overrideFor(singleParkId, overrideRole, 'secondary'),
-      tertiary: overrideFor(singleParkId, overrideRole, 'tertiary'),
-      accent: overrideFor(singleParkId, overrideRole, 'accent'),
+      primary: overrideFor(overrideSubject, overrideRole, 'primary'),
+      secondary: overrideFor(overrideSubject, overrideRole, 'secondary'),
+      tertiary: overrideFor(overrideSubject, overrideRole, 'tertiary'),
+      accent: overrideFor(overrideSubject, overrideRole, 'accent'),
     };
-  }, [singleParkId, overrideRole, overrideFor]);
+  }, [overrideSubject, overrideRole, overrideFor]);
 
   const slotHasOverride = useMemo(() => {
     if (!slotOverrides) return undefined;
@@ -148,10 +153,9 @@ export default function ConfiguratorApp() {
     };
   }, [slotOverrides]);
 
-  // Per slot: welk niveau van de override is nu zichtbaar? (Voor de UI
+  // Per slot: welk niveau van de override is nu zichtbaar? Voor de UI
   // zodat reset weet welke key gewist moet worden — rol-specifiek of
-  // park-breed.) Niveau == role betekent dat een rol-specifieke upload
-  // de zichtbare tegel is; park betekent fallback naar park-breed.
+  // subject-breed.
   const slotOverrideLevel = useMemo(() => {
     if (!slotOverrides) return undefined;
     return {
@@ -182,24 +186,28 @@ export default function ConfiguratorApp() {
   }, [baseBento, slotOverrides]);
 
   // Upload/reset met de huidige scope automatisch erin gevouwen. De
-  // HeroCollage hoeft alleen parkId + slot + file aan te leveren.
+  // HeroCollage hoeft alleen slot + file aan te leveren; subject wordt
+  // hier bepaald (park of regio, single-select).
   const handleSlotUpload = useCallback(
-    (parkId: string, slot: BentoSlot, file: File) => {
-      void uploadFor(parkId, overrideRole, slot, file);
+    (slot: BentoSlot, file: File) => {
+      if (!overrideSubject) return;
+      void uploadFor(overrideSubject, overrideRole, slot, file);
     },
-    [uploadFor, overrideRole]
+    [uploadFor, overrideSubject, overrideRole]
   );
   const handleSlotReset = useCallback(
-    (parkId: string, slot: BentoSlot) => {
+    (slot: BentoSlot) => {
+      if (!overrideSubject) return;
       // Reset de meest-specifieke key die nu zichtbaar is. Was het een
-      // rol-specifieke override, dan wissen we die — een eventuele
-      // park-brede default verschijnt dan automatisch weer. Was het al
-      // park-breed, dan wissen we die.
+      // rol-specifieke (primary) override, dan wissen we die — een
+      // eventuele subject-brede default verschijnt dan automatisch weer.
+      // Voor non-primary slots is er sowieso alleen subject-breed.
       const level = slotOverrideLevel?.[slot];
-      const roleForReset = level === 'role' ? overrideRole : null;
-      void resetFor(parkId, roleForReset, slot);
+      const roleForReset =
+        slot === 'primary' && level === 'role' ? overrideRole : null;
+      void resetFor(overrideSubject, roleForReset, slot);
     },
-    [resetFor, overrideRole, slotOverrideLevel]
+    [resetFor, overrideSubject, overrideRole, slotOverrideLevel]
   );
 
   // Park-cards on the landing — visible when scope is regio/vibe-based and no
@@ -324,7 +332,7 @@ export default function ConfiguratorApp() {
               perks={perks}
               parkPerksLabel={parkPerksLabel}
               showVacancyList={effectiveTrim !== 'eb'}
-              uploadParkId={singleParkId}
+              uploadEnabled={overrideSubject != null}
               slotHasOverride={slotHasOverride}
               onSlotUpload={handleSlotUpload}
               onSlotReset={handleSlotReset}

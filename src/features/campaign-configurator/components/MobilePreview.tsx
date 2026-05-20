@@ -29,11 +29,11 @@ interface MobilePreviewProps {
   perks: string[];
   parkPerksLabel: string | null;
   showVacancyList: boolean;
-  /** Override-prop's: alleen actief in single-park mode. */
-  uploadParkId?: string | null;
+  /** Override-prop's: actief wanneer een single subject (park of regio) is gekozen. */
+  uploadEnabled?: boolean;
   slotHasOverride?: Partial<Record<BentoSlot, boolean>>;
-  onSlotUpload?: (parkId: string, slot: BentoSlot, file: File) => void;
-  onSlotReset?: (parkId: string, slot: BentoSlot) => void;
+  onSlotUpload?: (slot: BentoSlot, file: File) => void;
+  onSlotReset?: (slot: BentoSlot) => void;
 }
 
 const itemMotion = {
@@ -42,7 +42,7 @@ const itemMotion = {
   exit: { opacity: 0, y: -8 },
 };
 
-export function MobilePreview({ headline, subtitle, vibeCopy, vacancies, toneLabel, worldId, bento, parksInScope, regionLabel, onPickPark, perks, parkPerksLabel, showVacancyList, uploadParkId, slotHasOverride, onSlotUpload, onSlotReset }: MobilePreviewProps) {
+export function MobilePreview({ headline, subtitle, vibeCopy, vacancies, toneLabel, worldId, bento, parksInScope, regionLabel, onPickPark, perks, parkPerksLabel, showVacancyList, uploadEnabled, slotHasOverride, onSlotUpload, onSlotReset }: MobilePreviewProps) {
   const previewList = vacancies.slice(0, 5);
   const world = WORLDS[worldId];
 
@@ -74,7 +74,7 @@ export function MobilePreview({ headline, subtitle, vibeCopy, vacancies, toneLab
 
           <HeroCollage
             bento={bento}
-            uploadParkId={uploadParkId}
+            uploadEnabled={uploadEnabled}
             slotHasOverride={slotHasOverride}
             onSlotUpload={onSlotUpload}
             onSlotReset={onSlotReset}

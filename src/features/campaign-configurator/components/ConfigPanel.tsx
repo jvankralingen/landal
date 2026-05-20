@@ -9,6 +9,26 @@ import { AnimatedNumber } from './AnimatedNumber';
 
 const CONTRACTS: Contract[] = ['stage', 'bijbaan', 'vakantiebaan', 'vast'];
 
+function toggleArr<T>(arr: T[], v: T): T[] {
+  return arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v];
+}
+
+/**
+ * Eenvormige selectie-logica voor alle pill-groepen:
+ *  - Klik zonder shift = vervangt de selectie (single-select).
+ *  - Klik op het enige geselecteerde = deselecteren.
+ *  - Shift-klik = toggle dat item in/uit de bestaande set (multi-select).
+ */
+function applyPillClick<T extends string>(
+  current: T[],
+  value: T,
+  shiftKey: boolean
+): T[] {
+  if (shiftKey) return toggleArr(current, value);
+  if (current.length === 1 && current[0] === value) return [];
+  return [value];
+}
+
 interface ChipProps {
   active: boolean;
   disabled?: boolean;
@@ -120,9 +140,6 @@ export function ConfigPanel({ state, setState, allVacancies, filtered }: ConfigP
     'hoofdkantoor',
   ];
 
-  const toggleArr = <T,>(arr: T[], v: T): T[] =>
-    arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v];
-
   // STRUCTURAL impossibilities only — 0-vacatures is geen criteria, want een
   // vacature kan simpelweg nog niet zijn geplaatst. We disablen alleen
   // combinaties die in werkelijkheid niet kunnen voorkomen:
@@ -178,18 +195,20 @@ export function ConfigPanel({ state, setState, allVacancies, filtered }: ConfigP
       </header>
 
       <section className="cc-section">
-        <p className="cc-section-label">Scope · regio</p>
+        <p className="cc-section-label">
+          Scope · regio{' '}
+          <span className="cc-section-hint">shift-klik voor meerdere</span>
+        </p>
         <div className="cc-chips">
           {regionsAvailable.map((r) => (
             <Chip
               key={r}
               active={state.regions.includes(r)}
               disabled={disabledRegions.has(r)}
-              onClick={() =>
+              onClick={(e) =>
                 setState((s) => {
-                  const next = toggleArr(s.regions, r);
-                  const adding = next.includes(r);
-                  return adding
+                  const next = applyPillClick(s.regions, r, e.shiftKey);
+                  return next.length > 0
                     ? { ...s, regions: next, trim: 'regio' }
                     : { ...s, regions: next };
                 })
@@ -223,22 +242,10 @@ export function ConfigPanel({ state, setState, allVacancies, filtered }: ConfigP
                 disabled={disabledParks.has(p)}
                 onClick={(e) =>
                   setState((s) => {
-                    // Default = single-select (live-demo: snel wisselen
-                    // tussen parken). Shift-click = multi-select toggle,
-                    // voor wanneer je een set parken naast elkaar wil
-                    // vergelijken.
-                    if (e.shiftKey) {
-                      const nextParks = toggleArr(s.parks, p);
-                      const adding = nextParks.includes(p);
-                      return adding
-                        ? { ...s, parks: nextParks, trim: 'park' }
-                        : { ...s, parks: nextParks };
-                    }
-                    // Klik op het enige geselecteerde park = deselecteren.
-                    if (s.parks.length === 1 && s.parks[0] === p) {
-                      return { ...s, parks: [] };
-                    }
-                    return { ...s, parks: [p], trim: 'park' };
+                    const next = applyPillClick(s.parks, p, e.shiftKey);
+                    return next.length > 0
+                      ? { ...s, parks: next, trim: 'park' }
+                      : { ...s, parks: next };
                   })
                 }
               >
@@ -265,18 +272,20 @@ export function ConfigPanel({ state, setState, allVacancies, filtered }: ConfigP
       </section>
 
       <section className="cc-section">
-        <p className="cc-section-label">Scope · rol</p>
+        <p className="cc-section-label">
+          Scope · rol{' '}
+          <span className="cc-section-hint">shift-klik voor meerdere</span>
+        </p>
         <div className="cc-chips">
           {rolesAvailable.map((r) => (
             <Chip
               key={r}
               active={state.roles.includes(r)}
               disabled={disabledRoles.has(r)}
-              onClick={() =>
+              onClick={(e) =>
                 setState((s) => {
-                  const next = toggleArr(s.roles, r);
-                  const adding = next.includes(r);
-                  return adding
+                  const next = applyPillClick(s.roles, r, e.shiftKey);
+                  return next.length > 0
                     ? { ...s, roles: next, trim: 'rol' }
                     : { ...s, roles: next };
                 })
@@ -289,17 +298,19 @@ export function ConfigPanel({ state, setState, allVacancies, filtered }: ConfigP
       </section>
 
       <section className="cc-section">
-        <p className="cc-section-label">Scope · contracttype</p>
+        <p className="cc-section-label">
+          Scope · contracttype{' '}
+          <span className="cc-section-hint">shift-klik voor meerdere</span>
+        </p>
         <div className="cc-chips">
           {CONTRACTS.map((c) => (
             <Chip
               key={c}
               active={state.contracts.includes(c)}
-              onClick={() =>
+              onClick={(e) =>
                 setState((s) => {
-                  const next = toggleArr(s.contracts, c);
-                  const adding = next.includes(c);
-                  return adding
+                  const next = applyPillClick(s.contracts, c, e.shiftKey);
+                  return next.length > 0
                     ? { ...s, contracts: next, trim: 'contract' }
                     : { ...s, contracts: next };
                 })

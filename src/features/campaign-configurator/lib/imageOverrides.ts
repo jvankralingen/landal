@@ -1,29 +1,34 @@
 /**
  * Per-tile image-overrides opgeslagen in IndexedDB.
  *
- * Een gebruiker kan een eigen afbeelding uploaden voor elke tile in de
- * bento. De keuze blijft in deze browser tot er een reset gedaan wordt.
- * Cross-browser sharing zou Vercel Blob / KV nodig hebben — buiten scope
- * voor deze MVP.
+ * Het "subject" van een override is óf een park, óf een regio. Per slot
+ * gelden andere scope-regels:
  *
- * Sleutel = `${parkId}|${role}|${slot}` (bv. `hof_van_saksen|horeca-keuken|primary`).
- * `role` is een lege string voor park-brede defaults (geldt voor elke rol).
- * Lookup is hiërarchisch: eerst rol-specifiek, dan park-breed, dan default.
+ *  - **primary** (de "werk"-tegel): rol-aware. Sleutel bevat de rol zodat
+ *    je per rol een andere foto kan kiezen. Lookup valt terug op
+ *    subject-breed (zonder rol) wanneer rol-specifiek ontbreekt.
+ *  - **secondary / tertiary / accent**: subject-context. Altijd
+ *    subject-breed; de rol-axis wordt genegeerd bij opslag en lookup.
  *
- * Value = data-URL string (image/webp of fallback image/jpeg, max ~200KB na resize).
+ * Sleutel-formaat: `${subjectType}:${subjectId}|${role}|${slot}`
+ *  - subjectType: 'park' | 'region'
+ *  - role: rol-id of '' (= subject-breed)
+ *  - slot: 'primary' | 'secondary' | 'tertiary' | 'accent'
+ *
+ * Value = data-URL string (image/webp of fallback image/jpeg, max ~200KB
+ * na resize). Cross-browser sharing zou Vercel Blob / KV nodig hebben —
+ * buiten scope voor deze MVP.
  */
-
-export type BentoSlot = 'primary' | 'secondary' | 'tertiary' | 'accent';
-
-export const overrideKey = (
-  parkId: string,
-  role: string | null | undefined,
-  slot: BentoSlot
-): string => `${parkId}|${role ?? ''}|${slot}`;
 
 const DB_NAME = 'landal-config-overrides';
 const DB_VERSION = 1;
 const STORE = 'park-images';
+
+export type BentoSlot = 'primary' | 'secondary' | 'tertiary' | 'accent';
+
+export type OverrideSubject =
+  | { type: 'park'; id: string }
+  | { type: 'region'; id: string };
 
 let dbPromise: Promise<IDBDatabase> | null = null;
 
@@ -47,31 +52,47 @@ function openDb(): Promise<IDBDatabase> {
   return dbPromise;
 }
 
-export async function getOverride(parkId: string): Promise<string | null> {
+const subjectId = (s: OverrideSubject): string => `${s.type}:${s.id}`;
+
+/**
+ * Compose een override-sleutel volgens de slot-regel:
+ *  - primary → rol-aware (rol wordt opgenomen, lege string = subject-breed)
+ *  - andere slots → altijd subject-breed (rol genegeerd)
+ */
+export function overrideKey(
+  subject: OverrideSubject,
+  role: string | null | undefined,
+  slot: BentoSlot
+): string {
+  const effectiveRole = slot === 'primary' ? role ?? '' : '';
+  return `${subjectId(subject)}|${effectiveRole}|${slot}`;
+}
+
+export async function getOverride(key: string): Promise<string | null> {
   const db = await openDb();
   return new Promise((resolve, reject) => {
     const tx = db.transaction(STORE, 'readonly');
-    const req = tx.objectStore(STORE).get(parkId);
+    const req = tx.objectStore(STORE).get(key);
     req.onsuccess = () => resolve((req.result as string | undefined) ?? null);
     req.onerror = () => reject(req.error);
   });
 }
 
-export async function setOverride(parkId: string, dataUrl: string): Promise<void> {
+export async function setOverride(key: string, dataUrl: string): Promise<void> {
   const db = await openDb();
   return new Promise((resolve, reject) => {
     const tx = db.transaction(STORE, 'readwrite');
-    tx.objectStore(STORE).put(dataUrl, parkId);
+    tx.objectStore(STORE).put(dataUrl, key);
     tx.oncomplete = () => resolve();
     tx.onerror = () => reject(tx.error);
   });
 }
 
-export async function clearOverride(parkId: string): Promise<void> {
+export async function clearOverride(key: string): Promise<void> {
   const db = await openDb();
   return new Promise((resolve, reject) => {
     const tx = db.transaction(STORE, 'readwrite');
-    tx.objectStore(STORE).delete(parkId);
+    tx.objectStore(STORE).delete(key);
     tx.oncomplete = () => resolve();
     tx.onerror = () => reject(tx.error);
   });

@@ -5,16 +5,15 @@ import type { BentoSlot } from '../lib/imageOverrides';
 interface HeroCollageProps {
   bento: Bento;
   /**
-   * Wanneer gezet wordt elke tile klikbaar: klik opent de file-picker, de
-   * gekozen afbeelding wordt door de parent opgeslagen als override voor
-   * `parkId:slot`. `null` = upload-mogelijkheid uit (bv. bij meerdere
-   * parken, regio-scope, of EB).
+   * True wanneer een subject (park of regio) eenduidig gekozen is. Dan
+   * wordt elke tile klikbaar: klik opent de file-picker, de gekozen
+   * afbeelding wordt door de parent opgeslagen als override.
    */
-  uploadParkId?: string | null;
+  uploadEnabled?: boolean;
   /** Map van slot → boolean: heeft deze slot een actieve override? */
   slotHasOverride?: Partial<Record<BentoSlot, boolean>>;
-  onSlotUpload?: (parkId: string, slot: BentoSlot, file: File) => void;
-  onSlotReset?: (parkId: string, slot: BentoSlot) => void;
+  onSlotUpload?: (slot: BentoSlot, file: File) => void;
+  onSlotReset?: (slot: BentoSlot) => void;
 }
 
 const ALL_SLOTS: BentoSlot[] = ['primary', 'secondary', 'tertiary', 'accent'];
@@ -41,17 +40,15 @@ function Slot({ slot, tile }: { slot: BentoSlot; tile: BentoTile }) {
 function UploadableSlot({
   slot,
   tile,
-  parkId,
   hasOverride,
   onUpload,
   onReset,
 }: {
   slot: BentoSlot;
   tile: BentoTile;
-  parkId: string;
   hasOverride: boolean;
-  onUpload: (parkId: string, slot: BentoSlot, file: File) => void;
-  onReset: (parkId: string, slot: BentoSlot) => void;
+  onUpload: (slot: BentoSlot, file: File) => void;
+  onReset: (slot: BentoSlot) => void;
 }) {
   const fileRef = useRef<HTMLInputElement>(null);
   const innerKey = `${tile.src ?? ''}-${tile.label}`;
@@ -60,13 +57,13 @@ function UploadableSlot({
 
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) onUpload(parkId, slot, file);
+    if (file) onUpload(slot, file);
     e.target.value = '';
   };
 
   const handleReset = (e: React.MouseEvent) => {
     e.stopPropagation();
-    onReset(parkId, slot);
+    onReset(slot);
   };
 
   return (
@@ -119,13 +116,13 @@ function UploadableSlot({
 
 export function HeroCollage({
   bento,
-  uploadParkId,
+  uploadEnabled = false,
   slotHasOverride = {},
   onSlotUpload,
   onSlotReset,
 }: HeroCollageProps) {
   const canUpload =
-    uploadParkId != null && onSlotUpload != null && onSlotReset != null;
+    uploadEnabled && onSlotUpload != null && onSlotReset != null;
 
   return (
     <div className="cc-hero-collage" data-trim={bento.trim}>
@@ -137,7 +134,6 @@ export function HeroCollage({
             key={slot}
             slot={slot}
             tile={tile}
-            parkId={uploadParkId!}
             hasOverride={slotHasOverride[slot] ?? false}
             onUpload={onSlotUpload!}
             onReset={onSlotReset!}

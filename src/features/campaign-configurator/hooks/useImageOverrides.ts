@@ -6,13 +6,16 @@ import {
   overrideKey,
   setOverride as setStored,
   type BentoSlot,
+  type OverrideSubject,
 } from '../lib/imageOverrides';
 
 /**
  * Stateful interface naar de IndexedDB-store van per-tile overrides.
- * Sleutels volgen `parkId|role|slot` (role kan leeg zijn voor park-brede
- * defaults). Lookup is hiërarchisch: probeert eerst rol-specifiek, dan
- * park-breed, anders no-op.
+ *
+ * Het subject is óf een park óf een regio. Per slot gelden andere
+ * scope-regels (zie lib/imageOverrides.ts):
+ *  - primary tile is rol-aware met fallback naar subject-breed
+ *  - andere tiles zijn altijd subject-breed (rol genegeerd)
  */
 export function useImageOverrides() {
   const [overrides, setOverrides] = useState<Record<string, string>>({});
@@ -34,24 +37,33 @@ export function useImageOverrides() {
     };
   }, []);
 
-  /**
-   * Upload voor een specifieke scope. Wanneer `role` niet leeg is, geldt de
-   * upload alleen voor díe rol binnen dit park. Geen rol = park-brede default.
-   */
   const uploadFor = useCallback(
-    async (parkId: string, role: string | null, slot: BentoSlot, file: File) => {
+    async (
+      subject: OverrideSubject,
+      role: string | null,
+      slot: BentoSlot,
+      file: File
+    ) => {
       const dataUrl = await fileToResizedDataUrl(file);
-      const key = overrideKey(parkId, role, slot);
+      const key = overrideKey(subject, role, slot);
       await setStored(key, dataUrl);
       setOverrides((prev) => ({ ...prev, [key]: dataUrl }));
     },
     []
   );
 
-  /** Wist alléén de exact-matchende key. Eventuele park-brede default blijft staan. */
+  /**
+   * Wist alléén de exact-matchende key. Voor non-primary slots is dat
+   * automatisch de subject-brede entry; voor primary kies de aanroeper
+   * (via `role`) of die de rol-specifieke of de subject-brede wist.
+   */
   const resetFor = useCallback(
-    async (parkId: string, role: string | null, slot: BentoSlot) => {
-      const key = overrideKey(parkId, role, slot);
+    async (
+      subject: OverrideSubject,
+      role: string | null,
+      slot: BentoSlot
+    ) => {
+      const key = overrideKey(subject, role, slot);
       await clearStored(key);
       setOverrides((prev) => {
         const next = { ...prev };
@@ -63,25 +75,28 @@ export function useImageOverrides() {
   );
 
   /**
-   * Lookup voor de huidige scope. Probeer eerst rol-specifiek, dan
-   * park-breed (role = ''). Retourneert ook welk niveau ('role' | 'park')
-   * gematcht heeft, zodat de UI weet welke reset de gebruiker uitvoert.
+   * Hiërarchische lookup:
+   *  - primary: probeer rol-specifiek, dan subject-breed
+   *  - andere slots: altijd subject-breed
+   *
+   * Retourneert ook welk niveau ('role' | 'subject') gematcht heeft zodat
+   * een UI weet welke reset uitgevoerd moet worden.
    */
   const overrideFor = useCallback(
     (
-      parkId: string | null | undefined,
+      subject: OverrideSubject | null | undefined,
       role: string | null | undefined,
       slot: BentoSlot
-    ): { dataUrl: string; level: 'role' | 'park' } | undefined => {
-      if (!parkId) return undefined;
-      if (role) {
-        const roleKey = overrideKey(parkId, role, slot);
+    ): { dataUrl: string; level: 'role' | 'subject' } | undefined => {
+      if (!subject) return undefined;
+      if (slot === 'primary' && role) {
+        const roleKey = overrideKey(subject, role, slot);
         const found = overrides[roleKey];
         if (found) return { dataUrl: found, level: 'role' };
       }
-      const parkKey = overrideKey(parkId, null, slot);
-      const found = overrides[parkKey];
-      if (found) return { dataUrl: found, level: 'park' };
+      const subjectKey = overrideKey(subject, null, slot);
+      const found = overrides[subjectKey];
+      if (found) return { dataUrl: found, level: 'subject' };
       return undefined;
     },
     [overrides]
