@@ -115,10 +115,10 @@ export default function ConfiguratorApp() {
     ]
   );
 
-  // Per-tile image overrides (IndexedDB). Subject = park óf regio (één
-  // van beide, single-select). Slot-regels:
-  //  - primary: rol-aware override (park+rol of regio+rol)
-  //  - andere slots: altijd subject-breed (geen rol-axis)
+  // Per-tile image overrides (IndexedDB). Twee onafhankelijke assen:
+  // subject (park/regio) en rol. Slot-regels:
+  //  - primary: subject+rol > rol-only > subject-only > default
+  //  - andere slots: alleen subject-only (geen rol-axis)
   const { uploadFor, resetFor, overrideFor } = useImageOverrides();
   const overrideSubject: OverrideSubject | null = useMemo(() => {
     if (state.parks.length === 1 && selectedParkRefs[0]?.id) {
@@ -132,9 +132,12 @@ export default function ConfiguratorApp() {
   // De rol-axis voor de override: alleen als precies één rol gekozen is.
   const overrideRole: string | null =
     state.roles.length === 1 ? state.roles[0] : null;
+  // Upload-zone is actief wanneer minimaal één axis ingevuld is. Voor
+  // non-primary slots geldt extra dat subject set moet zijn (zie HeroCollage).
+  const overridesAvailable = overrideSubject != null || overrideRole != null;
 
   const slotOverrides = useMemo(() => {
-    if (!overrideSubject) return null;
+    // Geen guard op subject — rol-only is ook een geldige primary-override.
     return {
       primary: overrideFor(overrideSubject, overrideRole, 'primary'),
       secondary: overrideFor(overrideSubject, overrideRole, 'secondary'),
@@ -185,27 +188,41 @@ export default function ConfiguratorApp() {
     };
   }, [baseBento, slotOverrides]);
 
-  // Upload/reset met de huidige scope automatisch erin gevouwen. De
-  // HeroCollage hoeft alleen slot + file aan te leveren; subject wordt
-  // hier bepaald (park of regio, single-select).
+  // Upload/reset met de huidige scope automatisch erin gevouwen.
+  //
+  // Bij primary: upload op het meest specifieke niveau dat de huidige
+  // selectie toestaat (subject+rol > rol-only > subject-only). Bij
+  // non-primary slots vereisen we subject — anders kan er niks geüpload
+  // worden (HeroCollage rendert dan een Slot, geen UploadableSlot).
   const handleSlotUpload = useCallback(
     (slot: BentoSlot, file: File) => {
+      if (slot === 'primary') {
+        if (!overrideSubject && !overrideRole) return;
+        void uploadFor(overrideSubject, overrideRole, slot, file);
+        return;
+      }
       if (!overrideSubject) return;
-      void uploadFor(overrideSubject, overrideRole, slot, file);
+      void uploadFor(overrideSubject, null, slot, file);
     },
     [uploadFor, overrideSubject, overrideRole]
   );
   const handleSlotReset = useCallback(
     (slot: BentoSlot) => {
-      if (!overrideSubject) return;
-      // Reset de meest-specifieke key die nu zichtbaar is. Was het een
-      // rol-specifieke (primary) override, dan wissen we die — een
-      // eventuele subject-brede default verschijnt dan automatisch weer.
-      // Voor non-primary slots is er sowieso alleen subject-breed.
+      // Reset de exact-matchende key voor het niveau dat nu zichtbaar is.
+      // Hierdoor verschijnt eventueel een minder-specifieke fallback weer.
       const level = slotOverrideLevel?.[slot];
-      const roleForReset =
-        slot === 'primary' && level === 'role' ? overrideRole : null;
-      void resetFor(overrideSubject, roleForReset, slot);
+      if (slot === 'primary') {
+        if (level === 'subject+role') {
+          void resetFor(overrideSubject, overrideRole, slot);
+        } else if (level === 'role') {
+          void resetFor(null, overrideRole, slot);
+        } else if (level === 'subject') {
+          void resetFor(overrideSubject, null, slot);
+        }
+        return;
+      }
+      // non-primary: altijd subject-only.
+      if (overrideSubject) void resetFor(overrideSubject, null, slot);
     },
     [resetFor, overrideSubject, overrideRole, slotOverrideLevel]
   );
@@ -332,7 +349,8 @@ export default function ConfiguratorApp() {
               perks={perks}
               parkPerksLabel={parkPerksLabel}
               showVacancyList={effectiveTrim !== 'eb'}
-              uploadEnabled={overrideSubject != null}
+              uploadEnabled={overridesAvailable}
+              uploadSubjectAvailable={overrideSubject != null}
               slotHasOverride={slotHasOverride}
               onSlotUpload={handleSlotUpload}
               onSlotReset={handleSlotReset}

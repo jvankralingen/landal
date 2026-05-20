@@ -5,11 +5,16 @@ import type { BentoSlot } from '../lib/imageOverrides';
 interface HeroCollageProps {
   bento: Bento;
   /**
-   * True wanneer een subject (park of regio) eenduidig gekozen is. Dan
-   * wordt elke tile klikbaar: klik opent de file-picker, de gekozen
-   * afbeelding wordt door de parent opgeslagen als override.
+   * True wanneer minimaal één axis (subject of rol) gezet is — dan is de
+   * primary tile uploadable (rol-only override is geldig).
    */
   uploadEnabled?: boolean;
+  /**
+   * True wanneer een subject (park/regio) eenduidig gekozen is. Non-primary
+   * slots (secondary/tertiary/accent) zijn alleen uploadable als dit waar
+   * is, want zij representeren subject-context.
+   */
+  uploadSubjectAvailable?: boolean;
   /** Map van slot → boolean: heeft deze slot een actieve override? */
   slotHasOverride?: Partial<Record<BentoSlot, boolean>>;
   onSlotUpload?: (slot: BentoSlot, file: File) => void;
@@ -117,18 +122,28 @@ function UploadableSlot({
 export function HeroCollage({
   bento,
   uploadEnabled = false,
+  uploadSubjectAvailable = false,
   slotHasOverride = {},
   onSlotUpload,
   onSlotReset,
 }: HeroCollageProps) {
-  const canUpload =
-    uploadEnabled && onSlotUpload != null && onSlotReset != null;
+  const handlersPresent = onSlotUpload != null && onSlotReset != null;
+
+  // primary: uploadable zodra rol of subject set is.
+  // andere slots: alleen uploadable als subject set is (zonder subject geen
+  // zinvolle context-override).
+  const slotIsUploadable = (slot: BentoSlot): boolean => {
+    if (!handlersPresent) return false;
+    if (slot === 'primary') return uploadEnabled;
+    return uploadSubjectAvailable;
+  };
 
   return (
     <div className="cc-hero-collage" data-trim={bento.trim}>
       {ALL_SLOTS.map((slot) => {
         const tile = bento[slot];
-        if (!canUpload) return <Slot key={slot} slot={slot} tile={tile} />;
+        if (!slotIsUploadable(slot))
+          return <Slot key={slot} slot={slot} tile={tile} />;
         return (
           <UploadableSlot
             key={slot}

@@ -1,18 +1,25 @@
 /**
  * Per-tile image-overrides opgeslagen in IndexedDB.
  *
- * Het "subject" van een override is óf een park, óf een regio. Per slot
- * gelden andere scope-regels:
+ * Een override is gekoppeld aan twee onafhankelijke assen:
+ *  - **subject** (optioneel): een park óf een regio
+ *  - **rol** (optioneel)
  *
- *  - **primary** (de "werk"-tegel): rol-aware. Sleutel bevat de rol zodat
- *    je per rol een andere foto kan kiezen. Lookup valt terug op
- *    subject-breed (zonder rol) wanneer rol-specifiek ontbreekt.
- *  - **secondary / tertiary / accent**: subject-context. Altijd
- *    subject-breed; de rol-axis wordt genegeerd bij opslag en lookup.
+ * Per slot gelden andere scope-regels:
  *
- * Sleutel-formaat: `${subjectType}:${subjectId}|${role}|${slot}`
- *  - subjectType: 'park' | 'region'
- *  - role: rol-id of '' (= subject-breed)
+ *  - **primary** (de "werk"-tegel): zowel subject als rol kunnen meedoen.
+ *    Lookup is hiërarchisch (specifiekst eerst):
+ *      1. subject + rol  — `subject + werk`
+ *      2. rol-only       — "deze rol op elk park" (rol is specifieker dan park)
+ *      3. subject-only   — "dit park voor elke rol"
+ *      4. default        — bento-picker
+ *  - **secondary / tertiary / accent**: subject-context. Geen rol-axis;
+ *    altijd subject-breed. Zonder subject geen override mogelijk voor deze
+ *    slots.
+ *
+ * Sleutel-formaat: `${slot}|${subjectKey}|${roleKey}`
+ *  - subjectKey: 'park:<id>', 'region:<id>' of '' (geen subject)
+ *  - roleKey: rol-id of '' (geen rol-axis)
  *  - slot: 'primary' | 'secondary' | 'tertiary' | 'accent'
  *
  * Value = data-URL string (image/webp of fallback image/jpeg, max ~200KB
@@ -52,20 +59,23 @@ function openDb(): Promise<IDBDatabase> {
   return dbPromise;
 }
 
-const subjectId = (s: OverrideSubject): string => `${s.type}:${s.id}`;
+const subjectKeyPart = (s: OverrideSubject | null | undefined): string =>
+  s ? `${s.type}:${s.id}` : '';
 
 /**
  * Compose een override-sleutel volgens de slot-regel:
- *  - primary → rol-aware (rol wordt opgenomen, lege string = subject-breed)
- *  - andere slots → altijd subject-breed (rol genegeerd)
+ *  - primary → zowel subject als rol kunnen aanwezig zijn
+ *  - andere slots → altijd subject-only (rol genegeerd)
+ *
+ * Lege strings worden gebruikt om "axis niet ingevuld" aan te geven.
  */
 export function overrideKey(
-  subject: OverrideSubject,
+  subject: OverrideSubject | null | undefined,
   role: string | null | undefined,
   slot: BentoSlot
 ): string {
   const effectiveRole = slot === 'primary' ? role ?? '' : '';
-  return `${subjectId(subject)}|${effectiveRole}|${slot}`;
+  return `${slot}|${subjectKeyPart(subject)}|${effectiveRole}`;
 }
 
 export async function getOverride(key: string): Promise<string | null> {

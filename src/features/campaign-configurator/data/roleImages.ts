@@ -135,13 +135,18 @@ export interface PickScope {
   manager?: boolean;
 }
 
-/** How well a photo matches a scope. Higher = better. */
+/** How well a photo matches a scope. Higher = better.
+ *
+ * Rol is specifieker dan park: een verkeerde rol op het juiste park valt
+ * door de score-penalty meestal weg, terwijl een rol-matching foto op
+ * een ander park nog steeds meedoet. "Het werk" leidt visueel.
+ */
 function scorePhoto(p: RolePhoto, s: PickScope): number {
   let score = 0;
-  if (s.parkId && p.parkId === s.parkId) score += 100;
-  else if (s.parkId && p.parkId) score -= 50; // park-specific photo for wrong park is a penalty
-  if (s.role && p.role && p.role === s.role) score += 40;
-  else if (s.role && p.role && p.role !== s.role) score -= 10;
+  if (s.role && p.role && p.role === s.role) score += 100;
+  else if (s.role && p.role && p.role !== s.role) score -= 50; // wrong role on the right park = not what we want
+  if (s.parkId && p.parkId === s.parkId) score += 40;
+  else if (s.parkId && p.parkId) score -= 10; // park-specific photo for wrong park: small penalty
   if (s.contract && p.contract === s.contract) score += 20;
   else if (s.contract && p.contract && p.contract !== s.contract) score -= 5;
   if (s.world && p.world === s.world) score += 10;

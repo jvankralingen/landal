@@ -39,7 +39,7 @@ export function useImageOverrides() {
 
   const uploadFor = useCallback(
     async (
-      subject: OverrideSubject,
+      subject: OverrideSubject | null,
       role: string | null,
       slot: BentoSlot,
       file: File
@@ -52,14 +52,10 @@ export function useImageOverrides() {
     []
   );
 
-  /**
-   * Wist alléén de exact-matchende key. Voor non-primary slots is dat
-   * automatisch de subject-brede entry; voor primary kies de aanroeper
-   * (via `role`) of die de rol-specifieke of de subject-brede wist.
-   */
+  /** Wist alléén de exact-matchende key. Aanroeper bepaalt welk niveau. */
   const resetFor = useCallback(
     async (
-      subject: OverrideSubject,
+      subject: OverrideSubject | null,
       role: string | null,
       slot: BentoSlot
     ) => {
@@ -75,27 +71,46 @@ export function useImageOverrides() {
   );
 
   /**
-   * Hiërarchische lookup:
-   *  - primary: probeer rol-specifiek, dan subject-breed
-   *  - andere slots: altijd subject-breed
+   * Hiërarchische lookup (specifiekst eerst):
+   *  - primary:
+   *      1. subject + rol     — meest specifiek
+   *      2. rol-only          — "deze rol op elk park" (rol > park)
+   *      3. subject-only      — "dit park voor elke rol"
+   *  - andere slots: altijd subject-only
    *
-   * Retourneert ook welk niveau ('role' | 'subject') gematcht heeft zodat
-   * een UI weet welke reset uitgevoerd moet worden.
+   * Retourneert ook welk niveau gematcht heeft zodat de UI weet welke
+   * reset uitgevoerd moet worden.
    */
   const overrideFor = useCallback(
     (
       subject: OverrideSubject | null | undefined,
       role: string | null | undefined,
       slot: BentoSlot
-    ): { dataUrl: string; level: 'role' | 'subject' } | undefined => {
-      if (!subject) return undefined;
-      if (slot === 'primary' && role) {
-        const roleKey = overrideKey(subject, role, slot);
-        const found = overrides[roleKey];
-        if (found) return { dataUrl: found, level: 'role' };
+    ):
+      | { dataUrl: string; level: 'subject+role' | 'role' | 'subject' }
+      | undefined => {
+      if (slot === 'primary') {
+        if (subject && role) {
+          const k = overrideKey(subject, role, slot);
+          const found = overrides[k];
+          if (found) return { dataUrl: found, level: 'subject+role' };
+        }
+        if (role) {
+          const k = overrideKey(null, role, slot);
+          const found = overrides[k];
+          if (found) return { dataUrl: found, level: 'role' };
+        }
+        if (subject) {
+          const k = overrideKey(subject, null, slot);
+          const found = overrides[k];
+          if (found) return { dataUrl: found, level: 'subject' };
+        }
+        return undefined;
       }
-      const subjectKey = overrideKey(subject, null, slot);
-      const found = overrides[subjectKey];
+      // non-primary slots: alleen subject-axis
+      if (!subject) return undefined;
+      const k = overrideKey(subject, null, slot);
+      const found = overrides[k];
       if (found) return { dataUrl: found, level: 'subject' };
       return undefined;
     },
