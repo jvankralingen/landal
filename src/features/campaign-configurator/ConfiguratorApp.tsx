@@ -11,6 +11,7 @@ import { deriveHeadline, deriveSubtitle, deriveTone, deriveVibeCopy, filterVacan
 import { DOELGROEP_LABELS, TRIM_LABELS } from './lib/labels';
 import { deriveWorld } from './lib/deriveWorld';
 import { WORLDS } from './lib/worlds';
+import { useImageOverrides } from './hooks/useImageOverrides';
 import './configurator.css';
 
 const allVacancies = (vacanciesData as { vacancies: Vacancy[] }).vacancies;
@@ -93,7 +94,7 @@ export default function ConfiguratorApp() {
         .filter((r): r is { name: string; id: string } => Boolean(r.id)),
     [state.parks, parkNameToId]
   );
-  const bento = useMemo(
+  const baseBento = useMemo(
     () =>
       buildBento(
         filtered,
@@ -112,6 +113,51 @@ export default function ConfiguratorApp() {
       selectedParkRefs,
     ]
   );
+
+  // Per-tile image overrides (IndexedDB) — bij single-park-selectie kan
+  // elke bento-slot een eigen upload krijgen. Sleutel = `parkId:slot`.
+  const { uploadFor, resetFor, overrideFor } = useImageOverrides();
+  const singleParkId =
+    state.parks.length === 1 ? selectedParkRefs[0]?.id ?? null : null;
+
+  const slotOverrides = useMemo(() => {
+    if (!singleParkId) return null;
+    return {
+      primary: overrideFor(singleParkId, 'primary'),
+      secondary: overrideFor(singleParkId, 'secondary'),
+      tertiary: overrideFor(singleParkId, 'tertiary'),
+      accent: overrideFor(singleParkId, 'accent'),
+    };
+  }, [singleParkId, overrideFor]);
+
+  const slotHasOverride = useMemo(() => {
+    if (!slotOverrides) return undefined;
+    return {
+      primary: Boolean(slotOverrides.primary),
+      secondary: Boolean(slotOverrides.secondary),
+      tertiary: Boolean(slotOverrides.tertiary),
+      accent: Boolean(slotOverrides.accent),
+    };
+  }, [slotOverrides]);
+
+  const bento = useMemo(() => {
+    if (!slotOverrides) return baseBento;
+    return {
+      ...baseBento,
+      primary: slotOverrides.primary
+        ? { ...baseBento.primary, src: slotOverrides.primary }
+        : baseBento.primary,
+      secondary: slotOverrides.secondary
+        ? { ...baseBento.secondary, src: slotOverrides.secondary }
+        : baseBento.secondary,
+      tertiary: slotOverrides.tertiary
+        ? { ...baseBento.tertiary, src: slotOverrides.tertiary }
+        : baseBento.tertiary,
+      accent: slotOverrides.accent
+        ? { ...baseBento.accent, src: slotOverrides.accent }
+        : baseBento.accent,
+    };
+  }, [baseBento, slotOverrides]);
 
   // Park-cards on the landing — visible when scope is regio/vibe-based and no
   // specific park is yet picked. Helps the visitor pick from the relevant set.
@@ -235,6 +281,10 @@ export default function ConfiguratorApp() {
               perks={perks}
               parkPerksLabel={parkPerksLabel}
               showVacancyList={effectiveTrim !== 'eb'}
+              uploadParkId={singleParkId}
+              slotHasOverride={slotHasOverride}
+              onSlotUpload={uploadFor}
+              onSlotReset={resetFor}
             />
             <p className="cc-disclaimer">Conceptweergave · niet voor publicatie</p>
           </div>

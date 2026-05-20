@@ -3,6 +3,7 @@ import type { Vacancy } from '../types';
 import { AnimatedNumber } from './AnimatedNumber';
 import { WORLDS, type WorldId } from '../lib/worlds';
 import type { Bento } from '../lib/buildHeroCollage';
+import type { BentoSlot } from '../lib/imageOverrides';
 import { HeroCollage } from './HeroCollage';
 import { LandalLogo } from './LandalLogo';
 
@@ -28,6 +29,11 @@ interface MobilePreviewProps {
   perks: string[];
   parkPerksLabel: string | null;
   showVacancyList: boolean;
+  /** Override-prop's: alleen actief in single-park mode. */
+  uploadParkId?: string | null;
+  slotHasOverride?: Partial<Record<BentoSlot, boolean>>;
+  onSlotUpload?: (parkId: string, slot: BentoSlot, file: File) => void;
+  onSlotReset?: (parkId: string, slot: BentoSlot) => void;
 }
 
 const itemMotion = {
@@ -36,7 +42,7 @@ const itemMotion = {
   exit: { opacity: 0, y: -8 },
 };
 
-export function MobilePreview({ headline, subtitle, vibeCopy, vacancies, toneLabel, worldId, bento, parksInScope, regionLabel, onPickPark, perks, parkPerksLabel, showVacancyList }: MobilePreviewProps) {
+export function MobilePreview({ headline, subtitle, vibeCopy, vacancies, toneLabel, worldId, bento, parksInScope, regionLabel, onPickPark, perks, parkPerksLabel, showVacancyList, uploadParkId, slotHasOverride, onSlotUpload, onSlotReset }: MobilePreviewProps) {
   const previewList = vacancies.slice(0, 5);
   const world = WORLDS[worldId];
 
@@ -66,7 +72,13 @@ export function MobilePreview({ headline, subtitle, vibeCopy, vacancies, toneLab
         <div className="cc-mobile-hero">
           <div className="cc-brand"><LandalLogo height={24} /></div>
 
-          <HeroCollage bento={bento} />
+          <HeroCollage
+            bento={bento}
+            uploadParkId={uploadParkId}
+            slotHasOverride={slotHasOverride}
+            onSlotUpload={onSlotUpload}
+            onSlotReset={onSlotReset}
+          />
 
           <h1 key={headline} className="cc-mobile-headline">{headline}</h1>
           <p key={subtitle} className="cc-mobile-sub">{subtitle}</p>
