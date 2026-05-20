@@ -45,5 +45,8 @@ scripts/.crawl-cache.json
 # Backup folders
 src_backup_*/
 
+# Raw asset archives (kept locally, not shipped)
+/_archive/
+
 # Claude Code
 .claude/

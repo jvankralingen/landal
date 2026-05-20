@@ -94,8 +94,23 @@ export default function ConfiguratorApp() {
     [state.parks, parkNameToId]
   );
   const bento = useMemo(
-    () => buildBento(filtered, state.roles, worldId, effectiveTrim, selectedParkRefs),
-    [filtered, state.roles, worldId, effectiveTrim, selectedParkRefs]
+    () =>
+      buildBento(
+        filtered,
+        state.roles,
+        worldId,
+        effectiveTrim,
+        selectedParkRefs,
+        state.contracts
+      ),
+    [
+      filtered,
+      state.roles,
+      state.contracts,
+      worldId,
+      effectiveTrim,
+      selectedParkRefs,
+    ]
   );
 
   // Park-cards on the landing — visible when scope is regio/vibe-based and no

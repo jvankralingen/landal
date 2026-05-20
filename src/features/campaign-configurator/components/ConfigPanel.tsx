@@ -4,6 +4,7 @@ import type { CampaignState, Contract, Role, Vacancy } from '../types';
 import { CONTRACT_LABELS, DOELGROEP_LABELS, ROLE_LABELS } from '../lib/labels';
 import { filterVacancies, impliedDoelgroep, uniqueParks, uniqueRegions } from '../lib/computeCampaign';
 import { getWorldForParkName } from '../lib/deriveWorld';
+import { FOCUS_PARK_NAMES, isFocusPark } from '../lib/focusParks';
 import { AnimatedNumber } from './AnimatedNumber';
 
 const CONTRACTS: Contract[] = ['stage', 'bijbaan', 'vakantiebaan', 'vast'];
@@ -11,7 +12,7 @@ const CONTRACTS: Contract[] = ['stage', 'bijbaan', 'vakantiebaan', 'vast'];
 interface ChipProps {
   active: boolean;
   disabled?: boolean;
-  onClick: () => void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
 }
 
@@ -43,8 +44,16 @@ export function ConfigPanel({ state, setState, allVacancies, filtered }: ConfigP
   const [parkSearch, setParkSearch] = useState('');
 
   const allParkNames = useMemo(
-    () =>
-      [...new Set(allVacancies.map((v) => v.park).filter((p): p is string => Boolean(p)))].sort(),
+    () => {
+      // Parken uit vacatures + focus-parken (laatste altijd zichtbaar, ook
+      // als ze 0 open vacatures hebben — anders zou bv. Marber Veluwe
+      // ontbreken in de lijst tijdens de presentatie).
+      const set = new Set<string>(
+        allVacancies.map((v) => v.park).filter((p): p is string => Boolean(p))
+      );
+      for (const name of FOCUS_PARK_NAMES) set.add(name);
+      return [...set].sort();
+    },
     [allVacancies]
   );
 
@@ -85,11 +94,15 @@ export function ConfigPanel({ state, setState, allVacancies, filtered }: ConfigP
         return w != null && state.worlds.includes(w);
       });
     }
-    // Selected first, then by vacancy count desc.
+    // Sortering: (1) selected eerst, (2) focus-parken bovenaan (presentatie-
+    // klaar, eigen beeldregie), (3) op vacature-count desc.
     return [...base].sort((a, b) => {
       const aSel = state.parks.includes(a);
       const bSel = state.parks.includes(b);
       if (aSel !== bSel) return aSel ? -1 : 1;
+      const aFocus = isFocusPark(a);
+      const bFocus = isFocusPark(b);
+      if (aFocus !== bFocus) return aFocus ? -1 : 1;
       return (parkCountByName.get(b) ?? 0) - (parkCountByName.get(a) ?? 0);
     });
   }, [allParkNames, parkSearch, state.parks, state.regions, state.worlds, parkCountByName, parkNameToRegion]);
@@ -189,7 +202,10 @@ export function ConfigPanel({ state, setState, allVacancies, filtered }: ConfigP
       </section>
 
       <section className="cc-section">
-        <p className="cc-section-label">Scope · park ({allParkNames.length})</p>
+        <p className="cc-section-label">
+          Scope · park ({allParkNames.length}){' '}
+          <span className="cc-section-hint">shift-klik voor meerdere</span>
+        </p>
         <input
           type="text"
           className="cc-park-search"
@@ -198,24 +214,50 @@ export function ConfigPanel({ state, setState, allVacancies, filtered }: ConfigP
           onChange={(e) => setParkSearch(e.target.value)}
         />
         <div className="cc-chips cc-chips--scroll">
-          {filteredParks.map((p) => (
-            <Chip
-              key={p}
-              active={state.parks.includes(p)}
-              disabled={disabledParks.has(p)}
-              onClick={() =>
-                setState((s) => {
-                  const nextParks = toggleArr(s.parks, p);
-                  const adding = nextParks.includes(p);
-                  return adding
-                    ? { ...s, parks: nextParks, trim: 'park' }
-                    : { ...s, parks: nextParks };
-                })
-              }
-            >
-              {p} <span className="cc-chip-count">{parkCountByName.get(p) ?? 0}</span>
-            </Chip>
-          ))}
+          {filteredParks.map((p) => {
+            const focus = isFocusPark(p);
+            return (
+              <Chip
+                key={p}
+                active={state.parks.includes(p)}
+                disabled={disabledParks.has(p)}
+                onClick={(e) =>
+                  setState((s) => {
+                    // Default = single-select (live-demo: snel wisselen
+                    // tussen parken). Shift-click = multi-select toggle,
+                    // voor wanneer je een set parken naast elkaar wil
+                    // vergelijken.
+                    if (e.shiftKey) {
+                      const nextParks = toggleArr(s.parks, p);
+                      const adding = nextParks.includes(p);
+                      return adding
+                        ? { ...s, parks: nextParks, trim: 'park' }
+                        : { ...s, parks: nextParks };
+                    }
+                    // Klik op het enige geselecteerde park = deselecteren.
+                    if (s.parks.length === 1 && s.parks[0] === p) {
+                      return { ...s, parks: [] };
+                    }
+                    return { ...s, parks: [p], trim: 'park' };
+                  })
+                }
+              >
+                {focus && (
+                  <span
+                    className="cc-chip-focus-marker"
+                    aria-label="Focus-park met eigen beeldregie"
+                    title="Focus-park met eigen beeldregie"
+                  >
+                    ★
+                  </span>
+                )}
+                {p}{' '}
+                <span className="cc-chip-count">
+                  {parkCountByName.get(p) ?? 0}
+                </span>
+              </Chip>
+            );
+          })}
           {filteredParks.length === 0 && (
             <span className="cc-empty">Geen parken gevonden</span>
           )}

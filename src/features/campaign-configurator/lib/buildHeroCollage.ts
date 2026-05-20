@@ -1,6 +1,12 @@
 import { parkGalleryImages, getGalleryImageUrl } from '../../../data/parkImageUrls';
-import type { Role, Trim, Vacancy } from '../types';
+import type { Contract, Role, Trim, Vacancy } from '../types';
 import type { WorldId } from './worlds';
+import {
+  pickRolePhoto,
+  pickRolePhotoPool,
+  ROLE_PHOTOS,
+  type PickScope,
+} from '../data/roleImages';
 
 export interface BentoTile {
   src: string | null;
@@ -74,6 +80,33 @@ function roleTile(roleId: Role | null): BentoTile {
     label: ROLE_LABEL[id] ?? 'Het werk',
     kind: 'role',
   };
+}
+
+/**
+ * Scope-aware role tile: scores the roles_2 photo pool against the active
+ * scope and picks the most-specific match. Falls back to the legacy
+ * ROLE_PHOTO map when no scoped photo is available — keeps the bento alive
+ * for roles we haven't shot bespoke photography for yet (techniek, housekeeping).
+ */
+function pickRoleTile(scope: PickScope, seed: string): BentoTile {
+  const photo = pickRolePhoto(scope, seed);
+  if (photo) {
+    const labelFromRole = scope.role ? ROLE_LABEL[scope.role] : null;
+    return {
+      src: photo.src,
+      label: photo.label ?? labelFromRole ?? 'Het werk',
+      kind: 'role',
+    };
+  }
+  // Legacy fallback for roles without bespoke roles_2 coverage.
+  if (scope.role) return roleTile(scope.role);
+  return { src: null, label: '—', kind: 'role' };
+}
+
+/** Does the photo pool have any park-specific photos for this parkId? */
+function hasParkSpecificPhotos(parkId: string | null | undefined): boolean {
+  if (!parkId) return false;
+  return ROLE_PHOTOS.some((p) => p.parkId === parkId);
 }
 
 function parkTile(parkName: string, contentId: string | null, label?: string): BentoTile {
@@ -166,7 +199,8 @@ export function buildBento(
   selectedRoles: Role[],
   worldId: WorldId,
   trim: Trim,
-  selectedParks: { id: string; name: string }[] = []
+  selectedParks: { id: string; name: string }[] = [],
+  selectedContracts: Contract[] = []
 ): Bento {
   let parks = topParks(filtered, 8);
   // When the user explicitly selected a park (typically in park-trim), make sure
@@ -185,14 +219,34 @@ export function buildBento(
   }
   const roleId =
     selectedRoles.find((r) => ROLE_PHOTO[r]) ?? mostCommonRole(filtered) ?? null;
-  const roleT = roleTile(roleId);
+  const explicitRole = selectedRoles.length === 1 ? selectedRoles[0] : null;
+  const explicitContract = selectedContracts.length === 1 ? selectedContracts[0] : null;
+  const explicitParkId =
+    selectedParks.length === 1 ? selectedParks[0].id : null;
+  const scope: PickScope = {
+    role: explicitRole ?? roleId,
+    contract: explicitContract,
+    parkId: explicitParkId,
+    world: worldId,
+    manager: (explicitRole ?? roleId) === 'parkmanagement',
+  };
+  const seed = [
+    scope.parkId ?? '',
+    scope.role ?? '',
+    scope.contract ?? '',
+    scope.world ?? '',
+    trim,
+  ].join('|');
+  const roleT = pickRoleTile(scope, seed);
   const vibeT = vibeTile(worldId);
 
-  // HQ-vibe: only the HQ role-photo. The remaining tiles become labelled
+  // HQ-vibe: HQ role-photo primary; the remaining tiles become labelled
   // text-cards (Amsterdam / Zwolle / Internationaal) instead of park photos.
+  // The scope-picker rotates through the HQ subroles (Communicatie / ESG /
+  // HR / IT / etc.) so the spotlight shifts with the chosen contract/role.
   if (worldId === 'hq') {
     return {
-      primary: roleTile('hoofdkantoor'),
+      primary: pickRoleTile({ ...scope, role: 'hoofdkantoor', world: 'hq' }, seed),
       secondary: { src: null, label: 'Amsterdam', kind: 'vibe' },
       tertiary: { src: null, label: 'Zwolle', kind: 'vibe' },
       accent: { src: null, label: 'Internationaal', kind: 'vibe' },
@@ -226,11 +280,17 @@ export function buildBento(
   // Dedup pipeline: each slot walks a prioritized list, skips any src already used.
   const used = new Set<string>();
 
+  // In single-park-trim is de park-naam al via de headline duidelijk; labels
+  // op de tegels worden dan ruis. Bij multi-park willen we juist wél tonen
+  // welk park je ziet.
+  const suppressParkLabel = trim === 'park' && selectedParks.length === 1;
+  const parkLabel = (name: string) => (suppressParkLabel ? '' : name);
+
   function pickFromPool(pool: Candidate[], ...fallbacks: BentoTile[]): BentoTile {
     for (const c of pool) {
       if (!used.has(c.src)) {
         used.add(c.src);
-        return { src: c.src, label: c.parkName, kind: 'park' };
+        return { src: c.src, label: parkLabel(c.parkName), kind: 'park' };
       }
     }
     for (const f of fallbacks) {
@@ -252,6 +312,52 @@ export function buildBento(
     const pool = makeParkPool(parks, strategy);
     const hasSpecificRole = selectedRoles.length === 1 && Boolean(roleT.src);
 
+    // Focus-park (zoals Hof van Saksen) heeft eigen rol/contract-foto's
+    // in roles_2/. Die winnen van de generieke Sanity gallery: ze tonen
+    // letterlijk een collega van dít park aan het werk.
+    if (
+      selectedParks.length === 1 &&
+      hasParkSpecificPhotos(selectedParks[0].id)
+    ) {
+      const parkScope: PickScope = { ...scope, parkId: selectedParks[0].id };
+      const parkPool = pickRolePhotoPool(parkScope, 4, seed);
+
+      // Met een expliciete rol → die foto eerst (specificiteit-bonus geeft
+      // 'm vanzelf de top-score), aangevuld met park-specifieke variatie.
+      // Park-naam als fallback-label valt weg bij single-park (zie
+      // suppressParkLabel); rol-specifieke labels ("Pizza", "Bediening")
+      // blijven wel staan want die geven extra context.
+      const fallbackParkLabel = parkLabel(selectedParks[0].name);
+      const primaryTile: BentoTile = {
+        src: parkPool[0]?.src ?? roleT.src,
+        label: parkPool[0]?.label ?? fallbackParkLabel,
+        kind: 'role',
+      };
+      if (primaryTile.src) used.add(primaryTile.src);
+
+      const fillFromParkPool = (idx: number): BentoTile => {
+        const candidate = parkPool[idx];
+        if (candidate && !used.has(candidate.src)) {
+          used.add(candidate.src);
+          return {
+            src: candidate.src,
+            label: candidate.label ?? fallbackParkLabel,
+            kind: 'role',
+          };
+        }
+        // Fallback: leverde te weinig park-foto's; gallery aanvullen.
+        return pickFromPool(pool, vibeT);
+      };
+
+      return {
+        primary: primaryTile,
+        secondary: fillFromParkPool(1),
+        tertiary: fillFromParkPool(2),
+        accent: fillFromParkPool(3),
+        trim,
+      };
+    }
+
     // Park + specific role → role gets the highlighted primary slot, park
     // photos fill the rest. The work is the hero, the location supports it.
     if (hasSpecificRole && roleT.src) {
@@ -265,22 +371,32 @@ export function buildBento(
       };
     }
 
-    // Park-only (no specific role) → park gallery dominates, no role tile.
-    const primary = pickFromPool(pool, vibeT);
-    const secondary = pickFromPool(pool, vibeT);
-    const tertiary = pickFromPool(pool, vibeT);
-    const accent = pickFromPool(pool, vibeT);
-    return { primary, secondary, tertiary, accent, trim };
+    // Park-only (geen expliciete rol) → het werk leidt nog steeds: pak de
+    // meest voorkomende rol uit de vacatures van dit park als primary.
+    // Park-foto's vullen secondary/tertiary/accent en laten zien wáár dit
+    // werk plaatsvindt.
+    if (roleT.src) used.add(roleT.src);
+    return {
+      primary: roleT,
+      secondary: pickFromPool(pool, vibeT),
+      tertiary: pickFromPool(pool, vibeT),
+      accent: pickFromPool(pool, vibeT),
+      trim,
+    };
   }
 
   if (trim === 'regio') {
-    // 4 different parks (round-robin), fall back to role then vibe.
+    // Regio: het werk leidt (rol primary, op basis van meest voorkomende
+    // rol in de gefilterde regio-vacatures). De 3 supporting-tiles laten
+    // de breedte van de regio zien: round-robin parken zodat elk park in
+    // de regio kans krijgt voordat een park een 2e foto pakt.
     const pool = makeParkPool(parks, 'variety');
+    if (roleT.src) used.add(roleT.src);
     return {
-      primary: pickFromPool(pool, vibeT),
-      secondary: pickFromPool(pool, roleT, vibeT),
-      tertiary: pickFromPool(pool, roleT, vibeT),
-      accent: pickFromPool(pool, roleT, vibeT),
+      primary: roleT,
+      secondary: pickFromPool(pool, vibeT),
+      tertiary: pickFromPool(pool, vibeT),
+      accent: pickFromPool(pool, vibeT),
       trim,
     };
   }

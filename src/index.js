@@ -1,13 +1,13 @@
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import ConfiguratorApp from './features/campaign-configurator/ConfiguratorApp';
+import AppRouter from './AppRouter';
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <ConfiguratorApp />
+    <AppRouter />
   </StrictMode>
 );

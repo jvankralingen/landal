@@ -79,6 +79,15 @@ html, body, #root {
   margin: 0 0 10px;
 }
 
+.cc-section-hint {
+  margin-left: 8px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-size: 10px;
+  opacity: 0.65;
+}
+
 /* Trim grid */
 .cc-trim-grid {
   display: grid;
@@ -179,6 +188,22 @@ html, body, #root {
 
 .cc-chip.is-active .cc-chip-count {
   background: rgba(255, 255, 255, 0.25);
+}
+
+/* Focus-park marker — gepind bovenaan + visueel onderscheidend zodat de
+   recruiter direct ziet welke parken "presentatie-klaar" zijn (eigen
+   beeldregie + concrete copy). */
+.cc-chip-focus-marker {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 11px;
+  color: #e7a800;
+  text-shadow: 0 0 1px rgba(231, 168, 0, 0.4);
+  vertical-align: 1px;
+}
+.cc-chip.is-active .cc-chip-focus-marker {
+  color: #ffd96b;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
 }
 
 .cc-empty {

@@ -17,7 +17,9 @@ function Slot({ slot, tile }: { slot: SlotName; tile: BentoTile }) {
         ) : (
           <span className="cc-hero-tile-placeholder">{tile.label}</span>
         )}
-        <span className="cc-hero-tile-tag">{tile.label}</span>
+        {tile.label && (
+          <span className="cc-hero-tile-tag">{tile.label}</span>
+        )}
       </div>
     </div>
   );
