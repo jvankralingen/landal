@@ -21,6 +21,15 @@ export function useImageOverrides() {
   const [overrides, setOverrides] = useState<Record<string, string>>({});
   const [loaded, setLoaded] = useState(false);
 
+  const refresh = useCallback(async () => {
+    try {
+      const all = await getAllOverrides();
+      setOverrides(all);
+    } catch {
+      // ignore — IDB unavailable / blocked
+    }
+  }, []);
+
   useEffect(() => {
     let cancelled = false;
     getAllOverrides()
@@ -100,5 +109,5 @@ export function useImageOverrides() {
     [overrides]
   );
 
-  return { overrides, loaded, uploadFor, resetFor, overrideFor };
+  return { overrides, loaded, uploadFor, resetFor, overrideFor, refresh };
 }

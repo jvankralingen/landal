@@ -61,5 +61,9 @@ export function useTextOverrides() {
     [overrides]
   );
 
-  return { overrides, getFor, setFor, resetFor };
+  const refresh = useCallback(() => {
+    setOverrides(getAllTextOverrides());
+  }, []);
+
+  return { overrides, getFor, setFor, resetFor, refresh };
 }

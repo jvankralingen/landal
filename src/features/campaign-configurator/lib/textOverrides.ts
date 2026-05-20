@@ -18,7 +18,7 @@ import type { OverrideSubject } from './imageOverrides';
 
 const STORAGE_KEY = 'landal-text-overrides';
 
-export type TextField = 'headline' | 'subtitle' | 'vibe';
+export type TextField = 'headline' | 'subtitle' | 'vibe' | 'perks';
 
 export function textOverrideKey(
   field: TextField,

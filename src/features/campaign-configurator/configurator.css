@@ -51,12 +51,39 @@ html, body, #root {
   margin-bottom: 20px;
 }
 
+.cc-panel-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.cc-panel-export {
+  background: none;
+  border: 1px solid var(--cc-border);
+  color: var(--cc-fg-muted);
+  font: inherit;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 140ms ease, color 140ms ease;
+}
+.cc-panel-export:hover {
+  border-color: #0097a2;
+  color: #0097a2;
+}
+
 .cc-eyebrow {
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--cc-fg-muted);
-  margin: 0 0 6px;
+  margin: 0;
 }
 
 .cc-panel-title {
@@ -1040,6 +1067,39 @@ html, body, #root {
 
 .cc-editable-reset:hover {
   background: rgba(0, 0, 0, 0.85);
+}
+
+/* Perks list: + punt toevoegen + reset-link bij section-label */
+.cc-perks-add {
+  background: none;
+  border: 1px dashed color-mix(in srgb, var(--world-fg) 30%, transparent);
+  color: color-mix(in srgb, var(--world-fg) 65%, transparent);
+  font: inherit;
+  font-size: 11.5px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 140ms ease, color 140ms ease;
+}
+.cc-perks-add:hover {
+  border-color: var(--world-accent);
+  color: var(--world-accent);
+}
+
+.cc-perks-reset {
+  background: none;
+  border: 0;
+  color: color-mix(in srgb, var(--world-fg) 55%, transparent);
+  font: inherit;
+  font-size: 10px;
+  margin-left: 6px;
+  padding: 0 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.cc-perks-reset:hover {
+  color: var(--world-accent);
 }
 
 .cc-mobile-screen[data-tone='dark'] .cc-mobile-hero {

@@ -42,6 +42,10 @@ interface MobilePreviewProps {
   textHasOverride?: Partial<Record<TextField, boolean>>;
   onTextSave?: (field: TextField, value: string) => void;
   onTextReset?: (field: TextField) => void;
+  /** Perks-list voor de huidige scope (override óf auto). */
+  perksHasOverride?: boolean;
+  onPerksChange?: (next: string[]) => void;
+  onPerksReset?: () => void;
 }
 
 const itemMotion = {
@@ -50,7 +54,7 @@ const itemMotion = {
   exit: { opacity: 0, y: -8 },
 };
 
-export function MobilePreview({ headline, subtitle, vibeCopy, vacancies, toneLabel, worldId, bento, parksInScope, regionLabel, onPickPark, perks, parkPerksLabel, showVacancyList, uploadEnabled, uploadSubjectAvailable, slotHasOverride, onSlotUpload, onSlotReset, textHasOverride, onTextSave, onTextReset }: MobilePreviewProps) {
+export function MobilePreview({ headline, subtitle, vibeCopy, vacancies, toneLabel, worldId, bento, parksInScope, regionLabel, onPickPark, perks, parkPerksLabel, showVacancyList, uploadEnabled, uploadSubjectAvailable, slotHasOverride, onSlotUpload, onSlotReset, textHasOverride, onTextSave, onTextReset, perksHasOverride, onPerksChange, onPerksReset }: MobilePreviewProps) {
   const noopSave = (_field: TextField, _value: string) => {};
   const noopReset = (_field: TextField) => {};
   const saveText = onTextSave ?? noopSave;
@@ -102,14 +106,9 @@ export function MobilePreview({ headline, subtitle, vibeCopy, vacancies, toneLab
             onSave={(v) => saveText('headline', v)}
             onReset={() => resetText('headline')}
           />
-          <EditableText
-            as="p"
-            className="cc-mobile-sub"
-            value={subtitle}
-            hasOverride={has('subtitle')}
-            onSave={(v) => saveText('subtitle', v)}
-            onReset={() => resetText('subtitle')}
-          />
+          {/* Subtitle = aantal openstaande vacatures, niet editable —
+              hij telt automatisch op basis van de selectie. */}
+          <p key={subtitle} className="cc-mobile-sub">{subtitle}</p>
           <EditableText
             as="p"
             className="cc-mobile-vibe"
@@ -130,18 +129,52 @@ export function MobilePreview({ headline, subtitle, vibeCopy, vacancies, toneLab
           </motion.button>
         </div>
 
-        {perks.length > 0 && (
+        {(perks.length > 0 || onPerksChange) && (
           <div className="cc-mobile-section cc-mobile-perks">
             <p className="cc-mobile-section-label">
               {parkPerksLabel ? `Wat krijg je ${parkPerksLabel}` : 'Wat krijg je als Landal-medewerker'}
+              {perksHasOverride && onPerksReset && (
+                <button
+                  type="button"
+                  className="cc-perks-reset"
+                  onClick={onPerksReset}
+                  title="Terug naar default-lijst"
+                >
+                  reset
+                </button>
+              )}
             </p>
             <ul className="cc-mobile-perks-list">
               {perks.map((p, i) => (
                 <li key={i} className="cc-mobile-perk">
                   <span className="cc-mobile-perk-check" aria-hidden="true">✓</span>
-                  <span className="cc-mobile-perk-text">{p}</span>
+                  {onPerksChange ? (
+                    <EditableText
+                      as="span"
+                      className="cc-mobile-perk-text"
+                      value={p}
+                      hasOverride={perksHasOverride ?? false}
+                      onSave={(v) => onPerksChange(perks.map((x, j) => (j === i ? v : x)))}
+                      onReset={() =>
+                        onPerksChange(perks.filter((_, j) => j !== i))
+                      }
+                    />
+                  ) : (
+                    <span className="cc-mobile-perk-text">{p}</span>
+                  )}
                 </li>
               ))}
+              {onPerksChange && (
+                <li className="cc-mobile-perk cc-mobile-perk--add">
+                  <button
+                    type="button"
+                    className="cc-perks-add"
+                    onClick={() => onPerksChange([...perks, 'Nieuw punt'])}
+                  >
+                    + punt toevoegen
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
         )}

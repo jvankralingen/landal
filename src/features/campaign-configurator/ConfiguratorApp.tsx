@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ConfigPanel } from './components/ConfigPanel';
 import { MobilePreview } from './components/MobilePreview';
 import { AnimatedNumber } from './components/AnimatedNumber';
@@ -16,6 +16,7 @@ import { useImageOverrides } from './hooks/useImageOverrides';
 import { useTextOverrides } from './hooks/useTextOverrides';
 import type { BentoSlot, OverrideSubject } from './lib/imageOverrides';
 import type { TextField } from './lib/textOverrides';
+import { applyBaselineIfNeeded } from './lib/overrideBaseline';
 import './configurator.css';
 
 const allVacancies = (vacanciesData as { vacancies: Vacancy[] }).vacancies;
@@ -132,7 +133,7 @@ export default function ConfiguratorApp() {
   // subject (park/regio) en rol. Slot-regels:
   //  - primary: subject+rol > rol-only > subject-only > default
   //  - andere slots: alleen subject-only (geen rol-axis)
-  const { uploadFor, resetFor, overrideFor } = useImageOverrides();
+  const { uploadFor, resetFor, overrideFor, refresh: refreshImages } = useImageOverrides();
   const overrideSubject: OverrideSubject | null = useMemo(() => {
     if (state.parks.length === 1 && selectedParkRefs[0]?.id) {
       return { type: 'park', id: selectedParkRefs[0].id };
@@ -145,9 +146,10 @@ export default function ConfiguratorApp() {
   // De rol-axis voor de override: alleen als precies één rol gekozen is.
   const overrideRole: string | null =
     state.roles.length === 1 ? state.roles[0] : null;
-  // Upload-zone is actief wanneer minimaal één axis ingevuld is. Voor
-  // non-primary slots geldt extra dat subject set moet zijn (zie HeroCollage).
-  const overridesAvailable = overrideSubject != null || overrideRole != null;
+  // Upload-zone is altijd actief — ook in default-state (geen selectie)
+  // kunnen initiële beelden worden ingesteld. Exact-match-keys regelen dat
+  // het alleen voor die selectie geldt.
+  const overridesAvailable = true;
 
   const slotOverrides = useMemo(() => {
     // Geen guard op subject — rol-only is ook een geldige primary-override.
@@ -193,8 +195,22 @@ export default function ConfiguratorApp() {
 
   // Per-scope text-overrides. Headline/subtitle/vibe kunnen per (subject, rol)
   // worden overschreven; exact-match — andere selectie laat de auto-tekst zien.
-  const { getFor: getTextFor, setFor: setTextFor, resetFor: resetTextFor } =
-    useTextOverrides();
+  const {
+    getFor: getTextFor,
+    setFor: setTextFor,
+    resetFor: resetTextFor,
+    refresh: refreshTexts,
+  } = useTextOverrides();
+
+  // Baseline-loader: een ge-committeerd preset in data/presetOverrides.json
+  // wordt eenmalig per versie naar de stores gemerged. Daarna refreshen we
+  // beide hooks zodat de baseline meteen zichtbaar is zonder F5.
+  useEffect(() => {
+    void applyBaselineIfNeeded().then(() => {
+      refreshTexts();
+      void refreshImages();
+    });
+  }, [refreshTexts, refreshImages]);
   const headlineOverride = getTextFor('headline', overrideSubject, overrideRole);
   const subtitleOverride = getTextFor('subtitle', overrideSubject, overrideRole);
   const vibeOverride = getTextFor('vibe', overrideSubject, overrideRole);
@@ -220,30 +236,20 @@ export default function ConfiguratorApp() {
   );
 
   // Upload/reset op de exact-matching key voor de huidige selectie.
-  // Primary mag (subject, rol) of (subject) of (rol) zijn — minstens één
-  // axis moet gezet zijn. Non-primary vereist subject (rol wordt
-  // automatisch genegeerd door overrideKey).
+  // Ook bij volledig lege selectie (subject én rol null) is uploaden
+  // toegestaan — dat zet de "initiële" baseline-afbeeldingen.
+  // Non-primary slots negeren altijd de rol-axis (zie overrideKey).
   const handleSlotUpload = useCallback(
     (slot: BentoSlot, file: File) => {
-      if (slot === 'primary') {
-        if (!overrideSubject && !overrideRole) return;
-        void uploadFor(overrideSubject, overrideRole, slot, file);
-        return;
-      }
-      if (!overrideSubject) return;
-      void uploadFor(overrideSubject, null, slot, file);
+      const roleForKey = slot === 'primary' ? overrideRole : null;
+      void uploadFor(overrideSubject, roleForKey, slot, file);
     },
     [uploadFor, overrideSubject, overrideRole]
   );
   const handleSlotReset = useCallback(
     (slot: BentoSlot) => {
-      if (slot === 'primary') {
-        if (!overrideSubject && !overrideRole) return;
-        void resetFor(overrideSubject, overrideRole, slot);
-        return;
-      }
-      if (!overrideSubject) return;
-      void resetFor(overrideSubject, null, slot);
+      const roleForKey = slot === 'primary' ? overrideRole : null;
+      void resetFor(overrideSubject, roleForKey, slot);
     },
     [resetFor, overrideSubject, overrideRole]
   );
@@ -277,7 +283,7 @@ export default function ConfiguratorApp() {
   }, [state.regions, state.worlds]);
 
   // "Wat krijg je" — park-specifieke perks vooraan, aangevuld met Landal-brede.
-  const perks = useMemo(() => {
+  const autoPerks = useMemo(() => {
     const parkPerks = state.parks.length === 1 ? getParkPerks(state.parks[0]) : [];
     const combined = [...parkPerks, ...LANDAL_PERKS];
     // Dedup en max 6 tonen.
@@ -288,6 +294,29 @@ export default function ConfiguratorApp() {
       return true;
     }).slice(0, 6);
   }, [state.parks]);
+
+  // Perks-override per scope: opgeslagen als JSON-string in dezelfde
+  // text-overrides store. Parse hier, save met JSON.stringify.
+  const perksOverrideRaw = getTextFor('perks', overrideSubject, overrideRole);
+  const perksOverride = useMemo<string[] | null>(() => {
+    if (!perksOverrideRaw) return null;
+    try {
+      const parsed = JSON.parse(perksOverrideRaw);
+      return Array.isArray(parsed) ? (parsed as string[]) : null;
+    } catch {
+      return null;
+    }
+  }, [perksOverrideRaw]);
+  const perks = perksOverride ?? autoPerks;
+  const handlePerksChange = useCallback(
+    (next: string[]) => {
+      setTextFor('perks', overrideSubject, overrideRole, JSON.stringify(next));
+    },
+    [setTextFor, overrideSubject, overrideRole]
+  );
+  const handlePerksReset = useCallback(() => {
+    resetTextFor('perks', overrideSubject, overrideRole);
+  }, [resetTextFor, overrideSubject, overrideRole]);
 
   const parkPerksLabel = state.parks.length === 1 ? `op Landal ${state.parks[0]}` : null;
 
@@ -371,13 +400,17 @@ export default function ConfiguratorApp() {
               parkPerksLabel={parkPerksLabel}
               showVacancyList={effectiveTrim !== 'eb'}
               uploadEnabled={overridesAvailable}
-              uploadSubjectAvailable={overrideSubject != null}
+              uploadSubjectAvailable
+              // ↑ true → alle 4 tiles uploadable, ook bij geen selectie
               slotHasOverride={slotHasOverride}
               onSlotUpload={handleSlotUpload}
               onSlotReset={handleSlotReset}
               textHasOverride={textHasOverride}
               onTextSave={handleTextSave}
               onTextReset={handleTextReset}
+              perksHasOverride={perksOverride !== null}
+              onPerksChange={handlePerksChange}
+              onPerksReset={handlePerksReset}
             />
             <p className="cc-disclaimer">Conceptweergave · niet voor publicatie</p>
           </div>

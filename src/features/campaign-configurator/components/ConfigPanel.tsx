@@ -5,6 +5,7 @@ import { CONTRACT_LABELS, DOELGROEP_LABELS, ROLE_LABELS } from '../lib/labels';
 import { filterVacancies, impliedDoelgroep, uniqueParks, uniqueRegions } from '../lib/computeCampaign';
 import { getWorldForParkName } from '../lib/deriveWorld';
 import { FOCUS_PARK_NAMES, isFocusPark } from '../lib/focusParks';
+import { buildPreset, downloadPreset, presetSummary } from '../lib/overrideExport';
 import { AnimatedNumber } from './AnimatedNumber';
 
 const CONTRACTS: Contract[] = ['stage', 'bijbaan', 'vakantiebaan', 'vast'];
@@ -190,7 +191,32 @@ export function ConfigPanel({ state, setState, allVacancies, filtered }: ConfigP
   return (
     <aside className="cc-panel">
       <header className="cc-panel-header">
-        <p className="cc-eyebrow">Landal · Campagne Configurator</p>
+        <div className="cc-panel-header-top">
+          <p className="cc-eyebrow">Landal · Campagne Configurator</p>
+          <button
+            type="button"
+            className="cc-panel-export"
+            onClick={async () => {
+              const preset = await buildPreset();
+              const summary = presetSummary(preset);
+              if (
+                Object.keys(preset.images).length === 0 &&
+                Object.keys(preset.texts).length === 0
+              ) {
+                alert(
+                  'Nog niks aangepast om te exporteren. Upload beelden of bewerk teksten eerst.'
+                );
+                return;
+              }
+              downloadPreset(preset);
+              // eslint-disable-next-line no-console
+              console.log('[preset] geëxporteerd —', summary);
+            }}
+            title="Download alle aanpassingen als JSON. Commit dat bestand als data/presetOverrides.json om het permanent te maken voor iedereen."
+          >
+            ↓ Export preset
+          </button>
+        </div>
         <h2 className="cc-panel-title">Campagne configurator</h2>
       </header>
 
