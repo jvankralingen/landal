@@ -6,14 +6,20 @@
  * Cross-browser sharing zou Vercel Blob / KV nodig hebben — buiten scope
  * voor deze MVP.
  *
- * Sleutel = `${parkId}:${slot}` (bv. `hof_van_saksen:primary`). Value =
- * data-URL string (image/webp of fallback image/jpeg, max ~200KB na resize).
+ * Sleutel = `${parkId}|${role}|${slot}` (bv. `hof_van_saksen|horeca-keuken|primary`).
+ * `role` is een lege string voor park-brede defaults (geldt voor elke rol).
+ * Lookup is hiërarchisch: eerst rol-specifiek, dan park-breed, dan default.
+ *
+ * Value = data-URL string (image/webp of fallback image/jpeg, max ~200KB na resize).
  */
 
 export type BentoSlot = 'primary' | 'secondary' | 'tertiary' | 'accent';
 
-export const overrideKey = (parkId: string, slot: BentoSlot): string =>
-  `${parkId}:${slot}`;
+export const overrideKey = (
+  parkId: string,
+  role: string | null | undefined,
+  slot: BentoSlot
+): string => `${parkId}|${role ?? ''}|${slot}`;
 
 const DB_NAME = 'landal-config-overrides';
 const DB_VERSION = 1;
