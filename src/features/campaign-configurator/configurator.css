@@ -923,12 +923,15 @@ html, body, #root {
 
 .cc-mobile-headline {
   font-size: 22px;
-  font-weight: var(--world-headline-weight);
-  font-family: var(--world-font);
+  /* Match het Landal-merkfont in de social pack: Playfair Display 600,
+     ongeacht de gekozen wereld. Per-world weight-variaties gaven anders
+     een inconsistent beeld tussen hero en social-card. */
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
   line-height: 1.1;
   margin: 0 0 10px;
   color: #0097a2;
-  letter-spacing: var(--world-headline-tracking, -0.01em);
+  letter-spacing: -0.01em;
   transition: color 600ms ease;
 }
 

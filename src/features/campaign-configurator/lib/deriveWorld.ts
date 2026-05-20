@@ -34,6 +34,14 @@ export const PARK_WORLD: Record<string, WorldId> = {
   Kaatsheuvel: 'family',
   rabbit_hill: 'family',
   'Rabbit Hill': 'family',
+  land_van_bartje: 'family',
+  'Het Land van Bartje': 'family',
+  // Alpen — bergen-vibe (sneeuw, ski, hoogte) is wezenlijk anders dan de
+  // Nederlandse bos-parken. Wordt voor vacatures al via country='at'
+  // afgevangen, maar voor parkkeuze zonder vacatures hebben we de override
+  // hier nodig.
+  dachstein: 'mountain',
+  'Alpendorf Dachstein West': 'mountain',
 };
 
 export function deriveWorldForVacancy(v: Vacancy): WorldId | null {
