@@ -945,19 +945,6 @@ html, body, #root {
   opacity: 1;
 }
 
-.cc-hero-tile--has-override::after {
-  content: '';
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #e7a800;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8);
-  pointer-events: none;
-}
-
 .cc-hero-tile-reset {
   position: absolute;
   top: 4px;
