@@ -50,9 +50,9 @@ export function presetSummary(preset: OverridePreset): string {
 }
 
 /**
- * Trigger een browser-download van het preset als JSON-bestand. Naam
- * bevat een timestamp zodat opeenvolgende exports niet over elkaar
- * heen schrijven.
+ * Trigger een browser-download van het preset als `presetOverrides.json`.
+ * Die filename matcht het pad in de repo (`data/presetOverrides.json`),
+ * zodat de ontvanger het bestand direct daar kan droppen zonder rename.
  */
 export function downloadPreset(preset: OverridePreset): void {
   const blob = new Blob([JSON.stringify(preset, null, 2)], {
@@ -61,10 +61,35 @@ export function downloadPreset(preset: OverridePreset): void {
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
-  link.download = `landal-campagne-preset-${preset.exportedAt.replace(/[:.]/g, '-')}.json`;
+  link.download = 'presetOverrides.json';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
   // Geef de browser de kans om de download te starten voordat we de URL releasen.
   setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+/**
+ * Validatie van een ingeladen JSON-blob. Geeft een schoon preset-object
+ * terug of `null` bij onverwacht formaat.
+ */
+export function parsePreset(json: string): OverridePreset | null {
+  try {
+    const parsed = JSON.parse(json) as Partial<OverridePreset>;
+    if (
+      parsed &&
+      typeof parsed === 'object' &&
+      parsed.version === 1 &&
+      typeof parsed.exportedAt === 'string' &&
+      parsed.images &&
+      typeof parsed.images === 'object' &&
+      parsed.texts &&
+      typeof parsed.texts === 'object'
+    ) {
+      return parsed as OverridePreset;
+    }
+    return null;
+  } catch {
+    return null;
+  }
 }

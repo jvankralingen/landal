@@ -347,7 +347,16 @@ export default function ConfiguratorApp() {
 
   return (
     <div className="cc-root">
-      <ConfigPanel state={state} setState={setState} allVacancies={allVacancies} filtered={filtered} />
+      <ConfigPanel
+        state={state}
+        setState={setState}
+        allVacancies={allVacancies}
+        filtered={filtered}
+        onPresetImported={() => {
+          refreshTexts();
+          void refreshImages();
+        }}
+      />
       <main className="cc-stage" data-world={worldId}>
         <header className="cc-stage-header">
           <p className="cc-eyebrow">Live preview</p>

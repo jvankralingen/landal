@@ -59,6 +59,11 @@ html, body, #root {
   margin-bottom: 6px;
 }
 
+.cc-panel-actions {
+  display: flex;
+  gap: 6px;
+}
+
 .cc-panel-export {
   background: none;
   border: 1px solid var(--cc-border);

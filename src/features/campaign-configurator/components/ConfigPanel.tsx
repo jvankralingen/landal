@@ -1,11 +1,17 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import type { CampaignState, Contract, Role, Vacancy } from '../types';
 import { CONTRACT_LABELS, DOELGROEP_LABELS, ROLE_LABELS } from '../lib/labels';
 import { filterVacancies, impliedDoelgroep, uniqueParks, uniqueRegions } from '../lib/computeCampaign';
 import { getWorldForParkName } from '../lib/deriveWorld';
 import { FOCUS_PARK_NAMES, isFocusPark } from '../lib/focusParks';
-import { buildPreset, downloadPreset, presetSummary } from '../lib/overrideExport';
+import {
+  buildPreset,
+  downloadPreset,
+  parsePreset,
+  presetSummary,
+} from '../lib/overrideExport';
+import { importPreset } from '../lib/overrideBaseline';
 import { AnimatedNumber } from './AnimatedNumber';
 
 const CONTRACTS: Contract[] = ['stage', 'bijbaan', 'vakantiebaan', 'vast'];
@@ -58,11 +64,15 @@ interface ConfigPanelProps {
   setState: (updater: (s: CampaignState) => CampaignState) => void;
   allVacancies: Vacancy[];
   filtered: Vacancy[];
+  /** Aangeroepen na het importeren van een JSON, zodat de parent z'n
+   *  override-hooks kan refreshen en de preview meteen meebeweegt. */
+  onPresetImported?: () => void;
 }
 
-export function ConfigPanel({ state, setState, allVacancies, filtered }: ConfigPanelProps) {
+export function ConfigPanel({ state, setState, allVacancies, filtered, onPresetImported }: ConfigPanelProps) {
   const regionsAvailable = uniqueRegions(allVacancies);
   const [parkSearch, setParkSearch] = useState('');
+  const importInputRef = useRef<HTMLInputElement | null>(null);
 
   const allParkNames = useMemo(
     () => {
@@ -193,29 +203,62 @@ export function ConfigPanel({ state, setState, allVacancies, filtered }: ConfigP
       <header className="cc-panel-header">
         <div className="cc-panel-header-top">
           <p className="cc-eyebrow">Landal · Campagne Configurator</p>
-          <button
-            type="button"
-            className="cc-panel-export"
-            onClick={async () => {
-              const preset = await buildPreset();
-              const summary = presetSummary(preset);
-              if (
-                Object.keys(preset.images).length === 0 &&
-                Object.keys(preset.texts).length === 0
-              ) {
-                alert(
-                  'Nog niks aangepast om te exporteren. Upload beelden of bewerk teksten eerst.'
+          <div className="cc-panel-actions">
+            <button
+              type="button"
+              className="cc-panel-export"
+              onClick={() => importInputRef.current?.click()}
+              title="Laad een eerder geëxporteerd preset (JSON-bestand) — overschrijft je huidige overrides."
+            >
+              ↑ Import
+            </button>
+            <button
+              type="button"
+              className="cc-panel-export"
+              onClick={async () => {
+                const preset = await buildPreset();
+                const summary = presetSummary(preset);
+                if (
+                  Object.keys(preset.images).length === 0 &&
+                  Object.keys(preset.texts).length === 0
+                ) {
+                  alert(
+                    'Nog niks aangepast om te exporteren. Upload beelden of bewerk teksten eerst.'
+                  );
+                  return;
+                }
+                downloadPreset(preset);
+                // eslint-disable-next-line no-console
+                console.log('[preset] geëxporteerd —', summary);
+              }}
+              title="Download alle aanpassingen als presetOverrides.json. Drop dat bestand in src/features/campaign-configurator/data/ en push → permanent voor iedereen."
+            >
+              ↓ Export
+            </button>
+            <input
+              ref={importInputRef}
+              type="file"
+              accept="application/json,.json"
+              style={{ display: 'none' }}
+              onChange={async (e) => {
+                const file = e.target.files?.[0];
+                e.target.value = '';
+                if (!file) return;
+                const text = await file.text();
+                const preset = parsePreset(text);
+                if (!preset) {
+                  alert('Dit lijkt geen geldig preset-bestand. Controleer of het door de configurator geëxporteerd is.');
+                  return;
+                }
+                const ok = window.confirm(
+                  `Preset uit ${file.name} laden? Dit overschrijft de huidige overrides in deze browser.\n\nInhoud: ${presetSummary(preset)}`
                 );
-                return;
-              }
-              downloadPreset(preset);
-              // eslint-disable-next-line no-console
-              console.log('[preset] geëxporteerd —', summary);
-            }}
-            title="Download alle aanpassingen als JSON. Commit dat bestand als data/presetOverrides.json om het permanent te maken voor iedereen."
-          >
-            ↓ Export preset
-          </button>
+                if (!ok) return;
+                await importPreset(preset);
+                onPresetImported?.();
+              }}
+            />
+          </div>
         </div>
         <h2 className="cc-panel-title">Campagne configurator</h2>
       </header>
