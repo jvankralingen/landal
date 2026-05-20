@@ -717,6 +717,8 @@ export const parkGalleryImages = {
   warsberg: ['8270749', '8343051', '8342983'],
   salztal: ['3916386', '3916701', '3819607'],
   hansa: ['9411993', '9412107', '9411996'],
+  // Oostenrijk (uit parkImageUrls hero — pas aanvullen met extra shots zodra die er zijn)
+  dachstein: ['8504156'],
   travemunde: ['3956401', '3955612', '3955491'],
   dwergter_de: ['4141274', '4080239', '4080645'],
   bad_bentheim: ['7985452', '8519291', '9690723'],

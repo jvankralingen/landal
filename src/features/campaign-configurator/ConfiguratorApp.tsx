@@ -5,6 +5,7 @@ import { AnimatedNumber } from './components/AnimatedNumber';
 import { SocialPack } from './components/SocialPack';
 import { buildBento } from './lib/buildHeroCollage';
 import { parkGalleryImages, getGalleryImageUrl } from '../../data/parkImageUrls';
+import { parkDatabase } from '../../data/parkData';
 import vacanciesData from './data/vacancies.json';
 import type { CampaignState, Vacancy } from './types';
 import { deriveHeadline, deriveSubtitle, deriveTone, deriveVibeCopy, filterVacancies, getParkPerks, impliedDoelgroep, LANDAL_PERKS, plural, uniqueParks, uniqueRegions } from './lib/computeCampaign';
@@ -53,6 +54,16 @@ export default function ConfiguratorApp() {
   const tone = useMemo(() => deriveTone(effectiveState), [effectiveState]);
   const parkNameToId = useMemo(() => {
     const m = new Map<string, string>();
+    // Bron-of-truth: parkDatabase. Bevat ook parken met 0 open vacatures
+    // (bv. Marber Veluwe, Dachstein) zodat focus-parken altijd mapbaar zijn.
+    for (const country of Object.values(parkDatabase)) {
+      for (const region of Object.values((country as { regions: Record<string, { parks: { id: string; name: string }[] }> }).regions)) {
+        for (const p of region.parks) {
+          if (!m.has(p.name)) m.set(p.name, p.id);
+        }
+      }
+    }
+    // Vacancies-based names die ergens afwijken kunnen we hier nog overrulen.
     for (const v of allVacancies) {
       if (v.park && v.parkId && !m.has(v.park)) m.set(v.park, v.parkId);
     }
