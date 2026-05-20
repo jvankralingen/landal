@@ -13,7 +13,9 @@ import { DOELGROEP_LABELS, TRIM_LABELS } from './lib/labels';
 import { deriveWorld } from './lib/deriveWorld';
 import { WORLDS } from './lib/worlds';
 import { useImageOverrides } from './hooks/useImageOverrides';
+import { useTextOverrides } from './hooks/useTextOverrides';
 import type { BentoSlot, OverrideSubject } from './lib/imageOverrides';
+import type { TextField } from './lib/textOverrides';
 import './configurator.css';
 
 const allVacancies = (vacanciesData as { vacancies: Vacancy[] }).vacancies;
@@ -49,8 +51,8 @@ export default function ConfiguratorApp() {
   const effectiveState = useMemo(() => ({ ...state, trim: effectiveTrim }), [state, effectiveTrim]);
 
   const filtered = useMemo(() => filterVacancies(allVacancies, effectiveState), [effectiveState]);
-  const headline = useMemo(() => deriveHeadline(effectiveState, filtered), [effectiveState, filtered]);
-  const subtitle = useMemo(() => deriveSubtitle(effectiveState, filtered), [effectiveState, filtered]);
+  const autoHeadline = useMemo(() => deriveHeadline(effectiveState, filtered), [effectiveState, filtered]);
+  const autoSubtitle = useMemo(() => deriveSubtitle(effectiveState, filtered), [effectiveState, filtered]);
   const tone = useMemo(() => deriveTone(effectiveState), [effectiveState]);
   const parkNameToId = useMemo(() => {
     const m = new Map<string, string>();
@@ -98,7 +100,7 @@ export default function ConfiguratorApp() {
   }, [filtered, effectiveState, parkNameToRegion]);
   const world = WORLDS[worldId];
   const doelgroep = useMemo(() => impliedDoelgroep(effectiveState), [effectiveState]);
-  const vibeCopy = useMemo(() => deriveVibeCopy(effectiveState, filtered, worldId, doelgroep), [effectiveState, filtered, worldId, doelgroep]);
+  const autoVibeCopy = useMemo(() => deriveVibeCopy(effectiveState, filtered, worldId, doelgroep), [effectiveState, filtered, worldId, doelgroep]);
   const selectedParkRefs = useMemo(
     () =>
       state.parks
@@ -188,6 +190,34 @@ export default function ConfiguratorApp() {
         : baseBento.accent,
     };
   }, [baseBento, slotOverrides]);
+
+  // Per-scope text-overrides. Headline/subtitle/vibe kunnen per (subject, rol)
+  // worden overschreven; exact-match — andere selectie laat de auto-tekst zien.
+  const { getFor: getTextFor, setFor: setTextFor, resetFor: resetTextFor } =
+    useTextOverrides();
+  const headlineOverride = getTextFor('headline', overrideSubject, overrideRole);
+  const subtitleOverride = getTextFor('subtitle', overrideSubject, overrideRole);
+  const vibeOverride = getTextFor('vibe', overrideSubject, overrideRole);
+  const headline = headlineOverride ?? autoHeadline;
+  const subtitle = subtitleOverride ?? autoSubtitle;
+  const vibeCopy = vibeOverride ?? autoVibeCopy;
+  const textHasOverride = {
+    headline: headlineOverride !== undefined,
+    subtitle: subtitleOverride !== undefined,
+    vibe: vibeOverride !== undefined,
+  };
+  const handleTextSave = useCallback(
+    (field: TextField, value: string) => {
+      setTextFor(field, overrideSubject, overrideRole, value);
+    },
+    [setTextFor, overrideSubject, overrideRole]
+  );
+  const handleTextReset = useCallback(
+    (field: TextField) => {
+      resetTextFor(field, overrideSubject, overrideRole);
+    },
+    [resetTextFor, overrideSubject, overrideRole]
+  );
 
   // Upload/reset op de exact-matching key voor de huidige selectie.
   // Primary mag (subject, rol) of (subject) of (rol) zijn — minstens één
@@ -345,6 +375,9 @@ export default function ConfiguratorApp() {
               slotHasOverride={slotHasOverride}
               onSlotUpload={handleSlotUpload}
               onSlotReset={handleSlotReset}
+              textHasOverride={textHasOverride}
+              onTextSave={handleTextSave}
+              onTextReset={handleTextReset}
             />
             <p className="cc-disclaimer">Conceptweergave · niet voor publicatie</p>
           </div>

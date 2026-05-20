@@ -4,8 +4,10 @@ import { AnimatedNumber } from './AnimatedNumber';
 import { WORLDS, type WorldId } from '../lib/worlds';
 import type { Bento } from '../lib/buildHeroCollage';
 import type { BentoSlot } from '../lib/imageOverrides';
+import type { TextField } from '../lib/textOverrides';
 import { HeroCollage } from './HeroCollage';
 import { LandalLogo } from './LandalLogo';
+import { EditableText } from './EditableText';
 
 interface ParkRef {
   name: string;
@@ -36,6 +38,10 @@ interface MobilePreviewProps {
   slotHasOverride?: Partial<Record<BentoSlot, boolean>>;
   onSlotUpload?: (slot: BentoSlot, file: File) => void;
   onSlotReset?: (slot: BentoSlot) => void;
+  /** Text-overrides per veld voor de huidige scope (true = override actief). */
+  textHasOverride?: Partial<Record<TextField, boolean>>;
+  onTextSave?: (field: TextField, value: string) => void;
+  onTextReset?: (field: TextField) => void;
 }
 
 const itemMotion = {
@@ -44,7 +50,12 @@ const itemMotion = {
   exit: { opacity: 0, y: -8 },
 };
 
-export function MobilePreview({ headline, subtitle, vibeCopy, vacancies, toneLabel, worldId, bento, parksInScope, regionLabel, onPickPark, perks, parkPerksLabel, showVacancyList, uploadEnabled, uploadSubjectAvailable, slotHasOverride, onSlotUpload, onSlotReset }: MobilePreviewProps) {
+export function MobilePreview({ headline, subtitle, vibeCopy, vacancies, toneLabel, worldId, bento, parksInScope, regionLabel, onPickPark, perks, parkPerksLabel, showVacancyList, uploadEnabled, uploadSubjectAvailable, slotHasOverride, onSlotUpload, onSlotReset, textHasOverride, onTextSave, onTextReset }: MobilePreviewProps) {
+  const noopSave = (_field: TextField, _value: string) => {};
+  const noopReset = (_field: TextField) => {};
+  const saveText = onTextSave ?? noopSave;
+  const resetText = onTextReset ?? noopReset;
+  const has = (f: TextField) => textHasOverride?.[f] ?? false;
   const previewList = vacancies.slice(0, 5);
   const world = WORLDS[worldId];
 
@@ -83,9 +94,31 @@ export function MobilePreview({ headline, subtitle, vibeCopy, vacancies, toneLab
             onSlotReset={onSlotReset}
           />
 
-          <h1 key={headline} className="cc-mobile-headline">{headline}</h1>
-          <p key={subtitle} className="cc-mobile-sub">{subtitle}</p>
-          <p key={vibeCopy} className="cc-mobile-vibe">{vibeCopy}</p>
+          <EditableText
+            as="h1"
+            className="cc-mobile-headline"
+            value={headline}
+            hasOverride={has('headline')}
+            onSave={(v) => saveText('headline', v)}
+            onReset={() => resetText('headline')}
+          />
+          <EditableText
+            as="p"
+            className="cc-mobile-sub"
+            value={subtitle}
+            hasOverride={has('subtitle')}
+            onSave={(v) => saveText('subtitle', v)}
+            onReset={() => resetText('subtitle')}
+          />
+          <EditableText
+            as="p"
+            className="cc-mobile-vibe"
+            value={vibeCopy}
+            hasOverride={has('vibe')}
+            multiline
+            onSave={(v) => saveText('vibe', v)}
+            onReset={() => resetText('vibe')}
+          />
 
           <motion.button
             className="cc-mobile-cta"
