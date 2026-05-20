@@ -34,9 +34,6 @@ function Slot({ slot, tile }: { slot: BentoSlot; tile: BentoTile }) {
         ) : (
           <span className="cc-hero-tile-placeholder">{tile.label}</span>
         )}
-        {tile.label && (
-          <span className="cc-hero-tile-tag">{tile.label}</span>
-        )}
       </div>
     </div>
   );
@@ -88,9 +85,6 @@ function UploadableSlot({
             <img src={tile.src} alt={tile.label} />
           ) : (
             <span className="cc-hero-tile-placeholder">{tile.label}</span>
-          )}
-          {tile.label && (
-            <span className="cc-hero-tile-tag">{tile.label}</span>
           )}
         </div>
         <span className="cc-hero-tile-upload-hint">

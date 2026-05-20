@@ -155,26 +155,14 @@ export function MobilePreview({ headline, subtitle, vibeCopy, vacancies, toneLab
                       value={p}
                       hasOverride={perksHasOverride ?? false}
                       onSave={(v) => onPerksChange(perks.map((x, j) => (j === i ? v : x)))}
-                      onReset={() =>
-                        onPerksChange(perks.filter((_, j) => j !== i))
-                      }
+                      /* Geen onReset: voor deze demo geen verwijderen van
+                         punten. Empty + blur is dan ook een no-op. */
                     />
                   ) : (
                     <span className="cc-mobile-perk-text">{p}</span>
                   )}
                 </li>
               ))}
-              {onPerksChange && (
-                <li className="cc-mobile-perk cc-mobile-perk--add">
-                  <button
-                    type="button"
-                    className="cc-perks-add"
-                    onClick={() => onPerksChange([...perks, 'Nieuw punt'])}
-                  >
-                    + punt toevoegen
-                  </button>
-                </li>
-              )}
             </ul>
           </div>
         )}

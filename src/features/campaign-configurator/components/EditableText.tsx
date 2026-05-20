@@ -14,7 +14,9 @@ interface EditableTextProps {
    *  zowel display als edit-mode zodat de tekst niet "springt". */
   style?: React.CSSProperties;
   onSave: (next: string) => void;
-  onReset: () => void;
+  /** Optional reset-handler. Als omitted: empty + blur is een no-op
+   *  (geen verwijderen, geen terugval naar auto). */
+  onReset?: () => void;
 }
 
 /**
@@ -64,9 +66,10 @@ export function EditableText({
     const trimmed = draft.trim();
     if (trimmed && trimmed !== value) {
       onSave(trimmed);
-    } else if (!trimmed) {
-      // Lege string = terug naar auto. Anders zou de override een lege
-      // tekst forceren wat de preview onleesbaar maakt.
+    } else if (!trimmed && onReset) {
+      // Lege string + onReset beschikbaar → terug naar auto-tekst.
+      // Zonder onReset (bv. bij perks) is leeg + blur een no-op, zodat
+      // de bestaande waarde behouden blijft.
       onReset();
     }
     setEditing(false);
@@ -133,7 +136,7 @@ export function EditableText({
       >
         {value}
       </Tag>
-      {hasOverride && (
+      {hasOverride && onReset && (
         <button
           type="button"
           className="cc-editable-reset"
