@@ -153,12 +153,15 @@ function topParks(filtered: Vacancy[], n: number): ParkRef[] {
     .slice(0, n);
 }
 
-// Curated EB showcase: 4 parks across different worlds for max variety.
-const EB_SHOWCASE: { id: string; label: string }[] = [
-  { id: 'hoenderloo', label: 'Bos · Veluwe' },
-  { id: 'brouwersdam', label: 'Kust · Zeeland' },
-  { id: 'kaatsheuvel', label: 'Familie · Brabant' },
-  { id: 'cuber_veluwe', label: 'Premium · Veluwe' },
+// Curated EB showcase: 4 roles that together tell the "Werken bij Landal"
+// story. Het werk staat centraal — sterker dan een willekeurige park-mix —
+// dus we kiezen 4 herkenbare, visueel diverse rollen (gasten-facing,
+// recreatie, F&B, hospitality).
+const EB_SHOWCASE_ROLES: Role[] = [
+  'horeca-bediening',
+  'front-office',
+  'fun-entertainment',
+  'zwembad',
 ];
 
 interface Candidate { parkId: string; parkName: string; src: string; }
@@ -258,25 +261,43 @@ export function buildBento(
     };
   }
 
-  // EB trim: showcase variety — 4 parks from different worlds, no role focus.
+  // EB trim: showcase variety — 4 rol-foto's die samen "Werken bij Landal"
+  // vertellen. Geen rol/park-filters actief, dus per slot bouwen we een
+  // scope met alleen de rol gezet. De picker kiest dan z'n best-passende
+  // foto uit /photos/roles_2/ voor die rol. Dedup via `used` voorkomt dat
+  // twee slots dezelfde shot pakken als een rol toevallig één foto heeft.
   if (trim === 'eb') {
-    const showcase = EB_SHOWCASE
-      .map((p) => ({ ...p, gallery: parkGalleryImages[p.id] ?? [] }))
-      .filter((p) => p.gallery.length > 0);
-    const tileFor = (i: number): BentoTile => {
-      const p = showcase[i];
-      if (!p) return vibeTile(worldId);
-      return {
-        src: getGalleryImageUrl(p.gallery[0], '3x2', 800),
-        label: p.label,
-        kind: 'park',
+    const usedRoleSrcs = new Set<string>();
+    const tileFor = (role: Role, idx: number): BentoTile => {
+      const roleScope: PickScope = {
+        role,
+        contract: null,
+        parkId: null,
+        world: worldId,
+        manager: role === 'parkmanagement',
       };
+      // Variatie in de seed zodat ties tussen kandidaat-foto's per slot
+      // verschillend kunnen vallen (deterministisch, maar niet identiek).
+      const slotSeed = `eb|${role}|${idx}|${seed}`;
+      const tile = pickRoleTile(roleScope, slotSeed);
+      if (tile.src && usedRoleSrcs.has(tile.src)) {
+        // Probeer een tweede pick met andere seed; lukt dat ook niet, val
+        // terug op de vibe-tile zodat het slot niet leeg blijft.
+        const retry = pickRoleTile(roleScope, `${slotSeed}|retry`);
+        if (retry.src && !usedRoleSrcs.has(retry.src)) {
+          usedRoleSrcs.add(retry.src);
+          return retry;
+        }
+        return vibeTile(worldId);
+      }
+      if (tile.src) usedRoleSrcs.add(tile.src);
+      return tile;
     };
     return {
-      primary: tileFor(0),
-      secondary: tileFor(1),
-      tertiary: tileFor(2),
-      accent: tileFor(3),
+      primary: tileFor(EB_SHOWCASE_ROLES[0], 0),
+      secondary: tileFor(EB_SHOWCASE_ROLES[1], 1),
+      tertiary: tileFor(EB_SHOWCASE_ROLES[2], 2),
+      accent: tileFor(EB_SHOWCASE_ROLES[3], 3),
       trim,
     };
   }
