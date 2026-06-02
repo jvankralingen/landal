@@ -38,6 +38,7 @@ export const CONTRACT_LABELS: Record<Contract, string> = {
 };
 
 export const DOELGROEP_LABELS: Record<Doelgroep, string> = {
+  iedereen: 'Iedereen · alle leeftijden',
   tieners: 'Tieners · 16-19',
   studenten: 'Studenten · 18-25',
   starters: 'Starters · 22-30',
@@ -46,6 +47,7 @@ export const DOELGROEP_LABELS: Record<Doelgroep, string> = {
 };
 
 export const DOELGROEP_TONE: Record<Doelgroep, string> = {
+  iedereen: 'gastvrij · samen · veelzijdig',
   tieners: 'speels · chill · sociaal',
   studenten: 'avontuur · sociaal · zomerverhaal',
   starters: 'groei · zelfstandig · ontdekken',

@@ -71,13 +71,31 @@ export function filterVacancies(all: Vacancy[], state: CampaignState): Vacancy[]
   });
 }
 
-// Doelgroep wordt afgeleid uit de gekozen rol — het paneel exposeert 'm niet
-// meer als losse knop. Hoofdkantoor + parkmanagement → professionals, rest →
-// studenten (de default-recruiting-audience voor parken).
+// Doelgroep wordt afgeleid uit rol + contract. Het paneel exposeert 'm niet
+// meer als losse knop. Logica:
+//  - Management-rollen (parkmanagement/hoofdkantoor) → altijd professionals.
+//  - Vast contract met een gewone parkrol → starters (early career, vaste
+//    plek, langer perspectief).
+//  - Vakantiebaan → tieners (klassiek scholieren-in-de-zomer).
+//  - Stage/bijbaan → studenten (de meest voorkomende combinatie).
+//  - Niks gekozen → iedereen. De EB-headline ("voor iedereen") en het
+//    narrator-paneel moeten consistent zijn: geen filters = brede doelgroep.
 export function impliedDoelgroep(state: CampaignState): Doelgroep {
-  const role = state.roles[0];
+  const role: Role | null = state.roles[0] ?? null;
+  const contract: Contract | null = state.contracts[0] ?? null;
+
+  // Management dicteert altijd boven contract: een parkmanager-stage blijft
+  // zeldzaam en de doelgroep voor de campagne is in die hoek professionals.
   if (role === 'hoofdkantoor' || role === 'parkmanagement') return 'professionals';
-  return 'studenten';
+
+  if (contract === 'vast') return 'starters';
+  if (contract === 'vakantiebaan') return 'tieners';
+  if (contract === 'stage' || contract === 'bijbaan') return 'studenten';
+
+  // Geen contract gekozen → iedereen. Als alleen een rol gekozen is zonder
+  // contract, blijft de doelgroep breed: het kan zowel een bijbaan als een
+  // vaste medewerker zijn, en pas bij contract-keuze versmalt het beeld.
+  return 'iedereen';
 }
 
 export function uniqueRegions(vacancies: Vacancy[]): string[] {
@@ -196,6 +214,7 @@ const WORLD_FLAVOR: Record<WorldId, string> = {
 };
 
 const DOELGROEP_HOOK: Record<Doelgroep, string> = {
+  iedereen: 'Werk dat past — van een zomer aan zee tot een vaste plek in het bos.',
   tieners: 'Een eerste baan waar je tussen volwassenen werkt die op je rekenen.',
   studenten: 'Een zomer met collega’s die vrienden worden.',
   starters: 'Een rol met snel verantwoordelijkheid en elke dag iets nieuws.',

@@ -16,6 +16,7 @@ export type Role =
   | 'overig';
 
 export type Doelgroep =
+  | 'iedereen'
   | 'tieners'
   | 'studenten'
   | 'starters'

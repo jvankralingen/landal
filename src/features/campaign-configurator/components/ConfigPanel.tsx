@@ -13,6 +13,8 @@ import {
 } from '../lib/overrideExport';
 import { importPreset } from '../lib/overrideBaseline';
 import { AnimatedNumber } from './AnimatedNumber';
+import { LandalLogo } from './LandalLogo';
+import { MediaToggleBar, type MediaKey } from './MediaToggleBar';
 
 const CONTRACTS: Contract[] = ['stage', 'bijbaan', 'vakantiebaan', 'vast'];
 
@@ -59,6 +61,51 @@ function Chip({ active, disabled = false, onClick, children }: ChipProps) {
   );
 }
 
+/**
+ * Inklapbare scope-sectie. Header toont titel + samenvatting (bv. "1 regio
+ * geselecteerd"); chevron draait bij open/dicht. Wanneer dicht is, blijft
+ * de selectie zichtbaar in de header zodat de presentator overzicht houdt
+ * zonder te hoeven openklappen.
+ */
+interface CollapsibleSectionProps {
+  title: string;
+  summary: string;
+  hint?: string;
+  isOpen: boolean;
+  onToggle: () => void;
+  children: React.ReactNode;
+}
+
+function CollapsibleSection({
+  title,
+  summary,
+  hint,
+  isOpen,
+  onToggle,
+  children,
+}: CollapsibleSectionProps) {
+  return (
+    <section className={`cc-section cc-section--collapsible${isOpen ? ' is-open' : ''}`}>
+      <button
+        type="button"
+        className="cc-section-toggle"
+        onClick={onToggle}
+        aria-expanded={isOpen}
+      >
+        <span className="cc-section-toggle-title">{title}</span>
+        <span className="cc-section-toggle-summary">{summary}</span>
+        <span className="cc-section-toggle-chev" aria-hidden="true">▾</span>
+      </button>
+      {isOpen && (
+        <div className="cc-section-body">
+          {hint && <p className="cc-section-hint-inline">{hint}</p>}
+          {children}
+        </div>
+      )}
+    </section>
+  );
+}
+
 interface ConfigPanelProps {
   state: CampaignState;
   setState: (updater: (s: CampaignState) => CampaignState) => void;
@@ -67,11 +114,47 @@ interface ConfigPanelProps {
   /** Aangeroepen na het importeren van een JSON, zodat de parent z'n
    *  override-hooks kan refreshen en de preview meteen meebeweegt. */
   onPresetImported?: () => void;
+  /** Presentatie-fase: 'idle' toont alleen de start-CTA; 'active' alle
+   *  scope-secties (media → regio → park → rol → contract). */
+  presoStage: 'idle' | 'active';
+  onStartCampaign: () => void;
+  /** Media-previews die in de preview-pane gerenderd worden. */
+  media: Record<MediaKey, boolean>;
+  onMediaToggle: (key: MediaKey) => void;
 }
 
-export function ConfigPanel({ state, setState, allVacancies, filtered, onPresetImported }: ConfigPanelProps) {
+// Import/Export-knoppen zijn een interne tool voor het exporteren van een
+// preset (JSON) naar src/features/campaign-configurator/data/ als nieuwe
+// baseline. Tijdens externe presentaties (EVP-talk) verbergen we ze om
+// het paneel rustig te houden. Flip terug naar true voor intern gebruik.
+const SHOW_PRESET_TOOLS = false;
+
+type SectionKey = 'regio' | 'park' | 'rol' | 'contract';
+
+export function ConfigPanel({
+  state,
+  setState,
+  allVacancies,
+  filtered,
+  onPresetImported,
+  presoStage,
+  onStartCampaign,
+  media,
+  onMediaToggle,
+}: ConfigPanelProps) {
   const regionsAvailable = uniqueRegions(allVacancies);
   const [parkSearch, setParkSearch] = useState('');
+  // Alle scope-secties default open zodat de presentator bij binnenkomst
+  // het volledige overzicht heeft. Klap-mechanisme blijft beschikbaar om
+  // tijdens de demo onderwerpen weg te halen die de aandacht afleiden.
+  const [openSections, setOpenSections] = useState<Record<SectionKey, boolean>>({
+    regio: true,
+    park: true,
+    rol: true,
+    contract: true,
+  });
+  const toggleSection = (key: SectionKey) =>
+    setOpenSections((s) => ({ ...s, [key]: !s[key] }));
   const importInputRef = useRef<HTMLInputElement | null>(null);
 
   const allParkNames = useMemo(
@@ -198,198 +281,261 @@ export function ConfigPanel({ state, setState, allVacancies, filtered, onPresetI
     return out;
   }, [filteredParks, hqRoleSelected, state.parks]);
 
+  // Samenvattingen die naast de sectie-titel verschijnen wanneer de sectie
+  // dicht is. "Alle X" als er niks gekozen is — anders het label van de
+  // enige keuze, of "N stuks" bij multi-select. Houdt de presentator
+  // overzicht op het scherm zonder open te klappen.
+  const summaryRegio = state.regions.length === 0
+    ? 'Alle regio’s'
+    : state.regions.length === 1
+      ? state.regions[0]
+      : `${state.regions.length} regio’s`;
+  const summaryPark = state.parks.length === 0
+    ? 'Alle parken'
+    : state.parks.length === 1
+      ? state.parks[0]
+      : `${state.parks.length} parken`;
+  const summaryRol = state.roles.length === 0
+    ? 'Alle rollen'
+    : state.roles.length === 1
+      ? (ROLE_LABELS[state.roles[0]] ?? state.roles[0])
+      : `${state.roles.length} rollen`;
+  const summaryContract = state.contracts.length === 0
+    ? 'Alle types'
+    : state.contracts.length === 1
+      ? (CONTRACT_LABELS[state.contracts[0]] ?? state.contracts[0])
+      : `${state.contracts.length} types`;
+
+  const isActive = presoStage === 'active';
   return (
-    <aside className="cc-panel">
+    <aside className={`cc-panel cc-panel--${presoStage}`}>
       <header className="cc-panel-header">
         <div className="cc-panel-header-top">
-          <p className="cc-eyebrow">Landal · Campagne Configurator</p>
-          <div className="cc-panel-actions">
-            <button
-              type="button"
-              className="cc-panel-export"
-              onClick={() => importInputRef.current?.click()}
-              title="Laad een eerder geëxporteerd preset (JSON-bestand) — overschrijft je huidige overrides."
-            >
-              ↑ Import
-            </button>
-            <button
-              type="button"
-              className="cc-panel-export"
-              onClick={async () => {
-                const preset = await buildPreset();
-                const summary = presetSummary(preset);
-                if (
-                  Object.keys(preset.images).length === 0 &&
-                  Object.keys(preset.texts).length === 0
-                ) {
-                  alert(
-                    'Nog niks aangepast om te exporteren. Upload beelden of bewerk teksten eerst.'
-                  );
-                  return;
-                }
-                downloadPreset(preset);
-                // eslint-disable-next-line no-console
-                console.log('[preset] geëxporteerd —', summary);
-              }}
-              title="Download alle aanpassingen als presetOverrides.json. Drop dat bestand in src/features/campaign-configurator/data/ en push → permanent voor iedereen."
-            >
-              ↓ Export
-            </button>
-            <input
-              ref={importInputRef}
-              type="file"
-              accept="application/json,.json"
-              style={{ display: 'none' }}
-              onChange={async (e) => {
-                const file = e.target.files?.[0];
-                e.target.value = '';
-                if (!file) return;
-                const text = await file.text();
-                const preset = parsePreset(text);
-                if (!preset) {
-                  alert('Dit lijkt geen geldig preset-bestand. Controleer of het door de configurator geëxporteerd is.');
-                  return;
-                }
-                const ok = window.confirm(
-                  `Preset uit ${file.name} laden? Dit overschrijft de huidige overrides in deze browser.\n\nInhoud: ${presetSummary(preset)}`
-                );
-                if (!ok) return;
-                await importPreset(preset);
-                onPresetImported?.();
-              }}
-            />
+          <div className="cc-panel-brand">
+            <LandalLogo height={36} />
+            <h2 className="cc-panel-title">Campagne configurator</h2>
           </div>
-        </div>
-        <h2 className="cc-panel-title">Campagne configurator</h2>
-      </header>
-
-      <section className="cc-section">
-        <p className="cc-section-label">
-          Scope · regio{' '}
-          <span className="cc-section-hint">shift-klik voor meerdere</span>
-        </p>
-        <div className="cc-chips">
-          {regionsAvailable.map((r) => (
-            <Chip
-              key={r}
-              active={state.regions.includes(r)}
-              disabled={disabledRegions.has(r)}
-              onClick={(e) =>
-                setState((s) => {
-                  const next = applyPillClick(s.regions, r, e.shiftKey);
-                  return next.length > 0
-                    ? { ...s, regions: next, trim: 'regio' }
-                    : { ...s, regions: next };
-                })
-              }
-            >
-              {r}
-            </Chip>
-          ))}
-        </div>
-      </section>
-
-      <section className="cc-section">
-        <p className="cc-section-label">
-          Scope · park ({allParkNames.length}){' '}
-          <span className="cc-section-hint">shift-klik voor meerdere</span>
-        </p>
-        <input
-          type="text"
-          className="cc-park-search"
-          placeholder="Zoek park..."
-          value={parkSearch}
-          onChange={(e) => setParkSearch(e.target.value)}
-        />
-        <div className="cc-chips cc-chips--scroll">
-          {filteredParks.map((p) => {
-            const focus = isFocusPark(p);
-            return (
-              <Chip
-                key={p}
-                active={state.parks.includes(p)}
-                disabled={disabledParks.has(p)}
-                onClick={(e) =>
-                  setState((s) => {
-                    const next = applyPillClick(s.parks, p, e.shiftKey);
-                    return next.length > 0
-                      ? { ...s, parks: next, trim: 'park' }
-                      : { ...s, parks: next };
-                  })
-                }
+          {SHOW_PRESET_TOOLS && (
+            <div className="cc-panel-actions">
+              <button
+                type="button"
+                className="cc-panel-export"
+                onClick={() => importInputRef.current?.click()}
+                title="Laad een eerder geëxporteerd preset (JSON-bestand) — overschrijft je huidige overrides."
               >
-                {focus && (
-                  <span
-                    className="cc-chip-focus-marker"
-                    aria-label="Focus-park met eigen beeldregie"
-                    title="Focus-park met eigen beeldregie"
-                  >
-                    ★
-                  </span>
-                )}
-                {p}{' '}
-                <span className="cc-chip-count">
-                  {parkCountByName.get(p) ?? 0}
-                </span>
-              </Chip>
-            );
-          })}
-          {filteredParks.length === 0 && (
-            <span className="cc-empty">Geen parken gevonden</span>
+                ↑ Import
+              </button>
+              <button
+                type="button"
+                className="cc-panel-export"
+                onClick={async () => {
+                  const preset = await buildPreset();
+                  const summary = presetSummary(preset);
+                  if (
+                    Object.keys(preset.images).length === 0 &&
+                    Object.keys(preset.texts).length === 0
+                  ) {
+                    alert(
+                      'Nog niks aangepast om te exporteren. Upload beelden of bewerk teksten eerst.'
+                    );
+                    return;
+                  }
+                  downloadPreset(preset);
+                  // eslint-disable-next-line no-console
+                  console.log('[preset] geëxporteerd —', summary);
+                }}
+                title="Download alle aanpassingen als presetOverrides.json. Drop dat bestand in src/features/campaign-configurator/data/ en push → permanent voor iedereen."
+              >
+                ↓ Export
+              </button>
+              <input
+                ref={importInputRef}
+                type="file"
+                accept="application/json,.json"
+                style={{ display: 'none' }}
+                onChange={async (e) => {
+                  const file = e.target.files?.[0];
+                  e.target.value = '';
+                  if (!file) return;
+                  const text = await file.text();
+                  const preset = parsePreset(text);
+                  if (!preset) {
+                    alert('Dit lijkt geen geldig preset-bestand. Controleer of het door de configurator geëxporteerd is.');
+                    return;
+                  }
+                  const ok = window.confirm(
+                    `Preset uit ${file.name} laden? Dit overschrijft de huidige overrides in deze browser.\n\nInhoud: ${presetSummary(preset)}`
+                  );
+                  if (!ok) return;
+                  await importPreset(preset);
+                  onPresetImported?.();
+                }}
+              />
+            </div>
           )}
         </div>
-      </section>
+      </header>
 
-      <section className="cc-section">
-        <p className="cc-section-label">
-          Scope · rol{' '}
-          <span className="cc-section-hint">shift-klik voor meerdere</span>
-        </p>
-        <div className="cc-chips">
-          {rolesAvailable.map((r) => (
-            <Chip
-              key={r}
-              active={state.roles.includes(r)}
-              disabled={disabledRoles.has(r)}
-              onClick={(e) =>
-                setState((s) => {
-                  const next = applyPillClick(s.roles, r, e.shiftKey);
-                  return next.length > 0
-                    ? { ...s, roles: next, trim: 'rol' }
-                    : { ...s, roles: next };
-                })
-              }
-            >
-              {ROLE_LABELS[r]}
-            </Chip>
-          ))}
+      {!isActive && (
+        <div className="cc-panel-start">
+          <p className="cc-panel-start-lead">
+            Bouw een campagne op die zich aanpast aan park, regio, rol en
+            contracttype. Eén control, alle media tegelijk.
+          </p>
+          <button
+            type="button"
+            className="cc-panel-start-cta"
+            onClick={onStartCampaign}
+          >
+            Start nieuwe campagne →
+          </button>
         </div>
-      </section>
+      )}
 
-      <section className="cc-section">
-        <p className="cc-section-label">
-          Scope · contracttype{' '}
-          <span className="cc-section-hint">shift-klik voor meerdere</span>
-        </p>
-        <div className="cc-chips">
-          {CONTRACTS.map((c) => (
-            <Chip
-              key={c}
-              active={state.contracts.includes(c)}
-              onClick={(e) =>
-                setState((s) => {
-                  const next = applyPillClick(s.contracts, c, e.shiftKey);
-                  return next.length > 0
-                    ? { ...s, contracts: next, trim: 'contract' }
-                    : { ...s, contracts: next };
-                })
-              }
-            >
-              {CONTRACT_LABELS[c]}
-            </Chip>
-          ))}
-        </div>
-      </section>
+      {isActive && (
+        <>
+          <section className="cc-section cc-section-media">
+            <p className="cc-section-label">Media</p>
+            <MediaToggleBar enabled={media} onToggle={onMediaToggle} variant="panel" />
+          </section>
+
+          <CollapsibleSection
+            title="Regio"
+            summary={summaryRegio}
+            hint="Shift-klik voor meerdere"
+            isOpen={openSections.regio}
+            onToggle={() => toggleSection('regio')}
+          >
+            <div className="cc-chips">
+              {regionsAvailable.map((r) => (
+                <Chip
+                  key={r}
+                  active={state.regions.includes(r)}
+                  disabled={disabledRegions.has(r)}
+                  onClick={(e) =>
+                    setState((s) => {
+                      const next = applyPillClick(s.regions, r, e.shiftKey);
+                      return next.length > 0
+                        ? { ...s, regions: next, trim: 'regio' }
+                        : { ...s, regions: next };
+                    })
+                  }
+                >
+                  {r}
+                </Chip>
+              ))}
+            </div>
+          </CollapsibleSection>
+
+          <CollapsibleSection
+            title="Park"
+            summary={summaryPark}
+            hint={`Shift-klik voor meerdere · ${allParkNames.length} parken`}
+            isOpen={openSections.park}
+            onToggle={() => toggleSection('park')}
+          >
+            <input
+              type="text"
+              className="cc-park-search"
+              placeholder="Zoek park..."
+              value={parkSearch}
+              onChange={(e) => setParkSearch(e.target.value)}
+            />
+            <div className="cc-chips cc-chips--scroll">
+              {filteredParks.map((p) => {
+                const focus = isFocusPark(p);
+                return (
+                  <Chip
+                    key={p}
+                    active={state.parks.includes(p)}
+                    disabled={disabledParks.has(p)}
+                    onClick={(e) =>
+                      setState((s) => {
+                        const next = applyPillClick(s.parks, p, e.shiftKey);
+                        return next.length > 0
+                          ? { ...s, parks: next, trim: 'park' }
+                          : { ...s, parks: next };
+                      })
+                    }
+                  >
+                    {focus && (
+                      <span
+                        className="cc-chip-focus-marker"
+                        aria-label="Focus-park met eigen beeldregie"
+                        title="Focus-park met eigen beeldregie"
+                      >
+                        ★
+                      </span>
+                    )}
+                    {p}{' '}
+                    <span className="cc-chip-count">
+                      {parkCountByName.get(p) ?? 0}
+                    </span>
+                  </Chip>
+                );
+              })}
+              {filteredParks.length === 0 && (
+                <span className="cc-empty">Geen parken gevonden</span>
+              )}
+            </div>
+          </CollapsibleSection>
+
+          <CollapsibleSection
+            title="Rol"
+            summary={summaryRol}
+            hint="Shift-klik voor meerdere"
+            isOpen={openSections.rol}
+            onToggle={() => toggleSection('rol')}
+          >
+            <div className="cc-chips">
+              {rolesAvailable.map((r) => (
+                <Chip
+                  key={r}
+                  active={state.roles.includes(r)}
+                  disabled={disabledRoles.has(r)}
+                  onClick={(e) =>
+                    setState((s) => {
+                      const next = applyPillClick(s.roles, r, e.shiftKey);
+                      return next.length > 0
+                        ? { ...s, roles: next, trim: 'rol' }
+                        : { ...s, roles: next };
+                    })
+                  }
+                >
+                  {ROLE_LABELS[r]}
+                </Chip>
+              ))}
+            </div>
+          </CollapsibleSection>
+
+          <CollapsibleSection
+            title="Contracttype"
+            summary={summaryContract}
+            hint="Shift-klik voor meerdere"
+            isOpen={openSections.contract}
+            onToggle={() => toggleSection('contract')}
+          >
+            <div className="cc-chips">
+              {CONTRACTS.map((c) => (
+                <Chip
+                  key={c}
+                  active={state.contracts.includes(c)}
+                  onClick={(e) =>
+                    setState((s) => {
+                      const next = applyPillClick(s.contracts, c, e.shiftKey);
+                      return next.length > 0
+                        ? { ...s, contracts: next, trim: 'contract' }
+                        : { ...s, contracts: next };
+                    })
+                  }
+                >
+                  {CONTRACT_LABELS[c]}
+                </Chip>
+              ))}
+            </div>
+          </CollapsibleSection>
+        </>
+      )}
 
     </aside>
   );

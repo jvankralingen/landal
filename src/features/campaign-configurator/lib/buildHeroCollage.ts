@@ -236,6 +236,10 @@ export function buildBento(
     parkId: explicitParkId,
     world: worldId,
     manager: (explicitRole ?? roleId) === 'parkmanagement',
+    // De rol is "inferred" zodra de gebruiker er niet zelf één heeft
+    // aangeklikt; in dat geval mag de scoring de rol lichter wegen zodat
+    // expliciete contract/park-keuzes dominantie krijgen.
+    roleInferred: selectedRoles.length === 0,
   };
   const seed = [
     scope.parkId ?? '',

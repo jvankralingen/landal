@@ -11,8 +11,11 @@ interface SocialPackProps {
   doelgroep: Doelgroep;
 }
 
-// UGC clips are most relevant for video-native audiences.
-const UGC_DOELGROEPEN: Doelgroep[] = ['tieners', 'studenten', 'starters'];
+// UGC-clips horen bij video-native publiek (tieners/studenten/starters)
+// én bij de brede EB-campagne ('iedereen') waarin dat publiek meereist.
+// Bij management-rollen (professionals/senior) houden we de social-pack
+// rustig — daar werkt polished content beter dan vertical reels.
+const UGC_DOELGROEPEN: Doelgroep[] = ['iedereen', 'tieners', 'studenten', 'starters'];
 
 // Mock UGC captions per role-photo theme — placeholder until real clips land.
 const UGC_CAPTIONS = [

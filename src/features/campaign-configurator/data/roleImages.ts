@@ -133,6 +133,15 @@ export interface PickScope {
   world?: WorldId | null;
   /** When true, prefer manager/senior portraits (used for parkmanagement). */
   manager?: boolean;
+  /**
+   * True wanneer `role` is afgeleid uit het meest-voorkomende rol in de
+   * vacancies (i.p.v. expliciet gekozen door de gebruiker). De picker
+   * weegt rol-match dan lichter, zodat een expliciete contract-keuze niet
+   * verliest van een toevallig wel-rol-matched foto die de contract-vibe
+   * mist. Concreet: contract = stage zonder rol → een generieke stage-
+   * teamfoto wint van een polished bijbaan-receptie.
+   */
+  roleInferred?: boolean;
 }
 
 /** How well a photo matches a scope. Higher = better.
@@ -141,16 +150,69 @@ export interface PickScope {
  * door de score-penalty meestal weg, terwijl een rol-matching foto op
  * een ander park nog steeds meedoet. "Het werk" leidt visueel.
  */
+/**
+ * Drie contract-types die qua beeldgevoel in hetzelfde "jong/leerling/
+ * naast school"-register vallen: stage, bijbaan en vakantiebaan. Visueel
+ * inwisselbaar — een snackbar-bijbaan-foto past prima bij een vakantiebaan-
+ * campagne, een keuken-stage bij een bijbaan-campagne. Vast valt buiten dit
+ * register en is een actieve clash met deze drie.
+ */
+function isJongRegister(c: Contract): boolean {
+  return c === 'stage' || c === 'bijbaan' || c === 'vakantiebaan';
+}
+
 function scorePhoto(p: RolePhoto, s: PickScope): number {
   let score = 0;
-  if (s.role && p.role && p.role === s.role) score += 100;
-  else if (s.role && p.role && p.role !== s.role) score -= 50; // wrong role on the right park = not what we want
+  // Rol-match bonus is sterk wanneer de gebruiker de rol expliciet heeft
+  // gekozen, en zwak wanneer 'ie is afgeleid uit de meest-voorkomende rol
+  // in de vacancies. Daardoor kan een expliciete contract-keuze (stage,
+  // vakantiebaan) bepalen welke foto wint, in plaats van toevallig een
+  // role-matched foto met de verkeerde sfeer.
+  const roleBonus = s.roleInferred ? 15 : 100;
+  const roleMismatch = s.roleInferred ? 10 : 50;
+  if (s.role && p.role && p.role === s.role) score += roleBonus;
+  else if (s.role && p.role && p.role !== s.role) score -= roleMismatch; // wrong role on the right park = not what we want
   if (s.parkId && p.parkId === s.parkId) score += 40;
   else if (s.parkId && p.parkId) score -= 10; // park-specific photo for wrong park: small penalty
-  if (s.contract && p.contract === s.contract) score += 20;
-  else if (s.contract && p.contract && p.contract !== s.contract) score -= 5;
+  if (s.contract && p.contract === s.contract) {
+    score += 20;
+    // Generieke contract-foto's (geen rol-tag) zijn bedoeld om "het
+    // contract zelf" te tonen — een stage-team, een seizoen-snapshot.
+    // Boost wanneer de scope geen expliciete rol heeft, zodat een generieke
+    // stage-foto wint van een rol-matched bijbaan-foto die toch "polished
+    // career" leest.
+    if (!p.role && s.roleInferred) score += 30;
+  }
+  else if (s.contract && p.contract && p.contract !== s.contract) {
+    const scopeJong = isJongRegister(s.contract);
+    const photoJong = isJongRegister(p.contract);
+    if (scopeJong && photoJong) {
+      // Beide in jong/leerling-cluster — beeldmatig dichtbij. Niet
+      // identiek aan match, maar veel beter dan een willekeurig ander
+      // contract.
+      score += 10;
+    } else if (
+      (scopeJong && p.contract === 'vast') ||
+      (s.contract === 'vast' && photoJong)
+    ) {
+      // Vast ↔ jong/leerling = vibe-clash. Carrière-portret bij een
+      // stage-campagne (of omgekeerd: studenten-snapshot bij een vaste
+      // baan) leest visueel als de verkeerde wereld.
+      score -= 25;
+    } else {
+      score -= 5;
+    }
+  }
   if (s.world && p.world === s.world) score += 10;
-  if (s.manager && p.manager) score += 8;
+  // Manager-affiniteit. Bonus alleen wanneer scope.manager === true (een
+  // expliciete manager-selectie). Wanneer dat NIET zo is straffen we
+  // manager-portretten zwaar af: ze lezen meteen als "professional in pak"
+  // en horen niet bij een vakantiebaan, bijbaan, stage, of een brede
+  // EB-default.
+  if (p.manager) {
+    if (s.manager) score += 8;
+    else score -= 30;
+  }
   // Generic photos (role: null, no park) score 0 baseline — used as last resort.
   return score;
 }

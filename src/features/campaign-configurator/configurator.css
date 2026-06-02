@@ -59,6 +59,33 @@ html, body, #root {
   margin-bottom: 6px;
 }
 
+/* Brand-blok in de panel-header: Landal-wordmark bovenaan, daaronder de
+   sub-brand "Campagne configurator" als kleine uppercase eyebrow.
+   Gecentreerd in de header zodat het visueel als één eenheid leest in
+   plaats van twee losse elementen naast elkaar.
+   `color` op het blok dient als currentColor voor de SVG van LandalLogo;
+   de title heeft een eigen kleur en wordt niet beïnvloed. */
+.cc-panel-brand {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--cc-accent);
+  padding: 4px 0 2px;
+}
+
+.cc-panel-brand .cc-panel-title {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cc-fg-muted);
+  text-align: center;
+  line-height: 1;
+}
+
 .cc-panel-actions {
   display: flex;
   gap: 6px;
@@ -118,6 +145,112 @@ html, body, #root {
   text-transform: none;
   font-size: 10px;
   opacity: 0.65;
+}
+
+/* ─── Inklapbare scope-secties ───────────────────────── */
+
+.cc-section--collapsible {
+  margin-bottom: 8px;
+  border: 1px solid var(--cc-border);
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.cc-section--collapsible.is-open {
+  border-color: rgba(0, 151, 162, 0.35);
+  box-shadow: 0 1px 0 rgba(0, 151, 162, 0.05);
+}
+
+.cc-section-toggle {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: none;
+  border: none;
+  font: inherit;
+  text-align: left;
+  color: var(--cc-fg);
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: background-color 140ms ease;
+}
+
+.cc-section-toggle:hover {
+  background: rgba(0, 151, 162, 0.04);
+}
+
+.cc-section-toggle-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--cc-fg);
+}
+
+.cc-section-toggle-summary {
+  font-size: 12px;
+  color: var(--cc-fg-muted);
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cc-section--collapsible.is-open .cc-section-toggle-summary {
+  /* Wanneer open: samenvatting is overbodig (de inhoud is zichtbaar) maar
+     we houden 'm zichtbaar in lichtere kleur voor visuele rust. */
+  opacity: 0.5;
+}
+
+.cc-section-toggle-chev {
+  font-size: 11px;
+  color: var(--cc-fg-muted);
+  transition: transform 200ms ease, color 200ms ease;
+  display: inline-block;
+}
+
+.cc-section--collapsible.is-open .cc-section-toggle-chev {
+  transform: rotate(180deg);
+  color: var(--cc-accent);
+}
+
+.cc-section-body {
+  padding: 4px 14px 14px;
+  animation: cc-section-body-in 220ms ease both;
+}
+
+.cc-section-hint-inline {
+  font-size: 11px;
+  color: var(--cc-fg-muted);
+  margin: 0 0 10px;
+  letter-spacing: 0.02em;
+}
+
+@keyframes cc-section-body-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Media-sectie: zelfde panel-look als de collapsibles, maar altijd open
+   (geen chevron / klap-gedrag). Eerste sectie in het verhaal. */
+.cc-section-media {
+  margin-bottom: 8px;
+  border: 1px solid var(--cc-border);
+  border-radius: 12px;
+  background: #fff;
+  padding: 12px 14px 14px;
+}
+
+.cc-section-media .cc-section-label {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--cc-fg);
 }
 
 /* Trim grid */
@@ -493,6 +626,132 @@ html, body, #root {
   letter-spacing: 0.08em;
   color: rgba(255, 255, 255, 0.45);
 }
+
+/* ─── Narrator (informatiebalk over de hele breedte) ───── */
+/*
+ * Eén informatiebalk bovenaan de stage. Vertelt in één oogopslag wat de
+ * configurator van de instellingen heeft gemaakt: Vibe, Scope (aantallen),
+ * Doelgroep, Layout, Beeldcuratie, en de Headline. Hoog contrast (donker
+ * paneel op de al-donkere stage) zodat 'ie niet wegvalt; world-accentkleur
+ * als top-rand om "deze data komt van het verhaal" te onderstrepen.
+ *
+ * Edge-to-edge: negative-margin breekt 'm uit de cc-stage padding, zodat
+ * de balk visueel een dak op de preview-pane vormt.
+ */
+.cc-narrator {
+  align-self: stretch;
+  width: calc(100% + 64px);
+  margin: -32px -32px 28px;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border-top: 4px solid var(--cc-accent);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.cc-narrator-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  padding: 14px 24px;
+  gap: 0;
+}
+
+.cc-narrator-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 22px;
+  min-width: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cc-narrator-block:first-child {
+  padding-left: 0;
+}
+
+.cc-narrator-block:last-child {
+  border-right: none;
+}
+
+.cc-narrator-block--wide {
+  flex: 1 1 240px;
+  min-width: 220px;
+}
+
+.cc-narrator-block-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+}
+
+.cc-narrator-block-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  line-height: 1.25;
+  /* Lange waarden (bv. beeldcuratie) mogen wrappen. */
+  flex-wrap: wrap;
+}
+
+.cc-narrator-block-value--num {
+  font-variant-numeric: tabular-nums;
+  font-size: 15px;
+}
+
+.cc-narrator-block-value--num b {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.cc-narrator-unit {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  margin-right: 2px;
+}
+
+.cc-narrator-mini-sep {
+  color: rgba(255, 255, 255, 0.2);
+  font-weight: 400;
+  margin: 0 2px;
+}
+
+.cc-narrator-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  transition: background-color 600ms ease;
+  transform: translateY(-1px);
+  flex-shrink: 0;
+}
+
+.cc-narrator-headline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  margin: 0;
+  padding: 18px 24px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+/* Wanneer 'active' wordt — headline eerst, dan de kenmerken-bar. */
+.cc-root.cc-stage-active .cc-narrator-headline { animation: cc-fade-in 360ms  80ms ease both; }
+.cc-root.cc-stage-active .cc-narrator-bar      { animation: cc-fade-in 320ms 260ms ease both; }
 
 .cc-consequence-value {
   font-weight: 500;
@@ -1359,4 +1618,511 @@ html, body, #root {
   font-size: 12px;
   color: var(--cc-fg);
   margin: 0;
+}
+
+/* ─── Preso stages (idle → active) ───────────────────── */
+
+.cc-root.cc-stage-idle .cc-stage {
+  /* Idle: stage-pane heeft alleen een rustige placeholder; geen scroll. */
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Placeholder rechts wanneer er nog geen campagne gestart is. */
+.cc-stage-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+}
+
+.cc-stage-empty-text {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0;
+}
+
+/* Start-blok in het ConfigPanel (idle-fase) — vervangt de scope-secties. */
+.cc-panel-start {
+  padding: 8px 0 4px;
+  animation: cc-fade-in 320ms 80ms ease both;
+}
+
+.cc-panel-start-lead {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--cc-fg-muted);
+  margin: 0 0 18px;
+}
+
+.cc-panel-start-cta {
+  width: 100%;
+  background: var(--cc-accent);
+  color: #fff;
+  border: none;
+  font: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 13px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: background-color 160ms ease, transform 160ms ease;
+  box-shadow: 0 6px 20px rgba(0, 151, 162, 0.25);
+}
+
+.cc-panel-start-cta:hover {
+  background: var(--cc-accent-dark);
+  transform: translateY(-1px);
+}
+
+/* Eerste sectie (Media) krijgt een lichte staggered fade-in zodat het
+   verschijnen na de start-klik bewust voelt. */
+.cc-panel--active .cc-section {
+  animation: cc-fade-in 280ms ease both;
+}
+.cc-panel--active .cc-section:nth-of-type(1) { animation-delay:  20ms; }
+.cc-panel--active .cc-section:nth-of-type(2) { animation-delay: 120ms; }
+.cc-panel--active .cc-section:nth-of-type(3) { animation-delay: 220ms; }
+.cc-panel--active .cc-section:nth-of-type(4) { animation-delay: 320ms; }
+.cc-panel--active .cc-section:nth-of-type(5) { animation-delay: 420ms; }
+
+/* Idle-overlay: fullscreen start-CTA. Visueel rustig zodat het scherm
+   na een uur EVP-praat geen extra ruis toevoegt. */
+.cc-idle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+  animation: cc-idle-in 480ms ease both;
+}
+
+@keyframes cc-idle-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.cc-idle-inner {
+  max-width: 540px;
+  text-align: center;
+  padding: 24px;
+}
+
+.cc-idle-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 16px;
+}
+
+.cc-idle-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+  color: var(--cc-fg-inverse);
+}
+
+.cc-idle-sub {
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 32px;
+}
+
+.cc-idle-cta {
+  background: var(--cc-accent);
+  color: #fff;
+  border: none;
+  font: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+  box-shadow: 0 6px 24px rgba(0, 151, 162, 0.35);
+}
+
+.cc-idle-cta:hover {
+  background: var(--cc-accent-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(0, 151, 162, 0.45);
+}
+
+/* Media-toggle-strook. Twee varianten:
+   - 'stage' (donker): bedoeld in de preview-pane (legacy/back-up). Pill-bar.
+   - 'panel' (licht): in het ConfigPanel als eerste sectie ná de start. */
+.cc-media-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cc-media-bar--stage {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 14px;
+  border-radius: 999px;
+  margin-top: 28px;
+  animation: cc-fade-in 420ms 900ms ease both;
+}
+
+.cc-media-bar--panel {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.cc-media-bar--panel .cc-media-bar-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.cc-media-bar--panel .cc-media-toggle {
+  background: #fff;
+  border-color: var(--cc-border);
+  color: var(--cc-fg);
+  justify-content: flex-start;
+  padding: 9px 10px;
+  border-radius: 10px;
+}
+
+.cc-media-bar--panel .cc-media-toggle:hover {
+  border-color: var(--cc-accent);
+  color: var(--cc-accent);
+}
+
+.cc-media-bar--panel .cc-media-toggle.is-on {
+  background: rgba(0, 151, 162, 0.08);
+  border-color: var(--cc-accent);
+  color: var(--cc-accent);
+}
+
+.cc-media-bar--panel .cc-media-toggle-box {
+  background: var(--cc-border);
+  color: transparent;
+}
+
+.cc-media-bar--panel .cc-media-toggle.is-on .cc-media-toggle-box {
+  background: var(--cc-accent);
+  color: #fff;
+}
+
+.cc-media-bar--panel .cc-media-toggle-hint {
+  color: var(--cc-fg-muted);
+}
+
+.cc-media-bar--panel .cc-media-toggle.is-on .cc-media-toggle-hint {
+  color: var(--cc-accent);
+  opacity: 0.85;
+}
+
+.cc-media-bar-label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.cc-media-bar-items {
+  display: flex;
+  gap: 6px;
+}
+
+.cc-media-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.75);
+  font: inherit;
+  padding: 7px 14px 7px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+
+.cc-media-toggle:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.cc-media-toggle.is-on {
+  background: var(--cc-accent);
+  border-color: var(--cc-accent);
+  color: #fff;
+}
+
+.cc-media-toggle-box {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.cc-media-toggle.is-on .cc-media-toggle-box {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--cc-accent);
+}
+
+.cc-media-toggle-text {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
+}
+
+.cc-media-toggle-label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cc-media-toggle-hint {
+  font-size: 10px;
+  opacity: 0.7;
+  letter-spacing: 0.02em;
+}
+
+/* Bij start bouwt de preview-kant op:
+   - header + consequences faden direct in (context)
+   - stage-frame (mobile-preview) volgt na een korte vertraging
+   - media-bar verschijnt het laatst (heeft z'n eigen 900ms delay)
+   Het ConfigPanel staat al vanaf idle en heeft dus geen entry-animation. */
+.cc-root.cc-stage-active .cc-stage-header,
+.cc-root.cc-stage-active .cc-consequences {
+  animation: cc-fade-in 320ms 60ms ease both;
+}
+
+.cc-root.cc-stage-active .cc-stage-frame {
+  animation: cc-fade-in 420ms 350ms ease both;
+}
+
+@keyframes cc-panel-slide-in {
+  from { transform: translateX(-12px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes cc-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Print preview (A4-poster) ──────────────────────── */
+
+.cc-print-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: cc-fade-in 320ms ease both;
+}
+
+/* "Vel papier" rondom de gedrukte zone — wit met bleed-padding zodat de
+   snijlijnen zichtbaar zitten in de marge. Schaduw zit hier, niet op de
+   .cc-print zelf, zodat het visueel een echt vel papier voorstelt. */
+.cc-print-paper {
+  --crop-len: 14px;
+  --crop-gap: 6px;
+  --crop-color: #1c1f24;
+  position: relative;
+  background: #fff;
+  padding: 32px;
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.4);
+}
+
+.cc-print {
+  /* A4-portrait verhouding (210:297). Vierkante hoeken — drukwerk crop
+     tot rand, geen rounded preview. Geen eigen schaduw — die zit op
+     .cc-print-paper als "vel". */
+  width: 360px;
+  height: calc(360px * 297 / 210);
+  background: var(--cc-fg-inverse);
+  color: var(--cc-fg);
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 24px 20px;
+  overflow: hidden;
+}
+
+/* ─── Snijlijnen (crop marks) ────────────────────────── */
+/* 8 dunne lijntjes net buiten de printrand. Twee per hoek (h + v) met
+   een kleine gap zodat ze de gedrukte zone niet raken. */
+.cc-crop {
+  position: absolute;
+  background: var(--crop-color);
+  pointer-events: none;
+}
+
+.cc-crop--h { width: var(--crop-len); height: 1px; }
+.cc-crop--v { width: 1px; height: var(--crop-len); }
+
+/* Top-left */
+.cc-crop--tl-h { top: 32px; left: calc(32px - var(--crop-gap) - var(--crop-len)); }
+.cc-crop--tl-v { left: 32px; top: calc(32px - var(--crop-gap) - var(--crop-len)); }
+
+/* Top-right */
+.cc-crop--tr-h { top: 32px; right: calc(32px - var(--crop-gap) - var(--crop-len)); }
+.cc-crop--tr-v { right: 32px; top: calc(32px - var(--crop-gap) - var(--crop-len)); }
+
+/* Bottom-left */
+.cc-crop--bl-h { bottom: 32px; left: calc(32px - var(--crop-gap) - var(--crop-len)); }
+.cc-crop--bl-v { left: 32px; bottom: calc(32px - var(--crop-gap) - var(--crop-len)); }
+
+/* Bottom-right */
+.cc-crop--br-h { bottom: 32px; right: calc(32px - var(--crop-gap) - var(--crop-len)); }
+.cc-crop--br-v { right: 32px; bottom: calc(32px - var(--crop-gap) - var(--crop-len)); }
+
+.cc-print-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 14px;
+  /* Color erft via `style={{ color: accent }}` op het element zelf — het
+     LandalLogo gebruikt currentColor, dus die kleurt mee. */
+}
+
+.cc-print-hero {
+  /* Bento blok — vierkante hoeken net als de poster zelf. Iets groter
+     dan voorheen zodat de bento ademruimte heeft. */
+  position: relative;
+  height: 220px;
+  border-radius: 0;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+/* HeroCollage gebruikt absolute positioning binnen z'n container. */
+.cc-print-hero > * {
+  position: absolute;
+  inset: 0;
+}
+
+/* Print-specifieke overrides op de bento:
+   - Vul de container exact (geen vaste height/margin meer)
+   - Rondingen blijven (zachtere look op het witte vel papier)
+   - Object-position favoriseert de bovenkant van de foto zodat hoofden
+     van mensen niet worden afgesneden — Landal-shots zijn vrijwel altijd
+     portretten/groepen waarin de gezichten in het bovenste derde zitten.
+   - Geen tile-schaduw — een witte poster mag rustig zijn
+   - Iets ruimere gap tussen de tiles zodat het als een collage leest */
+.cc-print-hero .cc-hero-collage {
+  height: 100%;
+  margin: 0;
+  gap: 4px;
+}
+
+.cc-print-hero .cc-hero-tile {
+  border-radius: 10px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.cc-print-hero .cc-hero-tile img {
+  object-position: center 20%;
+}
+
+.cc-print-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+  min-height: 0;
+}
+
+.cc-print-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0;
+  font-weight: 700;
+}
+
+.cc-print-subtitle {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--cc-fg);
+  margin: 0;
+  font-weight: 500;
+}
+
+.cc-print-vibe-copy {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--cc-fg-muted);
+  margin: 2px 0 4px;
+}
+
+.cc-print-perks {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cc-print-perks li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  line-height: 1.3;
+  color: var(--cc-fg);
+}
+
+.cc-print-perk-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.cc-print-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.cc-print-cta {
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 8px 16px;
+  /* Vierkant — past bij de poster-stijl. */
+  border-radius: 0;
+}
+
+.cc-print-url {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.cc-print-wrap .cc-disclaimer {
+  margin-top: 4px;
 }

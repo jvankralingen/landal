@@ -3,6 +3,8 @@ import { ConfigPanel } from './components/ConfigPanel';
 import { MobilePreview } from './components/MobilePreview';
 import { AnimatedNumber } from './components/AnimatedNumber';
 import { SocialPack } from './components/SocialPack';
+import { PrintPreview } from './components/PrintPreview';
+import type { MediaKey } from './components/MediaToggleBar';
 import { buildBento } from './lib/buildHeroCollage';
 import { parkGalleryImages, getGalleryImageUrl } from '../../data/parkImageUrls';
 import { parkDatabase } from '../../data/parkData';
@@ -28,15 +30,35 @@ const INITIAL_STATE: CampaignState = {
   contracts: [],
   parks: [],
   worlds: [],
-  doelgroep: 'studenten',
+  doelgroep: 'iedereen',
   energie: 50,
   premium: 50,
   heroOverride: null,
   subOverride: null,
 };
 
+/**
+ * Presentatie-staging. Twee fases:
+ *  - idle   → groot startscherm met één knop. Geen ruis na de EVP-talk.
+ *  - active → ConfigPanel + consequences + previews verschijnen tegelijk.
+ *             Eén instelling raakt meteen alle previews — dat geeft het
+ *             overzicht waarvoor het ConfigPanel direct zichtbaar moet zijn.
+ */
+type PresoStage = 'idle' | 'active';
+
+const INITIAL_MEDIA: Record<MediaKey, boolean> = {
+  mobile: true,
+  social: false,
+  print: false,
+};
+
 export default function ConfiguratorApp() {
   const [state, setState] = useState<CampaignState>(INITIAL_STATE);
+  const [presoStage, setPresoStage] = useState<PresoStage>('idle');
+  const [media, setMedia] = useState<Record<MediaKey, boolean>>(INITIAL_MEDIA);
+  const toggleMedia = useCallback((key: MediaKey) => {
+    setMedia((m) => ({ ...m, [key]: !m[key] }));
+  }, []);
 
   // Derive layout trim from scope priority: park > regio > rol > contract > eb.
   // The most-specific dimension that is non-empty wins. Keeps the bento layout
@@ -339,17 +361,82 @@ export default function ConfiguratorApp() {
 
   const parkPerksLabel = state.parks.length === 1 ? `op Landal ${state.parks[0]}` : null;
 
-  // Beeldkeuze-samenvatting: welke foto's draaien in de bento, groepeerd op label.
+  // Beeldcuratie-samenvatting: wat zit er in de bento, in één leesbare regel.
+  // We groeperen per kind (role / park / vibe) en zetten aantal + onderwerpen
+  // achter elkaar. Bij single-park-trim worden de tile-labels door buildBento
+  // bewust onderdrukt; dan vallen we terug op de gekozen park-naam zodat het
+  // niet leeg of cryptisch wordt.
   const beeldkeuze = useMemo(() => {
-    const counts = new Map<string, number>();
-    for (const t of [bento.primary, bento.secondary, bento.tertiary, bento.accent]) {
-      if (!t.src) continue; // skip placeholder tiles
-      counts.set(t.label, (counts.get(t.label) ?? 0) + 1);
+    const tiles = [bento.primary, bento.secondary, bento.tertiary, bento.accent]
+      .filter((t) => t.src);
+    const roleTiles = tiles.filter((t) => t.kind === 'role');
+    const parkTiles = tiles.filter((t) => t.kind === 'park');
+    const vibeTiles = tiles.filter((t) => t.kind === 'vibe');
+
+    const uniqueLabels = (ts: typeof tiles): string[] => {
+      const seen = new Set<string>();
+      const out: string[] = [];
+      for (const t of ts) {
+        const label = t.label?.trim();
+        if (!label) continue;
+        if (seen.has(label)) continue;
+        seen.add(label);
+        out.push(label);
+      }
+      return out;
+    };
+
+    const summarize = (
+      n: number,
+      noun: { singular: string; plural: string },
+      labels: string[],
+      fallback?: string
+    ): string => {
+      const head = `${n} ${n === 1 ? noun.singular : noun.plural}`;
+      if (labels.length > 0) {
+        const list =
+          labels.length <= 3
+            ? labels.join(', ')
+            : `${labels.slice(0, 2).join(', ')} +${labels.length - 2}`;
+        return `${head} (${list})`;
+      }
+      if (fallback) return `${head} van ${fallback}`;
+      return head;
+    };
+
+    const parts: string[] = [];
+    if (roleTiles.length > 0) {
+      parts.push(
+        summarize(
+          roleTiles.length,
+          { singular: 'rol-foto', plural: 'rol-foto’s' },
+          uniqueLabels(roleTiles)
+        )
+      );
     }
-    return [...counts.entries()]
-      .map(([label, n]) => (n > 1 ? `${n}× ${label}` : label))
-      .join(' · ');
-  }, [bento]);
+    if (parkTiles.length > 0) {
+      const parkLabels = uniqueLabels(parkTiles);
+      // Single-park: labels onderdrukt in de bento → pak de naam uit state.
+      const singleParkFallback =
+        parkLabels.length === 0 && state.parks.length === 1
+          ? state.parks[0]
+          : undefined;
+      parts.push(
+        summarize(
+          parkTiles.length,
+          { singular: 'park-shot', plural: 'park-shots' },
+          parkLabels,
+          singleParkFallback
+        )
+      );
+    }
+    if (vibeTiles.length > 0 && parts.length === 0) {
+      // Vibe-tiles tellen alleen als er niets anders is — anders zijn ze
+      // visuele filler en hoeven ze niet in de tekst.
+      parts.push(`${vibeTiles.length} vibe-shot${vibeTiles.length === 1 ? '' : 's'}`);
+    }
+    return parts.join(' + ');
+  }, [bento, state.parks]);
 
   const pickPark = (parkName: string) => {
     setState((s) =>
@@ -357,8 +444,16 @@ export default function ConfiguratorApp() {
     );
   };
 
+  // Stage-gating. ConfigPanel staat altijd links — die geeft het overzicht
+  // van wat je kunt instellen. In 'idle' is rechts alleen het start-overlay
+  // zichtbaar; bij 'active' bouwt de preview-kant op (mobile-preview eerst,
+  // dan media-toggles, optioneel social/print).
+  const isActive = presoStage === 'active';
+  const showConsequences = isActive;
+  const showPreviews = isActive;
+
   return (
-    <div className="cc-root">
+    <div className={`cc-root cc-stage-${presoStage}`}>
       <ConfigPanel
         state={state}
         setState={setState}
@@ -368,88 +463,138 @@ export default function ConfiguratorApp() {
           refreshTexts();
           void refreshImages();
         }}
+        presoStage={presoStage}
+        onStartCampaign={() => setPresoStage('active')}
+        media={media}
+        onMediaToggle={toggleMedia}
       />
       <main className="cc-stage" data-world={worldId}>
-        <header className="cc-stage-header">
-          <p className="cc-eyebrow">Live preview</p>
-          <div className="cc-world-badge">
-            <span className="cc-world-dot" style={{ background: world.palette.accent }} />
-            <span className="cc-world-name">Vibe · {world.label}</span>
-            <span className="cc-world-tag">{world.tagline}</span>
+        {presoStage === 'idle' && (
+          <div className="cc-stage-empty" aria-hidden="true">
+            <p className="cc-stage-empty-text">
+              Start een campagne om de preview te zien.
+            </p>
           </div>
-          <p className="cc-stage-meta"><AnimatedNumber value={filtered.length} /> {plural.vacature(filtered.length)} in scope</p>
-        </header>
+        )}
 
-        <div className="cc-consequences">
-          <div className="cc-consequence">
-            <span className="cc-consequence-label">Headline</span>
-            <span className="cc-consequence-value">"{headline}"</span>
-          </div>
-          <div className="cc-consequence">
-            <span className="cc-consequence-label">Layout</span>
-            <span className="cc-consequence-value">{TRIM_LABELS[effectiveTrim]}</span>
-          </div>
-          <div className="cc-consequence">
-            <span className="cc-consequence-label">Doelgroep (afgeleid)</span>
-            <span className="cc-consequence-value">{DOELGROEP_LABELS[doelgroep]}</span>
-          </div>
-          <div className="cc-consequence">
-            <span className="cc-consequence-label">Vibe</span>
-            <span className="cc-consequence-value">{world.label} · {world.tagline}</span>
-          </div>
-          {beeldkeuze && (
-            <div className="cc-consequence">
-              <span className="cc-consequence-label">Beeldkeuze</span>
-              <span className="cc-consequence-value">{beeldkeuze}</span>
+        {showConsequences && (
+          <section
+            className="cc-narrator"
+            style={{ borderTopColor: world.palette.accent }}
+            aria-label="Informatie achter de campagne"
+          >
+            <p
+              className="cc-narrator-headline"
+              style={{ color: world.palette.accent }}
+            >
+              {headline}
+            </p>
+
+            <div className="cc-narrator-bar">
+              <div className="cc-narrator-block">
+                <span className="cc-narrator-block-label">Vibe</span>
+                <span className="cc-narrator-block-value">
+                  <span
+                    className="cc-narrator-dot"
+                    style={{ background: world.palette.accent }}
+                    aria-hidden="true"
+                  />
+                  {world.label}
+                </span>
+              </div>
+
+              <div className="cc-narrator-block">
+                <span className="cc-narrator-block-label">Scope</span>
+                <span className="cc-narrator-block-value cc-narrator-block-value--num">
+                  <b><AnimatedNumber value={filtered.length} /></b>
+                  <span className="cc-narrator-unit">{plural.vacature(filtered.length)}</span>
+                  <span className="cc-narrator-mini-sep">·</span>
+                  <b><AnimatedNumber value={uniqueParks(filtered).length} /></b>
+                  <span className="cc-narrator-unit">{plural.park(uniqueParks(filtered).length)}</span>
+                  <span className="cc-narrator-mini-sep">·</span>
+                  <b><AnimatedNumber value={uniqueRegions(filtered).length} /></b>
+                  <span className="cc-narrator-unit">{plural.regio(uniqueRegions(filtered).length)}</span>
+                </span>
+              </div>
+
+              <div className="cc-narrator-block">
+                <span className="cc-narrator-block-label">Doelgroep</span>
+                <span className="cc-narrator-block-value">{DOELGROEP_LABELS[doelgroep]}</span>
+              </div>
+
+              <div className="cc-narrator-block">
+                <span className="cc-narrator-block-label">Layout</span>
+                <span className="cc-narrator-block-value">{TRIM_LABELS[effectiveTrim]}</span>
+              </div>
+
+              {beeldkeuze && (
+                <div className="cc-narrator-block cc-narrator-block--wide">
+                  <span className="cc-narrator-block-label">Beeldcuratie</span>
+                  <span className="cc-narrator-block-value">{beeldkeuze}</span>
+                </div>
+              )}
             </div>
-          )}
-          <div className="cc-consequence">
-            <span className="cc-consequence-label">Scope</span>
-            <span className="cc-consequence-value">
-              <AnimatedNumber value={filtered.length} /> {plural.vacature(filtered.length)} · <AnimatedNumber value={uniqueParks(filtered).length} /> {plural.park(uniqueParks(filtered).length)} · <AnimatedNumber value={uniqueRegions(filtered).length} /> {plural.regio(uniqueRegions(filtered).length)}
-            </span>
-          </div>
-        </div>
-        <div className="cc-stage-frame">
-          <div className="cc-mobile-wrap">
-            <p className="cc-socials-label">Landingspagina</p>
-            <MobilePreview
-              headline={headline}
-              subtitle={subtitle}
-              vibeCopy={vibeCopy}
-              vacancies={filtered}
-              toneLabel={tone}
-              worldId={worldId}
-              bento={bento}
-              parksInScope={parksInScope}
-              regionLabel={regionLabel}
-              onPickPark={pickPark}
-              perks={perks}
-              parkPerksLabel={parkPerksLabel}
-              showVacancyList={effectiveTrim !== 'eb'}
-              uploadEnabled={overridesAvailable}
-              uploadSubjectAvailable
-              // ↑ true → alle 4 tiles uploadable, ook bij geen selectie
-              slotHasOverride={slotHasOverride}
-              onSlotUpload={handleSlotUpload}
-              onSlotReset={handleSlotReset}
-              textHasOverride={textHasOverride}
-              onTextSave={handleTextSave}
-              onTextReset={handleTextReset}
-              perksHasOverride={perksOverride !== null}
-              onPerksChange={handlePerksChange}
-              onPerksReset={handlePerksReset}
-            />
-            <p className="cc-disclaimer">Conceptweergave · niet voor publicatie</p>
-          </div>
-          <SocialPack
-            headline={headline}
-            cta={`${filtered.length} ${plural.vacature(filtered.length)} →`}
-            worldId={worldId}
-            bento={bento}
-            doelgroep={doelgroep}
-          />
-        </div>
+          </section>
+        )}
+
+        {showPreviews && (
+          <>
+            <div className="cc-stage-frame">
+              {media.mobile && (
+                <div className="cc-mobile-wrap">
+                  <p className="cc-socials-label">Landingspagina</p>
+                  <MobilePreview
+                    headline={headline}
+                    subtitle={subtitle}
+                    vibeCopy={vibeCopy}
+                    vacancies={filtered}
+                    toneLabel={tone}
+                    worldId={worldId}
+                    bento={bento}
+                    parksInScope={parksInScope}
+                    regionLabel={regionLabel}
+                    onPickPark={pickPark}
+                    perks={perks}
+                    parkPerksLabel={parkPerksLabel}
+                    showVacancyList={effectiveTrim !== 'eb'}
+                    uploadEnabled={overridesAvailable}
+                    uploadSubjectAvailable
+                    // ↑ true → alle 4 tiles uploadable, ook bij geen selectie
+                    slotHasOverride={slotHasOverride}
+                    onSlotUpload={handleSlotUpload}
+                    onSlotReset={handleSlotReset}
+                    textHasOverride={textHasOverride}
+                    onTextSave={handleTextSave}
+                    onTextReset={handleTextReset}
+                    perksHasOverride={perksOverride !== null}
+                    onPerksChange={handlePerksChange}
+                    onPerksReset={handlePerksReset}
+                  />
+                  <p className="cc-disclaimer">Conceptweergave · niet voor publicatie</p>
+                </div>
+              )}
+              {media.social && (
+                <SocialPack
+                  headline={headline}
+                  cta={`${filtered.length} ${plural.vacature(filtered.length)} →`}
+                  worldId={worldId}
+                  bento={bento}
+                  doelgroep={doelgroep}
+                />
+              )}
+              {media.print && (
+                <PrintPreview
+                  headline={headline}
+                  subtitle={subtitle}
+                  vibeCopy={vibeCopy}
+                  perks={perks}
+                  worldId={worldId}
+                  bento={bento}
+                />
+              )}
+            </div>
+          </>
+        )}
       </main>
     </div>
   );
