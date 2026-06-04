@@ -378,10 +378,33 @@ export function ConfigPanel({
 
       {!isActive && (
         <div className="cc-panel-start">
-          <p className="cc-panel-start-lead">
-            Bouw een campagne op die zich aanpast aan park, regio, rol en
-            contracttype. Eén control, alle media tegelijk.
-          </p>
+          <div className="cc-panel-disclaimer" role="note">
+            <p className="cc-panel-disclaimer-badge">Prototype</p>
+            <p className="cc-panel-disclaimer-lead">
+              Dit is een conceptuele demonstratie van park-personalisatie
+              voor Landal-werkenbij-campagnes. Bedoeld om de potentie van
+              één-instelling-meerdere-uitingen te tonen, niet om in
+              productie te draaien.
+            </p>
+            <dl className="cc-panel-disclaimer-list">
+              <div>
+                <dt>Wat het wél is</dt>
+                <dd>
+                  Een visuele schets waarin één set instellingen (rol,
+                  contract, park, regio) tegelijk een landingspagina,
+                  social-pack en print-uiting aanstuurt.
+                </dd>
+              </div>
+              <div>
+                <dt>Wat het níet is</dt>
+                <dd>
+                  Een productie-tool, een live campagne-builder, of een
+                  gepubliceerde uiting. Teksten en beelden zijn placeholder
+                  of indicatief.
+                </dd>
+              </div>
+            </dl>
+          </div>
           <button
             type="button"
             className="cc-panel-start-cta"

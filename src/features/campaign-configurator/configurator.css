@@ -1658,6 +1658,72 @@ html, body, #root {
   margin: 0 0 18px;
 }
 
+/* Disclaimer-blok dat de oude intro vervangt. Doel: derden die de URL
+   doorkrijgen begrijpen direct dat dit een concept-demo is, niet een
+   productie-tool. Neutrale info-note (grijs vlak + accent-badge), geen
+   alarmerende waarschuwingsstijl — past bij de presentatie-toon. */
+.cc-panel-disclaimer {
+  margin: 0 0 18px;
+  padding: 16px 16px 14px;
+  background: color-mix(in srgb, var(--cc-accent) 5%, #fff);
+  border: 1px solid color-mix(in srgb, var(--cc-accent) 20%, var(--cc-border));
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cc-panel-disclaimer-badge {
+  align-self: flex-start;
+  margin: 0;
+  padding: 3px 9px;
+  background: var(--cc-accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+
+.cc-panel-disclaimer-lead {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--cc-fg);
+  margin: 0;
+}
+
+.cc-panel-disclaimer-list {
+  margin: 4px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid color-mix(in srgb, var(--cc-accent) 15%, var(--cc-border));
+  padding-top: 10px;
+}
+
+.cc-panel-disclaimer-list > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cc-panel-disclaimer-list dt {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cc-accent);
+}
+
+.cc-panel-disclaimer-list dd {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--cc-fg-muted);
+  margin: 0;
+}
+
 .cc-panel-start-cta {
   width: 100%;
   background: var(--cc-accent);
