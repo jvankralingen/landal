@@ -382,7 +382,7 @@ export function ConfigPanel({
             <p className="cc-panel-disclaimer-badge">Prototype</p>
             <p className="cc-panel-disclaimer-lead">
               Dit is een conceptuele demonstratie van park-personalisatie
-              voor Landal-werkenbij-campagnes. Bedoeld om de potentie van
+              voor Landal recruitment. Bedoeld om de potentie van
               één-instelling-meerdere-uitingen te tonen, niet om in
               productie te draaien.
             </p>
